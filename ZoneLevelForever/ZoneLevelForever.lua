@@ -3,60 +3,67 @@
 
 local mapTable = {
     -- Eastern Kingdoms
-    --[[Alterac Mountains]]		[1416] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",},
-    --[[Arathi Highlands]]		[1417] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",},
-    --[[Badlands]]				[1418] = {minLevel = 35, 	maxLevel = 45,},
-    --[[Blasted Lands]]			[1419] = {minLevel = 45, 	maxLevel = 55},
-    --[[Burning Steppes]]		[1428] = {minLevel = 50, 	maxLevel = 58,		minFish = "330",},
-    --[[Deadwind Pass]]			[1430] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",},
-    --[[Dun Morogh]]			[1426] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",},
-    --[[Duskwood]]				[1431] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",},
-    --[[Eastern Plaguelands]]	[1423] = {minLevel = 53, 	maxLevel = 60,		minFish = "330",},
-    --[[Elwynn Forest]]			[1429] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",},
-    --[[Hillsbrad Foothills]]	[1424] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",},
-    --[[Ironforge]]				[1455] = {minFish = 1,},
-    --[[Loch Modan]]			[1432] = {minLevel = 10,	maxLevel = 20,		minFish = "1",},
-    --[[Redridge Mountains]]	[1433] = {minLevel = 15, 	maxLevel = 25,		minFish = "55",},
-    --[[Searing Gorge]]			[1427] = {minLevel = 43, 	maxLevel = 50},
-    --[[Silverpine Forest]]		[1421] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",},
-    --[[Stormwind City]]		[1453] = {minFish = 1,},
-    --[[Stranglethorn Vale]]	[1434] = {minLevel = 30, 	maxLevel = 45,		minFish = "130 (205)",},
-    --[[Swamp of Sorrows]]		[1435] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",},
-    --[[The Hinterlands]]		[1425] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",},
-    --[[Tirisfal Glades]]		[1420] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",},
-    --[[Undercity]]				[1458] = {minFish = 1,},
-    --[[Westfall]]				[1436] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",},
-    --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		minFish = "205",},
-    --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",},
+    --[[Alterac Mountains]]		[1416] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       faction = "Contested"},
+    --[[Arathi Highlands]]		[1417] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       faction = "Contested"},
+    --[[Badlands]]				[1418] = {minLevel = 35, 	maxLevel = 45,                             faction = "Contested"},
+    --[[Blasted Lands]]			[1419] = {minLevel = 45, 	maxLevel = 55,                             faction = "Contested"},
+    --[[Burning Steppes]]		[1428] = {minLevel = 50, 	maxLevel = 58,		minFish = "330",       faction = "Contested"},
+    --[[Deadwind Pass]]			[1430] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested"},
+    --[[Dun Morogh]]			[1426] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Alliance"},
+    --[[Duskwood]]				[1431] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        faction = "Contested"},
+    --[[Eastern Plaguelands]]	[1423] = {minLevel = 53, 	maxLevel = 60,		minFish = "330",       faction = "Contested"},
+    --[[Elwynn Forest]]			[1429] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Alliance"},
+    --[[Hillsbrad Foothills]]	[1424] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        faction = "Contested"},
+    --[[Ironforge]]				[1455] = {minFish = 1,                                                 faction = "Alliance"},
+    --[[Loch Modan]]			[1432] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         faction = "Alliance"},
+    --[[Redridge Mountains]]	[1433] = {minLevel = 15, 	maxLevel = 25,		minFish = "55",        faction = "Contested"},
+    --[[Searing Gorge]]			[1427] = {minLevel = 43, 	maxLevel = 50,                             faction = "Contested"},
+    --[[Silverpine Forest]]		[1421] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         faction = "Horde"},
+    --[[Stormwind City]]		[1453] = {minFish = 1,                                                 faction = "Alliance"},
+    --[[Stranglethorn Vale]]	[1434] = {minLevel = 30, 	maxLevel = 45,		minFish = "130 (205)", faction = "Contested"},
+    --[[Swamp of Sorrows]]		[1435] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       faction = "Contested"},
+    --[[The Hinterlands]]		[1425] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       faction = "Contested"},
+    --[[Tirisfal Glades]]		[1420] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Horde"},
+    --[[Undercity]]				[1458] = {minFish = 1,                                                 faction = "Horde"},
+    --[[Westfall]]				[1436] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         faction = "Alliance"},
+    --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		minFish = "205",       faction = "Contested"},
+    --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        faction = "Contested"},
 
     -- Kalimdor
-    --[[Ashenvale]]				[1440] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",},
-    --[[Azshara]]				[1447] = {minLevel = 45, 	maxLevel = 55,		minFish = "205 (330)",},
-    --[[Darkshore]]				[1439] = {minLevel = 10,	maxLevel = 20,		minFish = "1",},
-    --[[Darnassus]]				[1457] = {minFish = 1,},
-    --[[Desolace]]				[1443] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",},
-    --[[Durotar]]				[1411] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",},
-    --[[Dustwallow Marsh]]		[1445] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",},
-    --[[Felwood]]				[1448] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",},
-    --[[Feralas]]				[1444] = {minLevel = 40, 	maxLevel = 50,		minFish = "205 (330)",},
-    --[[Moonglade]]				[1450] = {minFish = 205,},
-    --[[Mulgore]]				[1412] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",},
-    --[[Orgrimmar]]				[1454] = {minFish = 1,},
-    --[[Silithus]]				[1451] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",},
-    --[[Stonetalon Mountains]]	[1442] = {minLevel = 15, 	maxLevel = 27,		minFish = "55",},
-    --[[Tanaris]]				[1446] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",},
-    --[[Teldrassil]]			[1438] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",},
-    --[[The Barrens]]			[1413] = {minLevel = 10, 	maxLevel = 25,		minFish = "1",},
-    --[[Thousand Needles]]		[1441] = {minLevel = 25, 	maxLevel = 35,		minFish = "130",},
-    --[[Thunder Bluff]]			[1456] = {minFish = 1,},
-    --[[Un'Goro Crater]]		[1449] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",},
-    --[[Winterspring]]			[1452] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",},
+    --[[Ashenvale]]				[1440] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        faction = "Contested"},
+    --[[Azshara]]				[1447] = {minLevel = 45, 	maxLevel = 55,		minFish = "205 (330)", faction = "Contested"},
+    --[[Darkshore]]				[1439] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         faction = "Alliance"},
+    --[[Darnassus]]				[1457] = {minFish = 1,                                                 faction = "Alliance"},
+    --[[Desolace]]				[1443] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       faction = "Contested"},
+    --[[Durotar]]				[1411] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Horde"},
+    --[[Dustwallow Marsh]]		[1445] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       faction = "Contested"},
+    --[[Felwood]]				[1448] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       faction = "Contested"},
+    --[[Feralas]]				[1444] = {minLevel = 40, 	maxLevel = 50,		minFish = "205 (330)", faction = "Contested"},
+    --[[Moonglade]]				[1450] = {minFish = 205,                                               faction = "Sanctuary"},
+    --[[Mulgore]]				[1412] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Horde"},
+    --[[Orgrimmar]]				[1454] = {minFish = 1,                                                 faction = "Horde"},
+    --[[Silithus]]				[1451] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested"},
+    --[[Stonetalon Mountains]]	[1442] = {minLevel = 15, 	maxLevel = 27,		minFish = "55",        faction = "Contested"},
+    --[[Tanaris]]				[1446] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       faction = "Contested"},
+    --[[Teldrassil]]			[1438] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Alliance"},
+    --[[The Barrens]]			[1413] = {minLevel = 10, 	maxLevel = 25,		minFish = "1",         faction = "Horde"},
+    --[[Thousand Needles]]		[1441] = {minLevel = 25, 	maxLevel = 35,		minFish = "130",       faction = "Contested"},
+    --[[Thunder Bluff]]			[1456] = {minFish = 1,                                                 faction = "Horde"},
+    --[[Un'Goro Crater]]		[1449] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       faction = "Contested"},
+    --[[Winterspring]]			[1452] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested"},
 
     -- Forever
-    --[[Hyjal]]					[2482] = {minLevel = 60, 	maxLevel = 60,},
-    --[[Zephras Isle]]			[2521] = {minLevel = 1, 	maxLevel = 12,},
-    --[[Riverglades]]			[2548] = {minLevel = 35, 	maxLevel = 45,},
-    --[[Shen'dralas]]			[2652] = {minLevel = 35, 	maxLevel = 45,},
+    --[[Hyjal]]					[2482] = {minLevel = 60, 	maxLevel = 60,                             faction = "Contested"},
+    --[[Zephras Isle]]			[2521] = {minLevel = 1, 	maxLevel = 12,                             faction = "Contested"},
+    --[[Riverglades]]			[2548] = {minLevel = 35, 	maxLevel = 45,                             faction = "Contested"},
+    --[[Shen'dralas]]			[2652] = {minLevel = 35, 	maxLevel = 45,                             faction = "Contested"},
+}
+
+local factionColors = {
+    ["Alliance"]  = "|cff0070dd", -- Blue
+    ["Horde"]     = "|cffff0000", -- Red
+    ["Contested"] = "|cffffff00", -- Yellow
+    ["Sanctuary"] = "|cff00ffff", -- Cyan
 }
 
 -- Caches the player's level to avoid recalculating colors every frame
@@ -77,47 +84,66 @@ local function AreaLabelOnUpdate(self)
             
             -- Get level range from table
             local zoneData = mapTable[positionMapInfo.mapID]
-            if zoneData and zoneData.minLevel and zoneData.maxLevel and zoneData.minLevel > 0 and zoneData.maxLevel > 0 then
-                local currentLevel = UnitLevel("player")
-                
-                -- Update cached strings only if player level changes
-                if currentLevel ~= cachedPlayerLevel then
-                    cachedPlayerLevel = currentLevel
-                    for k, v in pairs(mapTable) do
-                        if v.minLevel and v.maxLevel and v.minLevel > 0 and v.maxLevel > 0 then
-                            local color
-                            if currentLevel < v.minLevel then
-                                color = GetQuestDifficultyColor(v.minLevel)
-                            elseif currentLevel > v.maxLevel then
-                                color = GetQuestDifficultyColor(v.maxLevel - 2)
-                            else
-                                color = QuestDifficultyColors["difficult"]
-                            end
-                            
-                            -- Convert RGB table to Hex string safely
-                            if type(color) == "table" then
-                                local r = math.floor((color.r or 1) * 255 + 0.5)
-                                local g = math.floor((color.g or 1) * 255 + 0.5)
-                                local b = math.floor((color.b or 1) * 255 + 0.5)
-                                color = string.format("|cff%02x%02x%02x", r, g, b)
-                            else
-                                color = "|cffffffff"
-                            end
+            if zoneData then
+                if zoneData.minLevel and zoneData.maxLevel and zoneData.minLevel > 0 and zoneData.maxLevel > 0 then
+                    local currentLevel = UnitLevel("player")
+                    
+                    -- Update cached strings only if player level changes
+                    if currentLevel ~= cachedPlayerLevel then
+                        cachedPlayerLevel = currentLevel
+                        for k, v in pairs(mapTable) do
+                            if v.minLevel and v.maxLevel and v.minLevel > 0 and v.maxLevel > 0 then
+                                local color
+                                if currentLevel < v.minLevel then
+                                    color = GetQuestDifficultyColor(v.minLevel)
+                                elseif currentLevel > v.maxLevel then
+                                    color = GetQuestDifficultyColor(v.maxLevel - 2)
+                                else
+                                    color = QuestDifficultyColors["difficult"]
+                                end
+                                
+                                -- Convert RGB table to Hex string safely
+                                if type(color) == "table" then
+                                    local r = math.floor((color.r or 1) * 255 + 0.5)
+                                    local g = math.floor((color.g or 1) * 255 + 0.5)
+                                    local b = math.floor((color.b or 1) * 255 + 0.5)
+                                    color = string.format("|cff%02x%02x%02x", r, g, b)
+                                else
+                                    color = "|cffffffff"
+                                end
 
-                            if v.minLevel ~= v.maxLevel then
-                                v.levelString = color .. " (" .. v.minLevel .. "-" .. v.maxLevel .. ")" .. (FONT_COLOR_CODE_CLOSE or "|r")
-                            else
-                                v.levelString = color .. " (" .. v.maxLevel .. ")" .. (FONT_COLOR_CODE_CLOSE or "|r")
+                                if v.minLevel ~= v.maxLevel then
+                                    v.levelString = color .. " (" .. v.minLevel .. "-" .. v.maxLevel .. ")" .. (FONT_COLOR_CODE_CLOSE or "|r")
+                                else
+                                    v.levelString = color .. " (" .. v.maxLevel .. ")" .. (FONT_COLOR_CODE_CLOSE or "|r")
+                                end
                             end
                         end
                     end
+
+                    name = name .. (zoneData.levelString or "")
                 end
 
-                name = name .. (zoneData.levelString or "")
+                -- Build description text
+                description = ""
+                
+                -- Add faction territory status
+                if zoneData.faction then
+                    local colorCode = factionColors[zoneData.faction] or "|cffffffff"
+                    description = colorCode .. zoneData.faction .. " Territory|r"
+                end
 
-                -- Always show fishing level if available
+                -- Add fishing level if available
                 if zoneData.minFish then
-                    description = "Fishing: " .. zoneData.minFish
+                    if description ~= "" then
+                        description = description .. "\n"
+                    end
+                    description = description .. "Fishing: " .. zoneData.minFish
+                end
+                
+                -- If description is empty, set to nil so it doesn't render an empty line
+                if description == "" then
+                    description = nil
                 end
             end
         else
