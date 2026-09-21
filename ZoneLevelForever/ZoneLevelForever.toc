@@ -1,7 +1,7 @@
 ## Interface: 16001
 ## Title: Zone Level: Forever
 ## Notes: Displays zone and fishing levels on the world map.
-## Version: 1.2
+## Version: 1.2.1
 ## IconTexture: Interface\AddOns\ZoneLevelForever\icon.jpg
 
 ZoneLevelForever.lua

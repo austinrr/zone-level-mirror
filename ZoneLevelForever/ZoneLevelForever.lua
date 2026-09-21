@@ -66,8 +66,53 @@ local factionIcons = {
     ["Sanctuary"] = "",
 }
 
--- Caches the player's level to avoid recalculating colors every frame
-local cachedPlayerLevel = -1
+-- Pre-calculate static strings for performance
+for k, v in pairs(mapTable) do
+    if v.faction and factionIcons[v.faction] then
+        v.iconString = factionIcons[v.faction]
+    else
+        v.iconString = ""
+    end
+
+    if v.minFish then
+        v.fishString = "Fishing: " .. v.minFish
+    end
+end
+
+-- Update zone level colors based on current player level
+local function UpdateZoneLevelColors()
+    local currentLevel = UnitLevel("player")
+    for k, v in pairs(mapTable) do
+        if v.minLevel and v.maxLevel then
+            local color
+            if currentLevel < v.minLevel then
+                color = GetQuestDifficultyColor(v.minLevel)
+            elseif currentLevel > v.maxLevel then
+                color = GetQuestDifficultyColor(v.maxLevel - 2)
+            else
+                color = QuestDifficultyColors["difficult"]
+            end
+            
+            -- Convert RGB table to Hex string safely
+            if type(color) == "table" then
+                local r = math.floor((color.r or 1) * 255 + 0.5)
+                local g = math.floor((color.g or 1) * 255 + 0.5)
+                local b = math.floor((color.b or 1) * 255 + 0.5)
+                color = string.format("|cff%02x%02x%02x", r, g, b)
+            else
+                color = "|cffffffff"
+            end
+
+            if v.minLevel ~= v.maxLevel then
+                v.levelString = " " .. color .. "(" .. v.minLevel .. "-" .. v.maxLevel .. ")" .. (FONT_COLOR_CODE_CLOSE or "|r")
+            else
+                v.levelString = " " .. color .. "(" .. v.maxLevel .. ")" .. (FONT_COLOR_CODE_CLOSE or "|r")
+            end
+        else
+            v.levelString = ""
+        end
+    end
+end
 
 -- Replace AreaLabelFrameMixin.OnUpdate
 local function AreaLabelOnUpdate(self)
@@ -82,64 +127,11 @@ local function AreaLabelOnUpdate(self)
         if positionMapInfo and positionMapInfo.mapID ~= mapID then
             name = positionMapInfo.name
             
-            -- Get level range from table
+            -- Get pre-calculated level range and icon from table
             local zoneData = mapTable[positionMapInfo.mapID]
             if zoneData then
-                if zoneData.minLevel and zoneData.maxLevel and zoneData.minLevel > 0 and zoneData.maxLevel > 0 then
-                    local currentLevel = UnitLevel("player")
-                    
-                    -- Update cached strings only if player level changes
-                    if currentLevel ~= cachedPlayerLevel then
-                        cachedPlayerLevel = currentLevel
-                        for k, v in pairs(mapTable) do
-                            if v.minLevel and v.maxLevel and v.minLevel > 0 and v.maxLevel > 0 then
-                                local color
-                                if currentLevel < v.minLevel then
-                                    color = GetQuestDifficultyColor(v.minLevel)
-                                elseif currentLevel > v.maxLevel then
-                                    color = GetQuestDifficultyColor(v.maxLevel - 2)
-                                else
-                                    color = QuestDifficultyColors["difficult"]
-                                end
-                                
-                                -- Convert RGB table to Hex string safely
-                                if type(color) == "table" then
-                                    local r = math.floor((color.r or 1) * 255 + 0.5)
-                                    local g = math.floor((color.g or 1) * 255 + 0.5)
-                                    local b = math.floor((color.b or 1) * 255 + 0.5)
-                                    color = string.format("|cff%02x%02x%02x", r, g, b)
-                                else
-                                    color = "|cffffffff"
-                                end
-
-                                if v.minLevel ~= v.maxLevel then
-                                    v.levelString = color .. " (" .. v.minLevel .. "-" .. v.maxLevel .. ")" .. (FONT_COLOR_CODE_CLOSE or "|r")
-                                else
-                                    v.levelString = color .. " (" .. v.maxLevel .. ")" .. (FONT_COLOR_CODE_CLOSE or "|r")
-                                end
-                            end
-                        end
-                    end
-
-                    local factionIcon = ""
-                    if zoneData.faction and factionIcons[zoneData.faction] then
-                        factionIcon = factionIcons[zoneData.faction]
-                    end
-                    name = factionIcon .. name .. " " .. (zoneData.levelString or "")
-                end
-
-                -- Build description text
-                description = ""
-
-                -- Add fishing level if available
-                if zoneData.minFish then
-                    description = "Fishing: " .. zoneData.minFish
-                end
-                
-                -- If description is empty, set to nil so it doesn't render an empty line
-                if description == "" then
-                    description = nil
-                end
+                name = zoneData.iconString .. name .. zoneData.levelString
+                description = zoneData.fishString
             end
         else
             name = MapUtil.FindBestAreaNameAtMouse(mapID, normalizedCursorX, normalizedCursorY)
@@ -152,6 +144,8 @@ local function AreaLabelOnUpdate(self)
 end
 
 local function InitializeZoneLevelForever()
+    UpdateZoneLevelColors()
+
     -- Get target provider
     local targetProvider
     if WorldMapFrame and WorldMapFrame.dataProviders then
@@ -168,12 +162,16 @@ local function InitializeZoneLevelForever()
     end
 end
 
--- Hook into player login or just execute if WorldMapFrame is already loaded
+-- Event handling
 local frame = CreateFrame("Frame")
 frame:RegisterEvent("PLAYER_LOGIN")
+frame:RegisterEvent("PLAYER_LEVEL_UP")
 frame:SetScript("OnEvent", function(self, event)
-    InitializeZoneLevelForever()
-    self:UnregisterEvent("PLAYER_LOGIN")
+    if event == "PLAYER_LOGIN" then
+        InitializeZoneLevelForever()
+    elseif event == "PLAYER_LEVEL_UP" then
+        UpdateZoneLevelColors()
+    end
 end)
 
 -- Just in case it's loaded after PLAYER_LOGIN
