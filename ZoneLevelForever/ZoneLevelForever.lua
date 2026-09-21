@@ -59,11 +59,11 @@ local mapTable = {
     --[[Shen'dralas]]			[2652] = {minLevel = 35, 	maxLevel = 45,                             faction = "Contested"},
 }
 
-local factionColors = {
-    ["Alliance"]  = "|cff0070dd", -- Blue
-    ["Horde"]     = "|cffff0000", -- Red
-    ["Contested"] = "|cffffff00", -- Yellow
-    ["Sanctuary"] = "|cff00ffff", -- Cyan
+local factionIcons = {
+    ["Alliance"]  = "|TInterface\\TargetingFrame\\UI-PVP-Alliance:24:24:6:-5|t",
+    ["Horde"]     = "|TInterface\\TargetingFrame\\UI-PVP-Horde:24:24:6:-5|t",
+    ["Contested"] = "|TInterface\\TargetingFrame\\UI-PVP-FFA:24:24:6:-5|t",
+    ["Sanctuary"] = "",
 }
 
 -- Caches the player's level to avoid recalculating colors every frame
@@ -121,24 +121,19 @@ local function AreaLabelOnUpdate(self)
                         end
                     end
 
-                    name = name .. (zoneData.levelString or "")
+                    local factionIcon = ""
+                    if zoneData.faction and factionIcons[zoneData.faction] then
+                        factionIcon = factionIcons[zoneData.faction]
+                    end
+                    name = factionIcon .. name .. " " .. (zoneData.levelString or "")
                 end
 
                 -- Build description text
                 description = ""
-                
-                -- Add faction territory status
-                if zoneData.faction then
-                    local colorCode = factionColors[zoneData.faction] or "|cffffffff"
-                    description = colorCode .. zoneData.faction .. " Territory|r"
-                end
 
                 -- Add fishing level if available
                 if zoneData.minFish then
-                    if description ~= "" then
-                        description = description .. "\n"
-                    end
-                    description = description .. "Fishing: " .. zoneData.minFish
+                    description = "Fishing: " .. zoneData.minFish
                 end
                 
                 -- If description is empty, set to nil so it doesn't render an empty line
