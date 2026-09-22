@@ -3,50 +3,50 @@
 
 local mapTable = {
     -- Eastern Kingdoms
-    --[[Alterac Mountains]]		[1416] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = "City of Dalaran (28-33)", faction = "Contested"},
+    --[[Alterac Mountains]]		[1416] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = "City of Dalaran (28-33)", transport = "Sky Boats: Zephras Isle", faction = "Contested"},
     --[[Arathi Highlands]]		[1417] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       faction = "Contested"},
-    --[[Badlands]]				[1418] = {minLevel = 35, 	maxLevel = 45,		dungeons = "Uldaman (35-45)", faction = "Contested"},
+    --[[Badlands]]				[1418] = {minLevel = 35, 	maxLevel = 45,		dungeons = "Uldaman (35-45)", transport = "Boats: Steamwheedle Port", faction = "Contested"},
     --[[Blasted Lands]]			[1419] = {minLevel = 45, 	maxLevel = 55,                             faction = "Contested"},
     --[[Burning Steppes]]		[1428] = {minLevel = 50, 	maxLevel = 58,		minFish = "330",       dungeons = "Blackrock Depths (52-60)\nBlackrock Spire (55-60)\nMolten Core (60)\nBlackwing Lair (60)", faction = "Contested"},
     --[[Deadwind Pass]]			[1430] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested"},
-    --[[Dun Morogh]]			[1426] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = "The Hall of Thanes (13-18)\nGnomeregan (24-34)", faction = "Alliance"},
+    --[[Dun Morogh]]			[1426] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = "The Hall of Thanes (13-18)\nGnomeregan (24-34)", transport = "Deeprun Tram: Stormwind", faction = "Alliance"},
     --[[Duskwood]]				[1431] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        faction = "Contested"},
     --[[Eastern Plaguelands]]	[1423] = {minLevel = 53, 	maxLevel = 60,		minFish = "330",       dungeons = "Stratholme (55-60)\nNaxxramas (60)", faction = "Contested"},
-    --[[Elwynn Forest]]			[1429] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Alliance"},
-    --[[Hillsbrad Foothills]]	[1424] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        faction = "Contested"},
+    --[[Elwynn Forest]]			[1429] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Deeprun Tram: Ironforge", faction = "Alliance"},
+    --[[Hillsbrad Foothills]]	[1424] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        transport = "Boats: Auberdine", faction = "Contested"},
     --[[Ironforge]]				[1455] = {minFish = 1,                                                 faction = "Alliance"},
     --[[Loch Modan]]			[1432] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         faction = "Alliance"},
     --[[Redridge Mountains]]	[1433] = {minLevel = 15, 	maxLevel = 25,		minFish = "55",        faction = "Contested"},
     --[[Searing Gorge]]			[1427] = {minLevel = 43, 	maxLevel = 50,                             dungeons = "Blackrock Depths (52-60)\nBlackrock Spire (55-60)\nMolten Core (60)\nBlackwing Lair (60)", faction = "Contested"},
     --[[Silverpine Forest]]		[1421] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = "Shadowfang Keep (18-28)", faction = "Horde"},
     --[[Stormwind City]]		[1453] = {minFish = 1,                                                 dungeons = "The Stockade (22-30)", faction = "Alliance"},
-    --[[Stranglethorn Vale]]	[1434] = {minLevel = 30, 	maxLevel = 45,		minFish = "130 (205)", dungeons = "The Drowned City (35-40)\nZul'Gurub (60)", faction = "Contested"},
+    --[[Stranglethorn Vale]]	[1434] = {minLevel = 30, 	maxLevel = 45,		minFish = "130 (205)", dungeons = "The Drowned City (35-40)\nZul'Gurub (60)", transport = "Zeppelins: Orgrimmar, Undercity\nBoats: Ratchet", faction = "Contested"},
     --[[Swamp of Sorrows]]		[1435] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = "Sunken Temple (45-55)", faction = "Contested"},
     --[[The Hinterlands]]		[1425] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       faction = "Contested"},
-    --[[Tirisfal Glades]]		[1420] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = "Ruins of Lordaeron (15-20)\nScarlet Monastery (26-45)", faction = "Horde"},
+    --[[Tirisfal Glades]]		[1420] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = "Ruins of Lordaeron (15-20)\nScarlet Monastery (26-45)", transport = "Zeppelins: Orgrimmar, Grom'gol", faction = "Horde"},
     --[[Undercity]]				[1458] = {minFish = 1,                                                 faction = "Horde"},
     --[[Westfall]]				[1436] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = "The Deadmines (15-25)", faction = "Alliance"},
     --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		minFish = "205",       dungeons = "Scholomance (55-60)", faction = "Contested"},
-    --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        dungeons = "Excavation Site: Wetlands (24-29)", faction = "Contested"},
+    --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        dungeons = "Excavation Site: Wetlands (24-29)", transport = "Boats: Theramore, Auberdine", faction = "Contested"},
 
     -- Kalimdor
     --[[Ashenvale]]				[1440] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        dungeons = "Blackfathom Deeps (20-30)", faction = "Contested"},
     --[[Azshara]]				[1447] = {minLevel = 45, 	maxLevel = 55,		minFish = "205 (330)", dungeons = "Blackmaw Hold (55-60)", faction = "Contested"},
-    --[[Darkshore]]				[1439] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         faction = "Alliance"},
+    --[[Darkshore]]				[1439] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         transport = "Boats: Menethil Harbor, Rut'theran, Southshore", faction = "Alliance"},
     --[[Darnassus]]				[1457] = {minFish = 1,                                                 faction = "Alliance"},
     --[[Desolace]]				[1443] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = "Maraudon (40-50)", faction = "Contested"},
-    --[[Durotar]]				[1411] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Horde"},
-    --[[Dustwallow Marsh]]		[1445] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = "Alcaz Prison (48-53)\nOnyxia's Lair (60)", faction = "Contested"},
+    --[[Durotar]]				[1411] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Zeppelins: Undercity, Grom'gol", faction = "Horde"},
+    --[[Dustwallow Marsh]]		[1445] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = "Alcaz Prison (48-53)\nOnyxia's Lair (60)", transport = "Boats: Menethil Harbor", faction = "Contested"},
     --[[Felwood]]				[1448] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       faction = "Contested"},
-    --[[Feralas]]				[1444] = {minLevel = 40, 	maxLevel = 50,		minFish = "205 (330)", dungeons = "Dire Maul (54-60)", faction = "Contested"},
+    --[[Feralas]]				[1444] = {minLevel = 40, 	maxLevel = 50,		minFish = "205 (330)", dungeons = "Dire Maul (54-60)", transport = "Boats: Feathermoon, Forgotten Coast", faction = "Contested"},
     --[[Moonglade]]				[1450] = {minFish = 205,                                               faction = "Sanctuary"},
     --[[Mulgore]]				[1412] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Horde"},
     --[[Orgrimmar]]				[1454] = {minFish = 1,                                                 dungeons = "Ragefire Chasm (13-18)", faction = "Horde"},
     --[[Silithus]]				[1451] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       dungeons = "Ruins of Ahn'Qiraj (60)\nTemple of Ahn'Qiraj (60)", faction = "Contested"},
-    --[[Stonetalon Mountains]]	[1442] = {minLevel = 15, 	maxLevel = 27,		minFish = "55",        faction = "Contested"},
-    --[[Tanaris]]				[1446] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       dungeons = "Zul'Farrak (42-52)", faction = "Contested"},
-    --[[Teldrassil]]			[1438] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Alliance"},
-    --[[The Barrens]]			[1413] = {minLevel = 10, 	maxLevel = 25,		minFish = "1",         dungeons = "Wailing Caverns (15-25)\nRazorfen Kraul (25-35)\nRazorfen Downs (35-45)", faction = "Horde"},
+    --[[Stonetalon Mountains]]	[1442] = {minLevel = 15, 	maxLevel = 27,		minFish = "55",        transport = "Sky Boats: Zephras Isle", faction = "Contested"},
+    --[[Tanaris]]				[1446] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       dungeons = "Zul'Farrak (42-52)", transport = "Boats: Powderfuse Port", faction = "Contested"},
+    --[[Teldrassil]]			[1438] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Boats: Auberdine", faction = "Alliance"},
+    --[[The Barrens]]			[1413] = {minLevel = 10, 	maxLevel = 25,		minFish = "1",         dungeons = "Wailing Caverns (15-25)\nRazorfen Kraul (25-35)\nRazorfen Downs (35-45)", transport = "Boats: Booty Bay", faction = "Horde"},
     --[[Thousand Needles]]		[1441] = {minLevel = 25, 	maxLevel = 35,		minFish = "130",       faction = "Contested"},
     --[[Thunder Bluff]]			[1456] = {minFish = 1,                                                 faction = "Horde"},
     --[[Un'Goro Crater]]		[1449] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       dungeons = "Shaper's Terrace (58-60)", faction = "Contested"},
@@ -54,7 +54,7 @@ local mapTable = {
     
     -- Forever
     --[[Hyjal]]					[2482] = {minLevel = 60, 	maxLevel = 60,                             dungeons = "Barrow Deeps (60)\nHyjal Summit (60)", faction = "Contested"},
-    --[[Zephras Isle]]			[2521] = {minLevel = 1, 	maxLevel = 12,                             faction = "Contested"},
+    --[[Zephras Isle]]			[2521] = {minLevel = 1, 	maxLevel = 12,                             transport = "Sky Boats: Dalaran, Skywatcher Plateau", faction = "Contested"},
     --[[Riverglades]]			[2548] = {minLevel = 35, 	maxLevel = 45,                             dungeons = "Krol'dok Stronghold (40-55)", faction = "Contested"},
     --[[Shen'dralas]]			[2652] = {minLevel = 35, 	maxLevel = 45,                             faction = "Contested"},
 }
@@ -92,6 +92,10 @@ local function UpdateZoneStrings()
             table.insert(descLines, "|cffffd100" .. v.dungeons .. "|r")
         end
         
+        if ZoneLevelForeverDB.showTransport and v.transport then
+            table.insert(descLines, "|cff00ccff" .. v.transport .. "|r")
+        end
+        
         if #descLines > 0 then
             v.descString = table.concat(descLines, "\n")
         else
@@ -106,12 +110,14 @@ local function InitializeDB()
             showFishing = true,
             showDungeons = true,
             showIcons = true,
+            showTransport = true,
         }
     else
         -- Provide defaults for newly added fields
         if ZoneLevelForeverDB.showFishing == nil then ZoneLevelForeverDB.showFishing = true end
         if ZoneLevelForeverDB.showDungeons == nil then ZoneLevelForeverDB.showDungeons = true end
         if ZoneLevelForeverDB.showIcons == nil then ZoneLevelForeverDB.showIcons = true end
+        if ZoneLevelForeverDB.showTransport == nil then ZoneLevelForeverDB.showTransport = true end
     end
 end
 
@@ -137,7 +143,8 @@ local function CreateOptionsPanel()
 
     CreateCheckbox("ZLF_CheckFishing", "Show Fishing Levels", "showFishing", -50)
     CreateCheckbox("ZLF_CheckDungeons", "Show Dungeons & Raids", "showDungeons", -80)
-    CreateCheckbox("ZLF_CheckIcons", "Show Faction Icons", "showIcons", -110)
+    CreateCheckbox("ZLF_CheckTransport", "Show Transportation Routes", "showTransport", -110)
+    CreateCheckbox("ZLF_CheckIcons", "Show Faction Icons", "showIcons", -140)
 
     -- Integrate into Blizzard Interface Options
     if Settings and Settings.RegisterCanvasLayoutCategory then
