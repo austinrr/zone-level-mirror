@@ -259,7 +259,21 @@ local function InitializeZoneLevelForever()
     end
 
     if targetProvider then
-        targetProvider.Label:SetScript("OnUpdate", AreaLabelOnUpdate)
+        -- Securely hook SetScript to detect when other addons (like Leatrix) try to overwrite the label script
+        hooksecurefunc(targetProvider.Label, "SetScript", function(self, scriptType, handler)
+            if scriptType == "OnUpdate" and not self.ZLF_Rehooking then
+                self.ZLF_Rehooking = true
+                self:HookScript("OnUpdate", AreaLabelOnUpdate)
+                self.ZLF_Rehooking = false
+            end
+        end)
+
+        -- Apply initial hook
+        if not targetProvider.Label.ZLF_Rehooking then
+            targetProvider.Label.ZLF_Rehooking = true
+            targetProvider.Label:HookScript("OnUpdate", AreaLabelOnUpdate)
+            targetProvider.Label.ZLF_Rehooking = false
+        end
     end
 end
 
