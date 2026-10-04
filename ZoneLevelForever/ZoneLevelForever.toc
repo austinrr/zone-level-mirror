@@ -1,7 +1,7 @@
 ## Interface: 16001
 ## Title: Zone Level: Forever
 ## Notes: Displays zone and fishing levels on the world map.
-## Version: 1.4
+## Version: 1.5
 ## Author: Vaniron
 ## IconTexture: Interface\AddOns\ZoneLevelForever\icon.jpg
 ## SavedVariables: ZoneLevelForeverDB

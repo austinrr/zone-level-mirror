@@ -3,60 +3,60 @@
 
 local mapTable = {
     -- Eastern Kingdoms
-    --[[Alterac Mountains]]		[1416] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = "City of Dalaran (28-33)", transport = "Sky Boats: Zephras Isle", faction = "Contested"},
-    --[[Arathi Highlands]]		[1417] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       faction = "Contested"},
-    --[[Badlands]]				[1418] = {minLevel = 35, 	maxLevel = 45,		dungeons = "Uldaman (35-45)", transport = "Boats: Steamwheedle Port", faction = "Contested"},
-    --[[Blasted Lands]]			[1419] = {minLevel = 45, 	maxLevel = 55,                             faction = "Contested"},
-    --[[Burning Steppes]]		[1428] = {minLevel = 50, 	maxLevel = 58,		minFish = "330",       dungeons = "Blackrock Depths (52-60)\nBlackrock Spire (55-60)\nMolten Core (60)\nBlackwing Lair (60)", faction = "Contested"},
-    --[[Deadwind Pass]]			[1430] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested"},
-    --[[Dun Morogh]]			[1426] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = "The Hall of Thanes (13-18)\nGnomeregan (24-34)", transport = "Deeprun Tram: Stormwind", faction = "Alliance"},
-    --[[Duskwood]]				[1431] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        faction = "Contested"},
-    --[[Eastern Plaguelands]]	[1423] = {minLevel = 53, 	maxLevel = 60,		minFish = "330",       dungeons = "Stratholme (55-60)\nNaxxramas (60)", faction = "Contested"},
-    --[[Elwynn Forest]]			[1429] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Deeprun Tram: Ironforge", faction = "Alliance"},
-    --[[Hillsbrad Foothills]]	[1424] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        transport = "Boats: Auberdine", faction = "Contested"},
+    --[[Alterac Mountains]]		[1416] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = "City of Dalaran (28-33)", transport = "Sky Boats: Zephras Isle", faction = "Contested", mining = "Gold, Iron, Mithril, Silver, Tin", herbs = "Bruiseweed, Fadeleaf, Goldthorn, Grave Moss, Khadgar\'s Whisker, Kingsblood, Liferoot, Stranglekelp, Wild Steelbloom, Wintersbite"},
+    --[[Arathi Highlands]]		[1417] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       faction = "Contested", mining = "Gold, Iron, Mithril, Silver, Tin", herbs = "Bruiseweed, Fadeleaf, Goldthorn, Grave Moss, Khadgar\'s Whisker, Kingsblood, Liferoot, Stranglekelp, Wild Steelbloom"},
+    --[[Badlands]]				[1418] = {minLevel = 35, 	maxLevel = 45,		dungeons = "Uldaman (35-45)", transport = "Boats: Steamwheedle Port", faction = "Contested", mining = "Gold, Iron, Mithril, Truesilver", herbs = "Bloodvine, Fadeleaf, Firebloom, Goldthorn, Khadgar\'s Whisker, Kingsblood, Purple Lotus, Wild Steelbloom, Wildvine"},
+    --[[Blasted Lands]]			[1419] = {minLevel = 45, 	maxLevel = 55,                             faction = "Contested", mining = "Gold, Iron, Mithril, Thorium, Truesilver", herbs = "Bloodvine, Firebloom, Goldthorn, Gromsblood, Sungrass"},
+    --[[Burning Steppes]]		[1428] = {minLevel = 50, 	maxLevel = 58,		minFish = "330",       dungeons = "Blackrock Depths (52-60)\nBlackrock Spire (55-60)\nMolten Core (60)\nBlackwing Lair (60)", faction = "Contested", mining = "Mithril, Rich Thorium, Thorium, Truesilver", herbs = "Black Lotus, Bloodvine, Dreamfoil, Golden Sansam, Mountain Silversage, Sungrass"},
+    --[[Deadwind Pass]]			[1430] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", mining = "Mithril, Thorium, Truesilver"},
+    --[[Dun Morogh]]			[1426] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = "The Hall of Thanes (13-18)\nGnomeregan (24-34)", transport = "Deeprun Tram: Stormwind", faction = "Alliance", mining = "Copper", herbs = "Earthroot, Peacebloom, Silverleaf"},
+    --[[Duskwood]]				[1431] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        faction = "Contested", mining = "Copper, Iron, Silver, Tin", herbs = "Briarthorn, Grave Moss, Kingsblood, Mageroyal, Swiftthistle, Wild Steelbloom"},
+    --[[Eastern Plaguelands]]	[1423] = {minLevel = 53, 	maxLevel = 60,		minFish = "330",       dungeons = "Stratholme (55-60)\nNaxxramas (60)", faction = "Contested", mining = "Mithril, Rich Thorium, Thorium, Truesilver", herbs = "Arthas\' Tears, Black Lotus, Bloodvine, Dreamfoil, Golden Sansam, Mountain Silversage, Plaguebloom, Sungrass"},
+    --[[Elwynn Forest]]			[1429] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Deeprun Tram: Ironforge", faction = "Alliance", mining = "Copper", herbs = "Earthroot, Peacebloom, Silverleaf"},
+    --[[Hillsbrad Foothills]]	[1424] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        transport = "Boats: Auberdine", faction = "Contested", mining = "Copper, Iron, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Khadgar\'s Whisker, Kingsblood, Liferoot, Mageroyal, Stranglekelp, Swiftthistle, Wild Steelbloom"},
     --[[Ironforge]]				[1455] = {minFish = 1,                                                 faction = "Alliance"},
-    --[[Loch Modan]]			[1432] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         faction = "Alliance"},
-    --[[Redridge Mountains]]	[1433] = {minLevel = 15, 	maxLevel = 25,		minFish = "55",        faction = "Contested"},
-    --[[Searing Gorge]]			[1427] = {minLevel = 43, 	maxLevel = 50,                             dungeons = "Blackrock Depths (52-60)\nBlackrock Spire (55-60)\nMolten Core (60)\nBlackwing Lair (60)", faction = "Contested"},
-    --[[Silverpine Forest]]		[1421] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = "Shadowfang Keep (18-28)", faction = "Horde"},
+    --[[Loch Modan]]			[1432] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         faction = "Alliance", mining = "Copper, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Earthroot, Mageroyal, Peacebloom, Silverleaf, Swiftthistle"},
+    --[[Redridge Mountains]]	[1433] = {minLevel = 15, 	maxLevel = 25,		minFish = "55",        faction = "Contested", mining = "Copper, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Earthroot, Mageroyal, Peacebloom, Silverleaf, Swiftthistle"},
+    --[[Searing Gorge]]			[1427] = {minLevel = 43, 	maxLevel = 50,                             dungeons = "Blackrock Depths (52-60)\nBlackrock Spire (55-60)\nMolten Core (60)\nBlackwing Lair (60)", faction = "Contested", mining = "Gold, Iron, Mithril, Thorium, Truesilver", herbs = "Firebloom"},
+    --[[Silverpine Forest]]		[1421] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = "Shadowfang Keep (18-28)", faction = "Horde", mining = "Copper, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Earthroot, Liferoot, Mageroyal, Peacebloom, Silverleaf, Stranglekelp, Swiftthistle"},
     --[[Stormwind City]]		[1453] = {minFish = 1,                                                 dungeons = "The Stockade (22-30)", faction = "Alliance"},
-    --[[Stranglethorn Vale]]	[1434] = {minLevel = 30, 	maxLevel = 45,		minFish = "130 (205)", dungeons = "The Drowned City (35-40)\nZul'Gurub (60)", transport = "Zeppelins: Orgrimmar, Undercity\nBoats: Ratchet", faction = "Contested"},
-    --[[Swamp of Sorrows]]		[1435] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = "Sunken Temple (45-55)", faction = "Contested"},
-    --[[The Hinterlands]]		[1425] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       faction = "Contested"},
-    --[[Tirisfal Glades]]		[1420] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = "Ruins of Lordaeron (15-20)\nScarlet Monastery (26-45)", transport = "Zeppelins: Orgrimmar, Grom'gol", faction = "Horde"},
+    --[[Stranglethorn Vale]]	[1434] = {minLevel = 30, 	maxLevel = 45,		minFish = "130 (205)", dungeons = "The Drowned City (35-40)\nZul'Gurub (60)", transport = "Zeppelins: Orgrimmar, Undercity\nBoats: Ratchet", faction = "Contested", mining = "Gold, Iron, Mithril, Truesilver", herbs = "Bloodvine, Fadeleaf, Goldthorn, Khadgar\'s Whisker, Kingsblood, Liferoot, Purple Lotus, Stranglekelp, Wild Steelbloom, Wildvine"},
+    --[[Swamp of Sorrows]]		[1435] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = "Sunken Temple (45-55)", faction = "Contested", mining = "Gold, Iron, Mithril", herbs = "Blindweed, Fadeleaf, Goldthorn, Khadgar\'s Whisker, Kingsblood, Stranglekelp"},
+    --[[The Hinterlands]]		[1425] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       faction = "Contested", mining = "Gold, Iron, Mithril, Truesilver", herbs = "Bloodvine, Fadeleaf, Ghost Mushroom, Golden Sansam, Goldthorn, Khadgar\'s Whisker, Liferoot, Purple Lotus, Stranglekelp, Sungrass, Wildvine"},
+    --[[Tirisfal Glades]]		[1420] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = "Ruins of Lordaeron (15-20)\nScarlet Monastery (26-45)", transport = "Zeppelins: Orgrimmar, Grom'gol", faction = "Horde", mining = "Copper", herbs = "Earthroot, Peacebloom, Silverleaf"},
     --[[Undercity]]				[1458] = {minFish = 1,                                                 faction = "Horde"},
-    --[[Westfall]]				[1436] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = "The Deadmines (15-25)", faction = "Alliance"},
-    --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		minFish = "205",       dungeons = "Scholomance (55-60)", faction = "Contested"},
-    --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        dungeons = "Excavation Site: Wetlands (24-29)", transport = "Boats: Theramore, Auberdine", faction = "Contested"},
+    --[[Westfall]]				[1436] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = "The Deadmines (15-25)", faction = "Alliance", mining = "Copper, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Earthroot, Mageroyal, Peacebloom, Silverleaf, Stranglekelp, Swiftthistle"},
+    --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		minFish = "205",       dungeons = "Scholomance (55-60)", faction = "Contested", mining = "Mithril, Rich Thorium, Thorium, Truesilver", herbs = "Arthas\' Tears, Bloodvine, Dreamfoil, Mountain Silversage, Plaguebloom, Sungrass"},
+    --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        dungeons = "Excavation Site: Wetlands (24-29)", transport = "Boats: Theramore, Auberdine", faction = "Contested", mining = "Iron, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Grave Moss, Kingsblood, Liferoot, Mageroyal, Stranglekelp, Swiftthistle, Wild Steelbloom"},
 
     -- Kalimdor
-    --[[Ashenvale]]				[1440] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        dungeons = "Blackfathom Deeps (20-30)", faction = "Contested"},
-    --[[Azshara]]				[1447] = {minLevel = 45, 	maxLevel = 55,		minFish = "205 (330)", dungeons = "Blackmaw Hold (55-60)", faction = "Contested"},
-    --[[Darkshore]]				[1439] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         transport = "Boats: Menethil Harbor, Rut'theran, Southshore", faction = "Alliance"},
+    --[[Ashenvale]]				[1440] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        dungeons = "Blackfathom Deeps (20-30)", faction = "Contested", mining = "Copper, Gold, Iron, Silver, Tin", herbs = "Bloodvine, Briarthorn, Bruiseweed, Gromsblood, Kingsblood, Liferoot, Mageroyal, Purple Lotus, Stranglekelp, Swiftthistle, Wild Steelbloom, Wildvine"},
+    --[[Azshara]]				[1447] = {minLevel = 45, 	maxLevel = 55,		minFish = "205 (330)", dungeons = "Blackmaw Hold (55-60)", faction = "Contested", mining = "Mithril, Rich Thorium, Thorium, Truesilver", herbs = "Bloodvine, Dreamfoil, Golden Sansam, Goldthorn, Khadgar\'s Whisker, Mountain Silversage, Purple Lotus, Stranglekelp, Sungrass, Wildvine"},
+    --[[Darkshore]]				[1439] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         transport = "Boats: Menethil Harbor, Rut'theran, Southshore", faction = "Alliance", mining = "Copper, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Earthroot, Mageroyal, Peacebloom, Silverleaf, Stranglekelp, Swiftthistle"},
     --[[Darnassus]]				[1457] = {minFish = 1,                                                 faction = "Alliance"},
-    --[[Desolace]]				[1443] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = "Maraudon (40-50)", faction = "Contested"},
-    --[[Durotar]]				[1411] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Zeppelins: Undercity, Grom'gol", faction = "Horde"},
-    --[[Dustwallow Marsh]]		[1445] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = "Alcaz Prison (48-53)\nOnyxia's Lair (60)", transport = "Boats: Menethil Harbor", faction = "Contested"},
-    --[[Felwood]]				[1448] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       faction = "Contested"},
-    --[[Feralas]]				[1444] = {minLevel = 40, 	maxLevel = 50,		minFish = "205 (330)", dungeons = "Dire Maul (54-60)", transport = "Boats: Feathermoon, Forgotten Coast", faction = "Contested"},
+    --[[Desolace]]				[1443] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = "Maraudon (40-50)", faction = "Contested", mining = "Gold, Iron, Mithril, Truesilver", herbs = "Bruiseweed, Grave Moss, Gromsblood, Kingsblood, Liferoot, Stranglekelp, Wild Steelbloom"},
+    --[[Durotar]]				[1411] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Zeppelins: Undercity, Grom'gol", faction = "Horde", mining = "Copper", herbs = "Earthroot, Mageroyal, Peacebloom, Silverleaf, Swiftthistle"},
+    --[[Dustwallow Marsh]]		[1445] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = "Alcaz Prison (48-53)\nOnyxia's Lair (60)", transport = "Boats: Menethil Harbor", faction = "Contested", mining = "Gold, Iron, Mithril", herbs = "Fadeleaf, Goldthorn, Khadgar\'s Whisker, Kingsblood, Liferoot, Stranglekelp"},
+    --[[Felwood]]				[1448] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       faction = "Contested", mining = "Mithril, Thorium, Truesilver", herbs = "Arthas\' Tears, Bloodvine, Dreamfoil, Golden Sansam, Gromsblood, Mountain Silversage, Plaguebloom, Sungrass"},
+    --[[Feralas]]				[1444] = {minLevel = 40, 	maxLevel = 50,		minFish = "205 (330)", dungeons = "Dire Maul (54-60)", transport = "Boats: Feathermoon, Forgotten Coast", faction = "Contested", mining = "Gold, Iron, Mithril, Truesilver", herbs = "Bloodvine, Golden Sansam, Goldthorn, Khadgar\'s Whisker, Liferoot, Purple Lotus, Stranglekelp, Sungrass, Wildvine"},
     --[[Moonglade]]				[1450] = {minFish = 205,                                               faction = "Sanctuary"},
-    --[[Mulgore]]				[1412] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Horde"},
+    --[[Mulgore]]				[1412] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Horde", mining = "Copper", herbs = "Earthroot, Peacebloom, Silverleaf"},
     --[[Orgrimmar]]				[1454] = {minFish = 1,                                                 dungeons = "Ragefire Chasm (13-18)", faction = "Horde"},
-    --[[Silithus]]				[1451] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       dungeons = "Ruins of Ahn'Qiraj (60)\nTemple of Ahn'Qiraj (60)", faction = "Contested"},
-    --[[Stonetalon Mountains]]	[1442] = {minLevel = 15, 	maxLevel = 27,		minFish = "55",        transport = "Sky Boats: Zephras Isle", faction = "Contested"},
-    --[[Tanaris]]				[1446] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       dungeons = "Zul'Farrak (42-52)", transport = "Boats: Powderfuse Port", faction = "Contested"},
-    --[[Teldrassil]]			[1438] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Boats: Auberdine", faction = "Alliance"},
-    --[[The Barrens]]			[1413] = {minLevel = 10, 	maxLevel = 25,		minFish = "1",         dungeons = "Wailing Caverns (15-25)\nRazorfen Kraul (25-35)\nRazorfen Downs (35-45)", transport = "Boats: Booty Bay", faction = "Horde"},
-    --[[Thousand Needles]]		[1441] = {minLevel = 25, 	maxLevel = 35,		minFish = "130",       faction = "Contested"},
+    --[[Silithus]]				[1451] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       dungeons = "Ruins of Ahn'Qiraj (60)\nTemple of Ahn'Qiraj (60)", faction = "Contested", mining = "Mithril, Rich Thorium, Thorium, Truesilver", herbs = "Black Lotus, Bloodvine, Dreamfoil, Golden Sansam, Mountain Silversage, Sungrass"},
+    --[[Stonetalon Mountains]]	[1442] = {minLevel = 15, 	maxLevel = 27,		minFish = "55",        transport = "Sky Boats: Zephras Isle", faction = "Contested", mining = "Copper, Iron, Silver, Tin", herbs = "Bruiseweed, Kingsblood, Mageroyal, Swiftthistle, Wild Steelbloom"},
+    --[[Tanaris]]				[1446] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       dungeons = "Zul'Farrak (42-52)", transport = "Boats: Powderfuse Port", faction = "Contested", mining = "Gold, Iron, Mithril, Thorium, Truesilver", herbs = "Bloodvine, Firebloom, Purple Lotus, Stranglekelp, Wildvine"},
+    --[[Teldrassil]]			[1438] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Boats: Auberdine", faction = "Alliance", mining = "Copper", herbs = "Earthroot, Mageroyal, Peacebloom, Silverleaf, Swiftthistle"},
+    --[[The Barrens]]			[1413] = {minLevel = 10, 	maxLevel = 25,		minFish = "1",         dungeons = "Wailing Caverns (15-25)\nRazorfen Kraul (25-35)\nRazorfen Downs (35-45)", transport = "Boats: Booty Bay", faction = "Horde", mining = "Copper, Iron, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Earthroot, Grave Moss, Kingsblood, Mageroyal, Peacebloom, Silverleaf, Stranglekelp, Swiftthistle, Wild Steelbloom"},
+    --[[Thousand Needles]]		[1441] = {minLevel = 25, 	maxLevel = 35,		minFish = "130",       faction = "Contested", mining = "Gold, Iron, Mithril, Silver, Tin", herbs = "Bruiseweed, Kingsblood, Wild Steelbloom"},
     --[[Thunder Bluff]]			[1456] = {minFish = 1,                                                 faction = "Horde"},
-    --[[Un'Goro Crater]]		[1449] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       dungeons = "Shaper's Terrace (58-60)", faction = "Contested"},
-    --[[Winterspring]]			[1452] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested"},
+    --[[Un'Goro Crater]]		[1449] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       dungeons = "Shaper's Terrace (58-60)", faction = "Contested", mining = "Mithril, Rich Thorium, Thorium, Truesilver", herbs = "Blindweed, Bloodvine, Dreamfoil, Golden Sansam, Mountain Silversage, Sungrass"},
+    --[[Winterspring]]			[1452] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", mining = "Mithril, Rich Thorium, Thorium, Truesilver", herbs = "Black Lotus, Bloodvine, Icecap, Mountain Silversage"},
     
     -- Forever
     --[[Hyjal]]					[2482] = {minLevel = 60, 	maxLevel = 60,                             dungeons = "Barrow Deeps (60)\nHyjal Summit (60)", faction = "Contested"},
-    --[[Zephras Isle]]			[2521] = {minLevel = 1, 	maxLevel = 12,                             transport = "Sky Boats: Dalaran, Skywatcher Plateau", faction = "Contested"},
-    --[[Riverglades]]			[2548] = {minLevel = 35, 	maxLevel = 45,                             dungeons = "Krol'dok Stronghold (40-55)", faction = "Contested"},
-    --[[Shen'dralas]]			[2652] = {minLevel = 35, 	maxLevel = 45,                             faction = "Contested"},
+    --[[Zephras Isle]]			[2521] = {minLevel = 1, 	maxLevel = 12,                             transport = "Sky Boats: Dalaran, Skywatcher Plateau", faction = "Contested", herbs = "Earthroot, Mageroyal, Peacebloom, Silverleaf, Swiftthistle", mining = "Copper Vein"},
+    --[[Riverglades]]			[2548] = {minLevel = 36, 	maxLevel = 44,                             dungeons = "Krol'dok Stronghold (40-55)", faction = "Contested", mining = "Iron Deposit, Silver Vein, Tin Vein"},
+    --[[Shen'dralas]]			[2652] = {minLevel = 35, 	maxLevel = 45,                             faction = "Contested", mining = "Gold, Iron, Mithril"},
 }
 
 local factionIcons = {
@@ -81,6 +81,8 @@ local function UpdateZLF_FontStyles()
         zlfTargetProvider.Label.zlfFishingText:SetFont(font, ZoneLevelForeverDB.fontSizeFishing, "OUTLINE")
         zlfTargetProvider.Label.zlfDungeonText:SetFont(font, ZoneLevelForeverDB.fontSizeDungeons, "OUTLINE")
         zlfTargetProvider.Label.zlfTransportText:SetFont(font, ZoneLevelForeverDB.fontSizeTransport, "OUTLINE")
+        if zlfTargetProvider.Label.zlfHerbsText then zlfTargetProvider.Label.zlfHerbsText:SetFont(font, ZoneLevelForeverDB.fontSizeHerbs, "OUTLINE") end
+        if zlfTargetProvider.Label.zlfMiningText then zlfTargetProvider.Label.zlfMiningText:SetFont(font, ZoneLevelForeverDB.fontSizeMining, "OUTLINE") end
 
         local cF = ZoneLevelForeverDB.colorFishing
         zlfTargetProvider.Label.zlfFishingText:SetTextColor(cF.r, cF.g, cF.b)
@@ -90,6 +92,12 @@ local function UpdateZLF_FontStyles()
         
         local cT = ZoneLevelForeverDB.colorTransport
         zlfTargetProvider.Label.zlfTransportText:SetTextColor(cT.r, cT.g, cT.b)
+
+        local cH = ZoneLevelForeverDB.colorHerbs
+        if zlfTargetProvider.Label.zlfHerbsText then zlfTargetProvider.Label.zlfHerbsText:SetTextColor(cH.r, cH.g, cH.b) end
+
+        local cM = ZoneLevelForeverDB.colorMining
+        if zlfTargetProvider.Label.zlfMiningText then zlfTargetProvider.Label.zlfMiningText:SetTextColor(cM.r, cM.g, cM.b) end
     end
     lastCursorX = nil -- force map update
     UpdateMinimapPanel()
@@ -144,10 +152,14 @@ function UpdateMinimapPanel()
         ZLF_MinimapPanel.zlfFishingText = ZLF_MinimapPanel:CreateFontString(nil, "OVERLAY", "GameFontNormal")
         ZLF_MinimapPanel.zlfDungeonText = ZLF_MinimapPanel:CreateFontString(nil, "OVERLAY", "GameFontNormal")
         ZLF_MinimapPanel.zlfTransportText = ZLF_MinimapPanel:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+        ZLF_MinimapPanel.zlfHerbsText = ZLF_MinimapPanel:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+        ZLF_MinimapPanel.zlfMiningText = ZLF_MinimapPanel:CreateFontString(nil, "OVERLAY", "GameFontNormal")
         
         ZLF_MinimapPanel.zlfFishingText:SetJustifyH("LEFT")
         ZLF_MinimapPanel.zlfDungeonText:SetJustifyH("LEFT")
         ZLF_MinimapPanel.zlfTransportText:SetJustifyH("LEFT")
+        ZLF_MinimapPanel.zlfHerbsText:SetJustifyH("LEFT")
+        ZLF_MinimapPanel.zlfMiningText:SetJustifyH("LEFT")
     end
     
     if ZLF_MinimapPanel.isTesting then return end
@@ -174,6 +186,8 @@ function UpdateMinimapPanel()
         ZLF_MinimapPanel.zlfFishingText:SetFont(font, ZoneLevelForeverDB.fontSizeFishing, "OUTLINE")
         ZLF_MinimapPanel.zlfDungeonText:SetFont(font, ZoneLevelForeverDB.fontSizeDungeons, "OUTLINE")
         ZLF_MinimapPanel.zlfTransportText:SetFont(font, ZoneLevelForeverDB.fontSizeTransport, "OUTLINE")
+        ZLF_MinimapPanel.zlfHerbsText:SetFont(font, ZoneLevelForeverDB.fontSizeHerbs, "OUTLINE")
+        ZLF_MinimapPanel.zlfMiningText:SetFont(font, ZoneLevelForeverDB.fontSizeMining, "OUTLINE")
 
         local cF = ZoneLevelForeverDB.colorFishing
         ZLF_MinimapPanel.zlfFishingText:SetTextColor(cF.r, cF.g, cF.b)
@@ -181,6 +195,10 @@ function UpdateMinimapPanel()
         ZLF_MinimapPanel.zlfDungeonText:SetTextColor(cD.r, cD.g, cD.b)
         local cT = ZoneLevelForeverDB.colorTransport
         ZLF_MinimapPanel.zlfTransportText:SetTextColor(cT.r, cT.g, cT.b)
+        local cH = ZoneLevelForeverDB.colorHerbs
+        ZLF_MinimapPanel.zlfHerbsText:SetTextColor(cH.r, cH.g, cH.b)
+        local cM = ZoneLevelForeverDB.colorMining
+        ZLF_MinimapPanel.zlfMiningText:SetTextColor(cM.r, cM.g, cM.b)
 
         local currentAnchor = ZLF_MinimapPanel.header
         local maxWidth = ZLF_MinimapPanel.header:GetStringWidth()
@@ -222,6 +240,30 @@ function UpdateMinimapPanel()
             ZLF_MinimapPanel.zlfTransportText:Hide()
         end
         
+        if zoneData.herbsString and zoneData.herbsString ~= "" then
+            ZLF_MinimapPanel.zlfHerbsText:SetText(zoneData.herbsString)
+            ZLF_MinimapPanel.zlfHerbsText:ClearAllPoints()
+            ZLF_MinimapPanel.zlfHerbsText:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
+            ZLF_MinimapPanel.zlfHerbsText:Show()
+            currentAnchor = ZLF_MinimapPanel.zlfHerbsText
+            totalHeight = totalHeight + 6 + ZLF_MinimapPanel.zlfHerbsText:GetStringHeight()
+            maxWidth = max(maxWidth, ZLF_MinimapPanel.zlfHerbsText:GetStringWidth())
+        else
+            ZLF_MinimapPanel.zlfHerbsText:Hide()
+        end
+
+        if zoneData.miningString and zoneData.miningString ~= "" then
+            ZLF_MinimapPanel.zlfMiningText:SetText(zoneData.miningString)
+            ZLF_MinimapPanel.zlfMiningText:ClearAllPoints()
+            ZLF_MinimapPanel.zlfMiningText:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
+            ZLF_MinimapPanel.zlfMiningText:Show()
+            currentAnchor = ZLF_MinimapPanel.zlfMiningText
+            totalHeight = totalHeight + 6 + ZLF_MinimapPanel.zlfMiningText:GetStringHeight()
+            maxWidth = max(maxWidth, ZLF_MinimapPanel.zlfMiningText:GetStringWidth())
+        else
+            ZLF_MinimapPanel.zlfMiningText:Hide()
+        end
+        
         ZLF_MinimapPanel:SetSize(maxWidth + 24, totalHeight + 15)
         ZLF_MinimapPanel:Show()
     else
@@ -258,6 +300,18 @@ local function UpdateZoneStrings()
         else
             v.transportString = nil
         end
+
+        if ZoneLevelForeverDB.showHerbs and v.herbs then
+            v.herbsString = "Herbs: " .. v.herbs
+        else
+            v.herbsString = nil
+        end
+
+        if ZoneLevelForeverDB.showMining and v.mining then
+            v.miningString = "Mining: " .. v.mining
+        else
+            v.miningString = nil
+        end
     end
     UpdateMinimapPanel()
 end
@@ -278,6 +332,12 @@ local function InitializeDB()
             colorDungeons = {r = 1, g = 0.82, b = 0},
             colorTransport = {r = 0, g = 0.8, b = 1},
             showMinimapPanel = false,
+            showHerbs = false,
+            showMining = false,
+            fontSizeHerbs = 16,
+            fontSizeMining = 16,
+            colorHerbs = {r = 0.2, g = 0.8, b = 0.2},
+            colorMining = {r = 0.8, g = 0.4, b = 0.1},
         }
     else
         -- Provide defaults for newly added fields
@@ -286,13 +346,19 @@ local function InitializeDB()
         if ZoneLevelForeverDB.showIcons == nil then ZoneLevelForeverDB.showIcons = true end
         if ZoneLevelForeverDB.showTransport == nil then ZoneLevelForeverDB.showTransport = true end
         if ZoneLevelForeverDB.useOwnWindow == nil then ZoneLevelForeverDB.useOwnWindow = false end
+        if ZoneLevelForeverDB.showHerbs == nil then ZoneLevelForeverDB.showHerbs = false end
+        if ZoneLevelForeverDB.showMining == nil then ZoneLevelForeverDB.showMining = false end
         if ZoneLevelForeverDB.fontSizeLevel == nil then ZoneLevelForeverDB.fontSizeLevel = 18 end
         if ZoneLevelForeverDB.fontSizeFishing == nil then ZoneLevelForeverDB.fontSizeFishing = 18 end
         if ZoneLevelForeverDB.fontSizeDungeons == nil then ZoneLevelForeverDB.fontSizeDungeons = 18 end
         if ZoneLevelForeverDB.fontSizeTransport == nil then ZoneLevelForeverDB.fontSizeTransport = 18 end
+        if ZoneLevelForeverDB.fontSizeHerbs == nil then ZoneLevelForeverDB.fontSizeHerbs = 16 end
+        if ZoneLevelForeverDB.fontSizeMining == nil then ZoneLevelForeverDB.fontSizeMining = 16 end
         if ZoneLevelForeverDB.colorFishing == nil then ZoneLevelForeverDB.colorFishing = {r = 1, g = 1, b = 1} end
         if ZoneLevelForeverDB.colorDungeons == nil then ZoneLevelForeverDB.colorDungeons = {r = 1, g = 0.82, b = 0} end
         if ZoneLevelForeverDB.colorTransport == nil then ZoneLevelForeverDB.colorTransport = {r = 0, g = 0.8, b = 1} end
+        if ZoneLevelForeverDB.colorHerbs == nil then ZoneLevelForeverDB.colorHerbs = {r = 0.1, g = 1.0, b = 0.1} end
+        if ZoneLevelForeverDB.colorMining == nil then ZoneLevelForeverDB.colorMining = {r = 0.8, g = 0.6, b = 0.2} end
         if ZoneLevelForeverDB.showMinimapPanel == nil then ZoneLevelForeverDB.showMinimapPanel = false end
     end
 end
@@ -409,19 +475,25 @@ local function CreateOptionsPanel()
     CreateCheckbox("ZLF_CheckIcons", "Show Faction Icons", "showIcons", -140)
     CreateCheckbox("ZLF_CheckWindow", "Use Dedicated Map Info Window", "useOwnWindow", -170)
     CreateCheckbox("ZLF_CheckMinimapPanel", "Show Minimap Info Panel", "showMinimapPanel", -200)
+    CreateCheckbox("ZLF_CheckHerbs", "Show Herbalism Nodes list", "showHerbs", -230)
+    CreateCheckbox("ZLF_CheckMining", "Show Mining Ores list", "showMining", -260)
 
     CreateSlider("ZLF_SliderLevel", "Level Font Size", "fontSizeLevel", 250, -60, 8, 24, 1)
     CreateSlider("ZLF_SliderFishing", "Fishing Font Size", "fontSizeFishing", 250, -100, 8, 24, 1)
     CreateSlider("ZLF_SliderDungeons", "Dungeons Font Size", "fontSizeDungeons", 250, -140, 8, 24, 1)
     CreateSlider("ZLF_SliderTransport", "Transport Font Size", "fontSizeTransport", 250, -180, 8, 24, 1)
+    CreateSlider("ZLF_SliderHerbs", "Herbs Font Size", "fontSizeHerbs", 250, -220, 8, 24, 1)
+    CreateSlider("ZLF_SliderMining", "Mining Font Size", "fontSizeMining", 250, -260, 8, 24, 1)
 
     CreateColorSwatch("ZLF_ColorFishing", "Fishing Color", "colorFishing", 420, -100)
     CreateColorSwatch("ZLF_ColorDungeons", "Dungeons Color", "colorDungeons", 420, -140)
     CreateColorSwatch("ZLF_ColorTransport", "Transport Color", "colorTransport", 420, -180)
+    CreateColorSwatch("ZLF_ColorHerbs", "Herbs Color", "colorHerbs", 420, -220)
+    CreateColorSwatch("ZLF_ColorMining", "Mining Color", "colorMining", 420, -260)
 
     local moveBtn = CreateFrame("Button", "ZLF_MoveWindowBtn", panel, "UIPanelButtonTemplate")
     moveBtn:SetSize(150, 24)
-    moveBtn:SetPoint("TOPLEFT", 16, -240)
+    moveBtn:SetPoint("TOPLEFT", 16, -290)
     moveBtn:SetText("Unlock Windows")
     moveBtn:SetScript("OnClick", function()
         if ZLF_InfoWindow and ZLF_InfoWindow.isTesting then
@@ -470,7 +542,7 @@ local function CreateOptionsPanel()
 
     local resetBtn = CreateFrame("Button", "ZLF_ResetBtn", panel, "UIPanelButtonTemplate")
     resetBtn:SetSize(150, 24)
-    resetBtn:SetPoint("TOPLEFT", 180, -240)
+    resetBtn:SetPoint("TOPLEFT", 180, -290)
     resetBtn:SetText("Reset Defaults")
     resetBtn:SetScript("OnClick", function()
         ZoneLevelForeverDB = nil
@@ -482,11 +554,15 @@ local function CreateOptionsPanel()
         _G["ZLF_CheckIcons"]:SetChecked(ZoneLevelForeverDB.showIcons)
         _G["ZLF_CheckWindow"]:SetChecked(ZoneLevelForeverDB.useOwnWindow)
         _G["ZLF_CheckMinimapPanel"]:SetChecked(ZoneLevelForeverDB.showMinimapPanel)
+        _G["ZLF_CheckHerbs"]:SetChecked(ZoneLevelForeverDB.showHerbs)
+        _G["ZLF_CheckMining"]:SetChecked(ZoneLevelForeverDB.showMining)
 
         _G["ZLF_SliderLevel"]:SetValue(ZoneLevelForeverDB.fontSizeLevel)
         _G["ZLF_SliderFishing"]:SetValue(ZoneLevelForeverDB.fontSizeFishing)
         _G["ZLF_SliderDungeons"]:SetValue(ZoneLevelForeverDB.fontSizeDungeons)
         _G["ZLF_SliderTransport"]:SetValue(ZoneLevelForeverDB.fontSizeTransport)
+        _G["ZLF_SliderHerbs"]:SetValue(ZoneLevelForeverDB.fontSizeHerbs)
+        _G["ZLF_SliderMining"]:SetValue(ZoneLevelForeverDB.fontSizeMining)
 
         local cf = ZoneLevelForeverDB.colorFishing
         _G["ZLF_ColorFishing"].tex:SetColorTexture(cf.r, cf.g, cf.b)
@@ -494,6 +570,10 @@ local function CreateOptionsPanel()
         _G["ZLF_ColorDungeons"].tex:SetColorTexture(cd.r, cd.g, cd.b)
         local ct = ZoneLevelForeverDB.colorTransport
         _G["ZLF_ColorTransport"].tex:SetColorTexture(ct.r, ct.g, ct.b)
+        local ch = ZoneLevelForeverDB.colorHerbs
+        if ch and _G["ZLF_ColorHerbs"] then _G["ZLF_ColorHerbs"].tex:SetColorTexture(ch.r, ch.g, ch.b) end
+        local cm = ZoneLevelForeverDB.colorMining
+        if cm and _G["ZLF_ColorMining"] then _G["ZLF_ColorMining"].tex:SetColorTexture(cm.r, cm.g, cm.b) end
 
         if ZLF_InfoWindow then
             ZLF_InfoWindow:ClearAllPoints()
@@ -611,6 +691,8 @@ local function AreaLabelOnUpdate(self)
                         self.zlfFishingText:SetText(zoneData.fishingString)
                         self.zlfDungeonText:SetText(zoneData.dungeonString)
                         self.zlfTransportText:SetText(zoneData.transportString)
+                        self.zlfHerbsText:SetText(zoneData.herbsString)
+                        self.zlfMiningText:SetText(zoneData.miningString)
                         
                         if ZoneLevelForeverDB.useOwnWindow then
                             if ZLF_InfoWindow then
@@ -624,10 +706,14 @@ local function AreaLabelOnUpdate(self)
                                 self.zlfFishingText:SetParent(ZLF_InfoWindow)
                                 self.zlfDungeonText:SetParent(ZLF_InfoWindow)
                                 self.zlfTransportText:SetParent(ZLF_InfoWindow)
+                                self.zlfHerbsText:SetParent(ZLF_InfoWindow)
+                                self.zlfMiningText:SetParent(ZLF_InfoWindow)
 
                                 self.zlfFishingText:SetJustifyH("LEFT")
                                 self.zlfDungeonText:SetJustifyH("LEFT")
                                 self.zlfTransportText:SetJustifyH("LEFT")
+                                self.zlfHerbsText:SetJustifyH("LEFT")
+                                self.zlfMiningText:SetJustifyH("LEFT")
 
                                 if zoneData.fishingString and zoneData.fishingString ~= "" then
                                     self.zlfFishingText:ClearAllPoints()
@@ -660,6 +746,28 @@ local function AreaLabelOnUpdate(self)
                                     maxWidth = max(maxWidth, self.zlfTransportText:GetStringWidth())
                                 else
                                     self.zlfTransportText:Hide()
+                                end
+                                
+                                if zoneData.herbsString and zoneData.herbsString ~= "" then
+                                    self.zlfHerbsText:ClearAllPoints()
+                                    self.zlfHerbsText:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
+                                    self.zlfHerbsText:Show()
+                                    currentAnchor = self.zlfHerbsText
+                                    totalHeight = totalHeight + 6 + self.zlfHerbsText:GetStringHeight()
+                                    maxWidth = max(maxWidth, self.zlfHerbsText:GetStringWidth())
+                                else
+                                    self.zlfHerbsText:Hide()
+                                end
+
+                                if zoneData.miningString and zoneData.miningString ~= "" then
+                                    self.zlfMiningText:ClearAllPoints()
+                                    self.zlfMiningText:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
+                                    self.zlfMiningText:Show()
+                                    currentAnchor = self.zlfMiningText
+                                    totalHeight = totalHeight + 6 + self.zlfMiningText:GetStringHeight()
+                                    maxWidth = max(maxWidth, self.zlfMiningText:GetStringWidth())
+                                else
+                                    self.zlfMiningText:Hide()
                                 end
                                 
                                 ZLF_InfoWindow:SetSize(maxWidth + 24, totalHeight + 15)
@@ -711,8 +819,26 @@ local function AreaLabelOnUpdate(self)
                                 self.zlfTransportText:ClearAllPoints()
                                 self.zlfTransportText:SetPoint("TOP", currentAnchor, "BOTTOM", 0, -4)
                                 self.zlfTransportText:Show()
+                                currentAnchor = self.zlfTransportText
                             else
                                 self.zlfTransportText:Hide()
+                            end
+
+                            if zoneData.herbsString and zoneData.herbsString ~= "" then
+                                self.zlfHerbsText:ClearAllPoints()
+                                self.zlfHerbsText:SetPoint("TOP", currentAnchor, "BOTTOM", 0, -4)
+                                self.zlfHerbsText:Show()
+                                currentAnchor = self.zlfHerbsText
+                            else
+                                self.zlfHerbsText:Hide()
+                            end
+
+                            if zoneData.miningString and zoneData.miningString ~= "" then
+                                self.zlfMiningText:ClearAllPoints()
+                                self.zlfMiningText:SetPoint("TOP", currentAnchor, "BOTTOM", 0, -4)
+                                self.zlfMiningText:Show()
+                            else
+                                self.zlfMiningText:Hide()
                             end
                         end
                     else
@@ -721,6 +847,8 @@ local function AreaLabelOnUpdate(self)
                         self.zlfFishingText:Hide()
                         self.zlfDungeonText:Hide()
                         self.zlfTransportText:Hide()
+                        self.zlfHerbsText:Hide()
+                        self.zlfMiningText:Hide()
                     end
                 end
             else
@@ -733,6 +861,8 @@ local function AreaLabelOnUpdate(self)
                         self.zlfFishingText:Hide()
                         self.zlfDungeonText:Hide()
                         self.zlfTransportText:Hide()
+                        self.zlfHerbsText:Hide()
+                        self.zlfMiningText:Hide()
                     end
                 end
             end
@@ -752,6 +882,10 @@ local function AreaLabelOnUpdate(self)
             if self.zlfLevelText then
                 self.zlfLevelText:Hide()
                 self.zlfFishingText:Hide()
+                self.zlfDungeonText:Hide()
+                self.zlfTransportText:Hide()
+                self.zlfHerbsText:Hide()
+                self.zlfMiningText:Hide()
                 self.zlfDungeonText:Hide()
                 self.zlfTransportText:Hide()
             end
@@ -789,10 +923,45 @@ local function InitializeZoneLevelForever()
             ZLF_InfoWindow:SetScript("OnDragStart", ZLF_InfoWindow.StartMoving)
             ZLF_InfoWindow:SetScript("OnDragStop", function(s)
                 s:StopMovingOrSizing()
-                local p, rt, rp, x, y = s:GetPoint()
-                ZoneLevelForeverDB.windowPosX = x
-                ZoneLevelForeverDB.windowPosY = y
-                ZoneLevelForeverDB.windowPoint = p
+                local parentAnchor = WorldMapFrame.ScrollContainer or WorldMapFrame
+                local sLeft = s:GetLeft()
+                local sTop = s:GetTop()
+                local pLeft = parentAnchor:GetLeft()
+                local pTop = parentAnchor:GetTop()
+                
+                if sLeft and sTop and pLeft and pTop then
+                    local x = (sLeft - pLeft) / parentAnchor:GetEffectiveScale()
+                    local y = (sTop - pTop) / parentAnchor:GetEffectiveScale()
+                    -- Wait, GetLeft is already in scaled coordinates relative to screen, so sLeft - pLeft is the distance in pixels.
+                    -- But wait! GetLeft returns coordinates relative to the screen, NOT scaled! They are effectively scaled.
+                    -- So to set point, we must divide by parent's effective scale so that UI element scales correctly.
+                    
+                    s:ClearAllPoints()
+                    s:SetPoint("TOPLEFT", parentAnchor, "BOTTOMLEFT", (sLeft - pLeft), (sTop - pTop) + parentAnchor:GetHeight()) 
+                    -- Actually TOPLEFT to BOTTOMLEFT makes y offset positive? No, TOPLEFT to TOPLEFT is easiest!
+                    -- But wait, TOPLEFT to BOTTOMLEFT of parent...
+                end
+                
+                -- The easiest foolproof way is just Center to Center
+                if sLeft and sTop and pLeft and pTop then
+                    local sX, sY = s:GetCenter()
+                    local pX, pY = parentAnchor:GetCenter()
+                    local scale = s:GetEffectiveScale()
+                    
+                    -- dx, dy in UI coordinates
+                    local dx = (sX - pX) 
+                    local dy = (sY - pY) 
+                    s:ClearAllPoints()
+                    s:SetPoint("CENTER", parentAnchor, "CENTER", dx, dy)
+                    ZoneLevelForeverDB.windowPosX = dx
+                    ZoneLevelForeverDB.windowPosY = dy
+                    ZoneLevelForeverDB.windowPoint = "CENTER"
+                else
+                    local p, rt, rp, x, y = s:GetPoint()
+                    ZoneLevelForeverDB.windowPosX = x
+                    ZoneLevelForeverDB.windowPosY = y
+                    ZoneLevelForeverDB.windowPoint = p
+                end
             end)
             ZLF_InfoWindow:SetFrameStrata("TOOLTIP")
             
@@ -812,6 +981,8 @@ local function InitializeZoneLevelForever()
             zlfTargetProvider.Label.zlfFishingText = zlfTargetProvider.Label:CreateFontString(nil, "OVERLAY", "GameFontNormal")
             zlfTargetProvider.Label.zlfDungeonText = zlfTargetProvider.Label:CreateFontString(nil, "OVERLAY", "GameFontNormal")
             zlfTargetProvider.Label.zlfTransportText = zlfTargetProvider.Label:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+            zlfTargetProvider.Label.zlfHerbsText = zlfTargetProvider.Label:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+            zlfTargetProvider.Label.zlfMiningText = zlfTargetProvider.Label:CreateFontString(nil, "OVERLAY", "GameFontNormal")
             UpdateZLF_FontStyles()
         end
 
