@@ -3,60 +3,60 @@
 
 local mapTable = {
     -- Eastern Kingdoms
-    --[[Alterac Mountains]]		[1416] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = "City of Dalaran (28-33)", transport = "Sky Boats: Zephras Isle", faction = "Contested", mining = "Gold, Iron, Mithril, Silver, Tin", herbs = "Bruiseweed, Fadeleaf, Goldthorn, Grave Moss, Khadgar\'s Whisker, Kingsblood, Liferoot, Stranglekelp, Wild Steelbloom, Wintersbite"},
-    --[[Arathi Highlands]]		[1417] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       faction = "Contested", mining = "Gold, Iron, Mithril, Silver, Tin", herbs = "Bruiseweed, Fadeleaf, Goldthorn, Grave Moss, Khadgar\'s Whisker, Kingsblood, Liferoot, Stranglekelp, Wild Steelbloom"},
-    --[[Badlands]]				[1418] = {minLevel = 35, 	maxLevel = 45,		dungeons = "Uldaman (35-45)", transport = "Boats: Steamwheedle Port", faction = "Contested", mining = "Gold, Iron, Mithril, Truesilver", herbs = "Bloodvine, Fadeleaf, Firebloom, Goldthorn, Khadgar\'s Whisker, Kingsblood, Purple Lotus, Wild Steelbloom, Wildvine"},
-    --[[Blasted Lands]]			[1419] = {minLevel = 45, 	maxLevel = 55,                             faction = "Contested", mining = "Gold, Iron, Mithril, Thorium, Truesilver", herbs = "Bloodvine, Firebloom, Goldthorn, Gromsblood, Sungrass"},
-    --[[Burning Steppes]]		[1428] = {minLevel = 50, 	maxLevel = 58,		minFish = "330",       dungeons = "Blackrock Depths (52-60)\nBlackrock Spire (55-60)\nMolten Core (60)\nBlackwing Lair (60)", faction = "Contested", mining = "Mithril, Rich Thorium, Thorium, Truesilver", herbs = "Black Lotus, Bloodvine, Dreamfoil, Golden Sansam, Mountain Silversage, Sungrass"},
-    --[[Deadwind Pass]]			[1430] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", mining = "Mithril, Thorium, Truesilver"},
-    --[[Dun Morogh]]			[1426] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = "The Hall of Thanes (13-18)\nGnomeregan (24-34)", transport = "Deeprun Tram: Stormwind", faction = "Alliance", mining = "Copper", herbs = "Earthroot, Peacebloom, Silverleaf"},
-    --[[Duskwood]]				[1431] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        faction = "Contested", mining = "Copper, Iron, Silver, Tin", herbs = "Briarthorn, Grave Moss, Kingsblood, Mageroyal, Swiftthistle, Wild Steelbloom"},
-    --[[Eastern Plaguelands]]	[1423] = {minLevel = 53, 	maxLevel = 60,		minFish = "330",       dungeons = "Stratholme (55-60)\nNaxxramas (60)", faction = "Contested", mining = "Mithril, Rich Thorium, Thorium, Truesilver", herbs = "Arthas\' Tears, Black Lotus, Bloodvine, Dreamfoil, Golden Sansam, Mountain Silversage, Plaguebloom, Sungrass"},
-    --[[Elwynn Forest]]			[1429] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Deeprun Tram: Ironforge", faction = "Alliance", mining = "Copper", herbs = "Earthroot, Peacebloom, Silverleaf"},
-    --[[Hillsbrad Foothills]]	[1424] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        transport = "Boats: Auberdine", faction = "Contested", mining = "Copper, Iron, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Khadgar\'s Whisker, Kingsblood, Liferoot, Mageroyal, Stranglekelp, Swiftthistle, Wild Steelbloom"},
+    --[[Alterac Mountains]]		[1416] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = {{id=16560, text=" (28-33)"}}, transport = "Sky Boats: Zephras Isle", faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821}, mining = {2771, 2775, 2772, 2776, 3858}},
+    --[[Arathi Highlands]]		[1417] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821}, mining = {2771, 2775, 2772, 2776, 3858}},
+    --[[Badlands]]				[1418] = {minLevel = 35, 	maxLevel = 45,		dungeons = {{id=1337, text=" (35-45)"}}, transport = "Boats: Steamwheedle Port", faction = "Contested", herbs = {3355, 3356, 3818, 3821, 4625}, mining = {2772, 2776, 3858, 7911}},
+    --[[Blasted Lands]]			[1419] = {minLevel = 45, 	maxLevel = 55,                             faction = "Contested", herbs = {3818, 3821, 3358, 4625, 8838, 8846}, mining = {2772, 2776, 3858, 7911, 10620}},
+    --[[Burning Steppes]]		[1428] = {minLevel = 50, 	maxLevel = 58,		minFish = "330",       dungeons = {{id=17803, text=" (52-60)"}, {id=17804, text=" (55-60)"}, {id=2717, text=" (60)"}, {id=2677, text=" (60)"}}, faction = "Contested", herbs = {4625, 13464, 13463, 13465, 13468}, mining = {3858, 7911, 10620, 10620}},
+    --[[Deadwind Pass]]			[1430] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", herbs = {13463, 13465}, mining = {3858, 7911, 10620}},
+    --[[Dun Morogh]]			[1426] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = {{id=16919, text=" (13-18)"}, {id=721, text=" (24-34)"}}, transport = "Deeprun Tram: Stormwind", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
+    --[[Duskwood]]				[1431] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        faction = "Contested", herbs = {785, 2450, 2453, 3369, 3356}, mining = {2770, 2771, 2775, 2772}},
+    --[[Eastern Plaguelands]]	[1423] = {minLevel = 53, 	maxLevel = 60,		minFish = "330",       dungeons = {{id=2017, text=" (55-60)"}, {id=3456, text=" (60)"}}, faction = "Contested", herbs = {8836, 8838, 13466, 13463, 13468}, mining = {3858, 7911, 10620, 10620}},
+    --[[Elwynn Forest]]			[1429] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Deeprun Tram: Ironforge", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
+    --[[Hillsbrad Foothills]]	[1424] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        transport = "Boats: Auberdine", faction = "Contested", herbs = {785, 2450, 2453, 3356, 3357}, mining = {2770, 2771, 2775, 2772}},
     --[[Ironforge]]				[1455] = {minFish = 1,                                                 faction = "Alliance"},
-    --[[Loch Modan]]			[1432] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         faction = "Alliance", mining = "Copper, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Earthroot, Mageroyal, Peacebloom, Silverleaf, Swiftthistle"},
-    --[[Redridge Mountains]]	[1433] = {minLevel = 15, 	maxLevel = 25,		minFish = "55",        faction = "Contested", mining = "Copper, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Earthroot, Mageroyal, Peacebloom, Silverleaf, Swiftthistle"},
-    --[[Searing Gorge]]			[1427] = {minLevel = 43, 	maxLevel = 50,                             dungeons = "Blackrock Depths (52-60)\nBlackrock Spire (55-60)\nMolten Core (60)\nBlackwing Lair (60)", faction = "Contested", mining = "Gold, Iron, Mithril, Thorium, Truesilver", herbs = "Firebloom"},
-    --[[Silverpine Forest]]		[1421] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = "Shadowfang Keep (18-28)", faction = "Horde", mining = "Copper, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Earthroot, Liferoot, Mageroyal, Peacebloom, Silverleaf, Stranglekelp, Swiftthistle"},
-    --[[Stormwind City]]		[1453] = {minFish = 1,                                                 dungeons = "The Stockade (22-30)", faction = "Alliance"},
-    --[[Stranglethorn Vale]]	[1434] = {minLevel = 30, 	maxLevel = 45,		minFish = "130 (205)", dungeons = "The Drowned City (35-40)\nZul'Gurub (60)", transport = "Zeppelins: Orgrimmar, Undercity\nBoats: Ratchet", faction = "Contested", mining = "Gold, Iron, Mithril, Truesilver", herbs = "Bloodvine, Fadeleaf, Goldthorn, Khadgar\'s Whisker, Kingsblood, Liferoot, Purple Lotus, Stranglekelp, Wild Steelbloom, Wildvine"},
-    --[[Swamp of Sorrows]]		[1435] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = "Sunken Temple (45-55)", faction = "Contested", mining = "Gold, Iron, Mithril", herbs = "Blindweed, Fadeleaf, Goldthorn, Khadgar\'s Whisker, Kingsblood, Stranglekelp"},
-    --[[The Hinterlands]]		[1425] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       faction = "Contested", mining = "Gold, Iron, Mithril, Truesilver", herbs = "Bloodvine, Fadeleaf, Ghost Mushroom, Golden Sansam, Goldthorn, Khadgar\'s Whisker, Liferoot, Purple Lotus, Stranglekelp, Sungrass, Wildvine"},
-    --[[Tirisfal Glades]]		[1420] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = "Ruins of Lordaeron (15-20)\nScarlet Monastery (26-45)", transport = "Zeppelins: Orgrimmar, Grom'gol", faction = "Horde", mining = "Copper", herbs = "Earthroot, Peacebloom, Silverleaf"},
+    --[[Loch Modan]]			[1432] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450}, mining = {2770, 2771, 2775}},
+    --[[Redridge Mountains]]	[1433] = {minLevel = 15, 	maxLevel = 25,		minFish = "55",        faction = "Contested", herbs = {785, 2450, 2453}, mining = {2770, 2771, 2775}},
+    --[[Searing Gorge]]			[1427] = {minLevel = 43, 	maxLevel = 50,                             dungeons = {{id=17803, text=" (52-60)"}, {id=17804, text=" (55-60)"}, {id=2717, text=" (60)"}, {id=2677, text=" (60)"}}, faction = "Contested", herbs = {4625, 3821}, mining = {2772, 2776, 3858, 7911, 10620}},
+    --[[Silverpine Forest]]		[1421] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = {{id=209, text=" (18-28)"}}, faction = "Horde", herbs = {2447, 765, 2449, 785, 2450}, mining = {2770, 2771, 2775}},
+    --[[Stormwind City]]		[1453] = {minFish = 1,                                                 dungeons = {{id=717, text=" (22-30)"}}, faction = "Alliance"},
+    --[[Stranglethorn Vale]]	[1434] = {minLevel = 30, 	maxLevel = 45,		minFish = "130 (205)", dungeons = {{text="The Drowned City (35-40)"}, {id=1977, text=" (60)"}}, transport = "Zeppelins: Orgrimmar, Undercity\\nBoats: Ratchet", faction = "Contested", herbs = {3356, 3357, 3818, 3821, 3358}, mining = {2772, 2776, 3858, 7911}},
+    --[[Swamp of Sorrows]]		[1435] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = {{id=1417, text=" (45-55)"}}, faction = "Contested", herbs = {3356, 3357, 3818, 3821, 8839}, mining = {2772, 2776, 3858}},
+    --[[The Hinterlands]]		[1425] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       faction = "Contested", herbs = {3818, 3821, 3358, 8838, 8845}, mining = {2772, 2776, 3858, 7911}},
+    --[[Tirisfal Glades]]		[1420] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = {{id=16611, text=" (15-20)"}, {id=796, text=" (26-45)"}}, transport = "Zeppelins: Orgrimmar, Grom'gol", faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
     --[[Undercity]]				[1458] = {minFish = 1,                                                 faction = "Horde"},
-    --[[Westfall]]				[1436] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = "The Deadmines (15-25)", faction = "Alliance", mining = "Copper, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Earthroot, Mageroyal, Peacebloom, Silverleaf, Stranglekelp, Swiftthistle"},
-    --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		minFish = "205",       dungeons = "Scholomance (55-60)", faction = "Contested", mining = "Mithril, Rich Thorium, Thorium, Truesilver", herbs = "Arthas\' Tears, Bloodvine, Dreamfoil, Mountain Silversage, Plaguebloom, Sungrass"},
-    --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        dungeons = "Excavation Site: Wetlands (24-29)", transport = "Boats: Theramore, Auberdine", faction = "Contested", mining = "Iron, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Grave Moss, Kingsblood, Liferoot, Mageroyal, Stranglekelp, Swiftthistle, Wild Steelbloom"},
+    --[[Westfall]]				[1436] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = {{id=1581, text=" (15-25)"}}, faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450}, mining = {2770, 2771, 2775}},
+    --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		minFish = "205",       dungeons = {{id=2057, text=" (55-60)"}}, faction = "Contested", herbs = {8836, 8838, 13466, 13463}, mining = {3858, 7911, 10620, 10620}},
+    --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        dungeons = {{id=16732, text=" (24-29)"}}, transport = "Boats: Theramore, Auberdine", faction = "Contested", herbs = {2450, 2453, 3355, 3356, 3357}, mining = {2771, 2775, 2772}},
 
     -- Kalimdor
-    --[[Ashenvale]]				[1440] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        dungeons = "Blackfathom Deeps (20-30)", faction = "Contested", mining = "Copper, Gold, Iron, Silver, Tin", herbs = "Bloodvine, Briarthorn, Bruiseweed, Gromsblood, Kingsblood, Liferoot, Mageroyal, Purple Lotus, Stranglekelp, Swiftthistle, Wild Steelbloom, Wildvine"},
-    --[[Azshara]]				[1447] = {minLevel = 45, 	maxLevel = 55,		minFish = "205 (330)", dungeons = "Blackmaw Hold (55-60)", faction = "Contested", mining = "Mithril, Rich Thorium, Thorium, Truesilver", herbs = "Bloodvine, Dreamfoil, Golden Sansam, Goldthorn, Khadgar\'s Whisker, Mountain Silversage, Purple Lotus, Stranglekelp, Sungrass, Wildvine"},
-    --[[Darkshore]]				[1439] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         transport = "Boats: Menethil Harbor, Rut'theran, Southshore", faction = "Alliance", mining = "Copper, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Earthroot, Mageroyal, Peacebloom, Silverleaf, Stranglekelp, Swiftthistle"},
+    --[[Ashenvale]]				[1440] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        dungeons = {{id=719, text=" (20-30)"}}, faction = "Contested", herbs = {785, 2450, 2453, 3356, 3357}, mining = {2770, 2771, 2775, 2772, 2776}},
+    --[[Azshara]]				[1447] = {minLevel = 45, 	maxLevel = 55,		minFish = "205 (330)", dungeons = {{text="Blackmaw Hold (55-60)"}}, faction = "Contested", herbs = {8838, 8831, 8846, 13463, 13465}, mining = {3858, 7911, 10620, 10620}},
+    --[[Darkshore]]				[1439] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         transport = "Boats: Menethil Harbor, Rut'theran, Southshore", faction = "Alliance", herbs = {785, 2450, 3820}, mining = {2770, 2771, 2775}},
     --[[Darnassus]]				[1457] = {minFish = 1,                                                 faction = "Alliance"},
-    --[[Desolace]]				[1443] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = "Maraudon (40-50)", faction = "Contested", mining = "Gold, Iron, Mithril, Truesilver", herbs = "Bruiseweed, Grave Moss, Gromsblood, Kingsblood, Liferoot, Stranglekelp, Wild Steelbloom"},
-    --[[Durotar]]				[1411] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Zeppelins: Undercity, Grom'gol", faction = "Horde", mining = "Copper", herbs = "Earthroot, Mageroyal, Peacebloom, Silverleaf, Swiftthistle"},
-    --[[Dustwallow Marsh]]		[1445] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = "Alcaz Prison (48-53)\nOnyxia's Lair (60)", transport = "Boats: Menethil Harbor", faction = "Contested", mining = "Gold, Iron, Mithril", herbs = "Fadeleaf, Goldthorn, Khadgar\'s Whisker, Kingsblood, Liferoot, Stranglekelp"},
-    --[[Felwood]]				[1448] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       faction = "Contested", mining = "Mithril, Thorium, Truesilver", herbs = "Arthas\' Tears, Bloodvine, Dreamfoil, Golden Sansam, Gromsblood, Mountain Silversage, Plaguebloom, Sungrass"},
-    --[[Feralas]]				[1444] = {minLevel = 40, 	maxLevel = 50,		minFish = "205 (330)", dungeons = "Dire Maul (54-60)", transport = "Boats: Feathermoon, Forgotten Coast", faction = "Contested", mining = "Gold, Iron, Mithril, Truesilver", herbs = "Bloodvine, Golden Sansam, Goldthorn, Khadgar\'s Whisker, Liferoot, Purple Lotus, Stranglekelp, Sungrass, Wildvine"},
-    --[[Moonglade]]				[1450] = {minFish = 205,                                               faction = "Sanctuary"},
-    --[[Mulgore]]				[1412] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Horde", mining = "Copper", herbs = "Earthroot, Peacebloom, Silverleaf"},
-    --[[Orgrimmar]]				[1454] = {minFish = 1,                                                 dungeons = "Ragefire Chasm (13-18)", faction = "Horde"},
-    --[[Silithus]]				[1451] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       dungeons = "Ruins of Ahn'Qiraj (60)\nTemple of Ahn'Qiraj (60)", faction = "Contested", mining = "Mithril, Rich Thorium, Thorium, Truesilver", herbs = "Black Lotus, Bloodvine, Dreamfoil, Golden Sansam, Mountain Silversage, Sungrass"},
-    --[[Stonetalon Mountains]]	[1442] = {minLevel = 15, 	maxLevel = 27,		minFish = "55",        transport = "Sky Boats: Zephras Isle", faction = "Contested", mining = "Copper, Iron, Silver, Tin", herbs = "Bruiseweed, Kingsblood, Mageroyal, Swiftthistle, Wild Steelbloom"},
-    --[[Tanaris]]				[1446] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       dungeons = "Zul'Farrak (42-52)", transport = "Boats: Powderfuse Port", faction = "Contested", mining = "Gold, Iron, Mithril, Thorium, Truesilver", herbs = "Bloodvine, Firebloom, Purple Lotus, Stranglekelp, Wildvine"},
-    --[[Teldrassil]]			[1438] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Boats: Auberdine", faction = "Alliance", mining = "Copper", herbs = "Earthroot, Mageroyal, Peacebloom, Silverleaf, Swiftthistle"},
-    --[[The Barrens]]			[1413] = {minLevel = 10, 	maxLevel = 25,		minFish = "1",         dungeons = "Wailing Caverns (15-25)\nRazorfen Kraul (25-35)\nRazorfen Downs (35-45)", transport = "Boats: Booty Bay", faction = "Horde", mining = "Copper, Iron, Silver, Tin", herbs = "Briarthorn, Bruiseweed, Earthroot, Grave Moss, Kingsblood, Mageroyal, Peacebloom, Silverleaf, Stranglekelp, Swiftthistle, Wild Steelbloom"},
-    --[[Thousand Needles]]		[1441] = {minLevel = 25, 	maxLevel = 35,		minFish = "130",       faction = "Contested", mining = "Gold, Iron, Mithril, Silver, Tin", herbs = "Bruiseweed, Kingsblood, Wild Steelbloom"},
+    --[[Desolace]]				[1443] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = {{id=2100, text=" (40-50)"}}, faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821}, mining = {2772, 2776, 3858, 7911}},
+    --[[Durotar]]				[1411] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Zeppelins: Undercity, Grom'gol", faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
+    --[[Dustwallow Marsh]]		[1445] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = {{id=3140, text=" (48-53)"}, {id=2159, text=" (60)"}}, transport = "Boats: Menethil Harbor", faction = "Contested", herbs = {3356, 3357, 3358, 3820}, mining = {2772, 2776, 3858}},
+    --[[Felwood]]				[1448] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       faction = "Contested", herbs = {8838, 8846, 13464, 13463, 13466}, mining = {3858, 7911, 10620}},
+    --[[Feralas]]				[1444] = {minLevel = 40, 	maxLevel = 50,		minFish = "205 (330)", dungeons = {{id=2557, text=" (54-60)"}}, transport = "Boats: Feathermoon, Forgotten Coast", faction = "Contested", herbs = {3356, 3357, 3818, 3821, 3358, 8838}, mining = {2772, 2776, 3858, 7911}},
+    --[[Moonglade]]				[1450] = {minFish = 205,                                               faction = "Sanctuary", herbs = {2447, 765, 2449}},
+    --[[Mulgore]]				[1412] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
+    --[[Orgrimmar]]				[1454] = {minFish = 1,                                                 dungeons = {{id=2437, text=" (13-18)"}}, faction = "Horde"},
+    --[[Silithus]]				[1451] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       dungeons = {{id=3429, text=" (60)"}, {id=3428, text=" (60)"}}, faction = "Contested", herbs = {8838, 13464, 13463, 13465, 13468}, mining = {3858, 7911, 10620, 10620}},
+    --[[Stonetalon Mountains]]	[1442] = {minLevel = 15, 	maxLevel = 27,		minFish = "55",        transport = "Sky Boats: Zephras Isle", faction = "Contested", herbs = {785, 2450, 2453, 3355}, mining = {2770, 2771, 2775, 2772}},
+    --[[Tanaris]]				[1446] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       dungeons = {{id=978, text=" (42-52)"}}, transport = "Boats: Powderfuse Port", faction = "Contested", herbs = {4625, 8831}, mining = {2772, 2776, 3858, 7911, 10620}},
+    --[[Teldrassil]]			[1438] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Boats: Auberdine", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
+    --[[The Barrens]]			[1413] = {minLevel = 10, 	maxLevel = 25,		minFish = "1",         dungeons = {{id=718, text=" (15-25)"}, {id=491, text=" (25-35)"}, {id=722, text=" (35-45)"}}, transport = "Boats: Booty Bay", faction = "Horde", herbs = {785, 2450, 2453, 3820}, mining = {2770, 2771, 2775, 2772}},
+    --[[Thousand Needles]]		[1441] = {minLevel = 25, 	maxLevel = 35,		minFish = "130",       faction = "Contested", herbs = {2453, 3355, 3356, 3357}, mining = {2771, 2775, 2772, 2776, 3858}},
     --[[Thunder Bluff]]			[1456] = {minFish = 1,                                                 faction = "Horde"},
-    --[[Un'Goro Crater]]		[1449] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       dungeons = "Shaper's Terrace (58-60)", faction = "Contested", mining = "Mithril, Rich Thorium, Thorium, Truesilver", herbs = "Blindweed, Bloodvine, Dreamfoil, Golden Sansam, Mountain Silversage, Sungrass"},
-    --[[Winterspring]]			[1452] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", mining = "Mithril, Rich Thorium, Thorium, Truesilver", herbs = "Black Lotus, Bloodvine, Icecap, Mountain Silversage"},
+    --[[Un'Goro Crater]]		[1449] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       dungeons = {{text="Shaper's Terrace (58-60)"}}, faction = "Contested", herbs = {8839, 13465, 13464, 13468}, mining = {3858, 7911, 10620, 10620}},
+    --[[Winterspring]]			[1452] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", herbs = {13467, 13465, 13463, 13468}, mining = {3858, 7911, 10620, 10620}},
     
     -- Forever
-    --[[Hyjal]]					[2482] = {minLevel = 60, 	maxLevel = 60,                             dungeons = "Barrow Deeps (60)\nHyjal Summit (60)", faction = "Contested"},
-    --[[Zephras Isle]]			[2521] = {minLevel = 1, 	maxLevel = 12,                             transport = "Sky Boats: Dalaran, Skywatcher Plateau", faction = "Contested", herbs = "Earthroot, Mageroyal, Peacebloom, Silverleaf, Swiftthistle", mining = "Copper Vein"},
-    --[[Riverglades]]			[2548] = {minLevel = 36, 	maxLevel = 44,                             dungeons = "Krol'dok Stronghold (40-55)", faction = "Contested", mining = "Iron Deposit, Silver Vein, Tin Vein"},
-    --[[Shen'dralas]]			[2652] = {minLevel = 35, 	maxLevel = 45,                             faction = "Contested", mining = "Gold, Iron, Mithril"},
+    --[[Hyjal]]					[2482] = {minLevel = 60, 	maxLevel = 60,                             dungeons = {{id=2743, text=" (60)"}, {id=3277, text=" (60)"}}, faction = "Contested"},
+    --[[Zephras Isle]]			[2521] = {minLevel = 1, 	maxLevel = 12,                             transport = "Sky Boats: Dalaran, Skywatcher Plateau", faction = "Contested"},
+    --[[Riverglades]]			[2548] = {minLevel = 35, 	maxLevel = 45,                             dungeons = {{text="Krol'dok Stronghold (40-55)"}}, faction = "Contested", herbs = {3818, 3821, 3358}, mining = {2772, 2776, 3858}},
+    --[[Shen'dralas]]			[2652] = {minLevel = 35, 	maxLevel = 45,                             faction = "Contested", herbs = {3818, 3821, 3358}, mining = {2772, 2776, 3858}},
 }
 
 local factionIcons = {
@@ -284,31 +284,134 @@ local function UpdateZoneStrings()
         end
 
         if ZoneLevelForeverDB.showFishing and v.minFish then
-            v.fishingString = "Fishing: " .. v.minFish
+            v.fishingString = (ZLF_L and ZLF_L["PREFIX_FISHING"] or "Fishing: ") .. v.minFish
         else
             v.fishingString = nil
         end
         
         if ZoneLevelForeverDB.showDungeons and v.dungeons then
-            v.dungeonString = v.dungeons
+            if type(v.dungeons) == "table" then
+                local dNames = {}
+                for _, d in ipairs(v.dungeons) do
+                                        local name = d.id and C_Map.GetAreaInfo(d.id)
+                    if not name then 
+                        name = d.text or "???" 
+                        if ZLF_L and ZLF_L["DUNGEON_" .. name] then
+                            name = ZLF_L["DUNGEON_" .. name]
+                        end
+                    else
+                        if name ~= d.text then name = name .. (d.text or "") end
+                    end
+                    table.insert(dNames, name)
+                end
+                v.dungeonString = table.concat(dNames, "\n")
+            else
+                local d = v.dungeons
+                if ZLF_L then
+                    -- Translate known dungeon names if they exist in Locales
+                    for eng, loc in pairs(ZLF_L) do
+                        if type(eng) == "string" and type(loc) == "string" and eng ~= loc and string.match(eng, "^DUNGEON_") then
+                            d = string.gsub(d, string.sub(eng, 9), loc)
+                        end
+                    end
+                end
+                v.dungeonString = d
+            end
         else
             v.dungeonString = nil
         end
         
         if ZoneLevelForeverDB.showTransport and v.transport then
-            v.transportString = v.transport
+            if type(v.transport) == "table" then
+                local tNames = {}
+                for _, tInfo in ipairs(v.transport) do
+                    local prefixStr = tInfo.prefix
+                    if ZLF_L then
+                        prefixStr = string.gsub(prefixStr, "Boats:", ZLF_L["PREFIX_BOATS"] or "Boats:")
+                        prefixStr = string.gsub(prefixStr, "Sky Boats:", ZLF_L["PREFIX_SKY_BOATS"] or "Sky Boats:")
+                        prefixStr = string.gsub(prefixStr, "Zeppelins:", ZLF_L["PREFIX_ZEPPELINS"] or "Zeppelins:")
+                        prefixStr = string.gsub(prefixStr, "Deeprun Tram:", ZLF_L["PREFIX_TRAM"] or "Deeprun Tram:")
+                    end
+                    local destNames = {}
+                    for _, destId in ipairs(tInfo.dests) do
+                        local name = C_Map.GetAreaInfo(destId)
+                        if not name then name = "???" end
+                        table.insert(destNames, name)
+                    end
+                    table.insert(tNames, prefixStr .. " " .. table.concat(destNames, ", "))
+                end
+                v.transportString = table.concat(tNames, "\n")
+            else
+                local t = v.transport
+                if ZLF_L then
+                    t = string.gsub(t, "Boats:", ZLF_L["PREFIX_BOATS"] or "Boats:")
+                    t = string.gsub(t, "Sky Boats:", ZLF_L["PREFIX_SKY_BOATS"] or "Sky Boats:")
+                    t = string.gsub(t, "Zeppelins:", ZLF_L["PREFIX_ZEPPELINS"] or "Zeppelins:")
+                    t = string.gsub(t, "Deeprun Tram:", ZLF_L["PREFIX_TRAM"] or "Deeprun Tram:")
+                    
+                    -- Translate known locations if they exist in Locales
+                    for eng, loc in pairs(ZLF_L) do
+                        if type(eng) == "string" and type(loc) == "string" and eng ~= loc and string.match(eng, "^LOC_") then
+                            t = string.gsub(t, string.sub(eng, 5), loc)
+                        end
+                    end
+                end
+                v.transportString = t
+            end
         else
             v.transportString = nil
         end
 
         if ZoneLevelForeverDB.showHerbs and v.herbs then
-            v.herbsString = "Herbs: " .. v.herbs
+            if type(v.herbs) == "table" then
+                local names = {}
+                for _, id in ipairs(v.herbs) do
+                    if type(id) == "number" then
+                        local GetItemInfoFunc = (C_Item and C_Item.GetItemInfo) or GetItemInfo
+                        local itemName = GetItemInfoFunc and GetItemInfoFunc(id)
+                        if itemName then
+                            table.insert(names, itemName)
+                        else
+                            if C_Item and C_Item.RequestLoadItemDataByID then
+                                C_Item.RequestLoadItemDataByID(id)
+                            end
+                            table.insert(names, "...")
+                        end
+                    else
+                        table.insert(names, id)
+                    end
+                end
+                v.herbsString = (ZLF_L and ZLF_L["PREFIX_HERBS"] or "Herbs: ") .. table.concat(names, ", ")
+            else
+                v.herbsString = (ZLF_L and ZLF_L["PREFIX_HERBS"] or "Herbs: ") .. v.herbs
+            end
         else
             v.herbsString = nil
         end
 
         if ZoneLevelForeverDB.showMining and v.mining then
-            v.miningString = "Mining: " .. v.mining
+            if type(v.mining) == "table" then
+                local names = {}
+                for _, id in ipairs(v.mining) do
+                    if type(id) == "number" then
+                        local GetItemInfoFunc = (C_Item and C_Item.GetItemInfo) or GetItemInfo
+                        local itemName = GetItemInfoFunc and GetItemInfoFunc(id)
+                        if itemName then
+                            table.insert(names, itemName)
+                        else
+                            if C_Item and C_Item.RequestLoadItemDataByID then
+                                C_Item.RequestLoadItemDataByID(id)
+                            end
+                            table.insert(names, "...")
+                        end
+                    else
+                        table.insert(names, id)
+                    end
+                end
+                v.miningString = (ZLF_L and ZLF_L["PREFIX_MINING"] or "Mining: ") .. table.concat(names, ", ")
+            else
+                v.miningString = (ZLF_L and ZLF_L["PREFIX_MINING"] or "Mining: ") .. v.mining
+            end
         else
             v.miningString = nil
         end
@@ -361,6 +464,7 @@ local function InitializeDB()
         if ZoneLevelForeverDB.colorMining == nil then ZoneLevelForeverDB.colorMining = {r = 0.8, g = 0.6, b = 0.2} end
         if ZoneLevelForeverDB.showMinimapPanel == nil then ZoneLevelForeverDB.showMinimapPanel = false end
     end
+    if ZLF_UpdateLocale then ZLF_UpdateLocale() end
 end
 
 local function CreateOptionsPanel()
@@ -369,7 +473,7 @@ local function CreateOptionsPanel()
     
     local title = panel:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
     title:SetPoint("TOPLEFT", 16, -16)
-    title:SetText("ZoneLevel: Forever Settings")
+    title:SetText(ZLF_L and ZLF_L["OPT_TITLE"] or "ZoneLevel: Forever Settings")
 
     local function CreateCheckbox(name, labelText, dbKey, yOffset)
         local cb = CreateFrame("CheckButton", name, panel, "InterfaceOptionsCheckButtonTemplate")
@@ -469,14 +573,14 @@ local function CreateOptionsPanel()
         return button
     end
 
-    CreateCheckbox("ZLF_CheckFishing", "Show Fishing Levels", "showFishing", -50)
-    CreateCheckbox("ZLF_CheckDungeons", "Show Dungeons & Raids", "showDungeons", -80)
-    CreateCheckbox("ZLF_CheckTransport", "Show Transportation Routes", "showTransport", -110)
-    CreateCheckbox("ZLF_CheckIcons", "Show Faction Icons", "showIcons", -140)
-    CreateCheckbox("ZLF_CheckWindow", "Use Dedicated Map Info Window", "useOwnWindow", -170)
-    CreateCheckbox("ZLF_CheckMinimapPanel", "Show Minimap Info Panel", "showMinimapPanel", -200)
-    CreateCheckbox("ZLF_CheckHerbs", "Show Herbalism Nodes list", "showHerbs", -230)
-    CreateCheckbox("ZLF_CheckMining", "Show Mining Ores list", "showMining", -260)
+    CreateCheckbox("ZLF_CheckFishing", ZLF_L and ZLF_L["OPT_SHOW_FISHING"] or "Show Fishing Levels", "showFishing", -50)
+    CreateCheckbox("ZLF_CheckDungeons", ZLF_L and ZLF_L["OPT_SHOW_DUNGEONS"] or "Show Dungeons", "showDungeons", -80)
+    CreateCheckbox("ZLF_CheckTransport", ZLF_L and ZLF_L["OPT_SHOW_TRANSPORT"] or "Show Transportation Routes", "showTransport", -110)
+    CreateCheckbox("ZLF_CheckIcons", ZLF_L and ZLF_L["OPT_SHOW_ICONS"] or "Show Faction Icons", "showIcons", -140)
+    CreateCheckbox("ZLF_CheckWindow", ZLF_L and ZLF_L["OPT_SHOW_WINDOW"] or "Use Dedicated Window", "useOwnWindow", -170)
+    CreateCheckbox("ZLF_CheckMinimapPanel", ZLF_L and ZLF_L["OPT_SHOW_MINIMAP"] or "Show Minimap Panel", "showMinimapPanel", -200)
+    CreateCheckbox("ZLF_CheckHerbs", ZLF_L and ZLF_L["OPT_SHOW_HERBS"] or "Show Herbs", "showHerbs", -230)
+    CreateCheckbox("ZLF_CheckMining", ZLF_L and ZLF_L["OPT_SHOW_MINING"] or "Show Mining", "showMining", -260)
 
     CreateSlider("ZLF_SliderLevel", "Level Font Size", "fontSizeLevel", 250, -60, 8, 24, 1)
     CreateSlider("ZLF_SliderFishing", "Fishing Font Size", "fontSizeFishing", 250, -100, 8, 24, 1)
@@ -540,10 +644,13 @@ local function CreateOptionsPanel()
         end
     end)
 
+    
+    
+
     local resetBtn = CreateFrame("Button", "ZLF_ResetBtn", panel, "UIPanelButtonTemplate")
     resetBtn:SetSize(150, 24)
-    resetBtn:SetPoint("TOPLEFT", 180, -290)
-    resetBtn:SetText("Reset Defaults")
+    resetBtn:SetPoint("TOPLEFT", 16, -330)
+    resetBtn:SetText(ZLF_L and ZLF_L["OPT_RESET"] or "Reset Defaults")
     resetBtn:SetScript("OnClick", function()
         ZoneLevelForeverDB = nil
         InitializeDB()
@@ -1067,7 +1174,12 @@ frame:RegisterEvent("PLAYER_LOGIN")
 frame:RegisterEvent("PLAYER_LEVEL_UP")
 frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 frame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+frame:RegisterEvent("GET_ITEM_INFO_RECEIVED")
 frame:SetScript("OnEvent", function(self, event, arg1)
+    if event == "GET_ITEM_INFO_RECEIVED" then
+        UpdateZoneStrings()
+        return
+    end
     if event == "ADDON_LOADED" and arg1 == "ZoneLevelForever" then
         InitializeDB()
         UpdateZoneStrings()
