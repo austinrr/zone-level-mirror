@@ -1,3 +1,4 @@
+local ZLF_WELCOME_VERSION = "1.7"
 -- Zone Level: Forever
 -- Standalone addon to show zone levels on the map
 
@@ -468,6 +469,7 @@ local function InitializeDB()
         if ZoneLevelForeverDB.colorMining == nil then ZoneLevelForeverDB.colorMining = {r = 0.8, g = 0.6, b = 0.2} end
         if ZoneLevelForeverDB.showMinimapPanel == nil then ZoneLevelForeverDB.showMinimapPanel = false end
         if ZoneLevelForeverDB.hideInCombat == nil then ZoneLevelForeverDB.hideInCombat = false end
+        if ZoneLevelForeverDB.lastSeenWelcomeVersion == nil then ZoneLevelForeverDB.lastSeenWelcomeVersion = "0.0.0" end
     end
     if ZLF_UpdateLocale then ZLF_UpdateLocale() end
 end
@@ -1203,6 +1205,59 @@ local function InitializeZoneLevelForever()
 end
 
 -- Event handling
+
+local ZLF_WelcomeFrame = nil
+local function ShowWelcomeWindow()
+    if ZLF_WelcomeFrame then
+        ZLF_WelcomeFrame:Show()
+        return
+    end
+
+    local frame = CreateFrame("Frame", "ZLF_WelcomeWindow", UIParent, "BackdropTemplate")
+    frame:SetSize(450, 320)
+    frame:SetPoint("CENTER", UIParent, "CENTER", 0, 100)
+    frame:SetFrameStrata("DIALOG")
+    
+    frame:SetBackdrop({
+        bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+        edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+        tile = true, tileSize = 32, edgeSize = 32,
+        insets = { left = 11, right = 12, top = 12, bottom = 11 }
+    })
+    
+    local header = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
+    header:SetPoint("TOP", 0, -20)
+    header:SetText("Welcome to Zone Level: Forever!")
+    header:SetTextColor(1, 0.82, 0)
+
+    local body = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+    body:SetPoint("TOPLEFT", 30, -60)
+    body:SetPoint("BOTTOMRIGHT", -30, 60)
+    body:SetJustifyH("LEFT")
+    body:SetJustifyV("TOP")
+    
+    local text = "Thank you so much for using Zone Level: Forever!\n\n"
+    text = text .. "I truly hope you enjoy the addon and that we will all meet together after the WoW: Forever beta is finished.\n\n"
+    text = text .. "|cffffff00Quick Tips:|r\n"
+    text = text .. "• Type |cff00ccff/zlf|r or click the World Map button to open the Settings.\n"
+    text = text .. "• Hold |cff00ccffShift|r and drag to freely move the World Map settings button.\n\n"
+    text = text .. "Also, if you want to easily highlight newly added quests, be sure to check out my other addon: |cff00ff00Forever Quests|r!\n\n"
+    text = text .. "If you have any feedback, dont be shy to comment on CurseForge page :)"
+    
+    body:SetText(text)
+    
+    local closeBtn = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
+    closeBtn:SetSize(120, 26)
+    closeBtn:SetPoint("BOTTOM", 0, 25)
+    closeBtn:SetText("Awesome, thanks!")
+    closeBtn:SetScript("OnClick", function()
+        ZoneLevelForeverDB.lastSeenWelcomeVersion = ZLF_WELCOME_VERSION
+        frame:Hide()
+    end)
+    
+    ZLF_WelcomeFrame = frame
+end
+
 local frame = CreateFrame("Frame")
 frame:RegisterEvent("ADDON_LOADED")
 frame:RegisterEvent("PLAYER_LOGIN")
@@ -1226,6 +1281,9 @@ frame:SetScript("OnEvent", function(self, event, arg1)
     elseif event == "PLAYER_LEVEL_UP" then
         UpdateZoneLevelColors()
     elseif event == "PLAYER_ENTERING_WORLD" or event == "ZONE_CHANGED_NEW_AREA" then
+        if event == "PLAYER_ENTERING_WORLD" and ZoneLevelForeverDB and ZoneLevelForeverDB.lastSeenWelcomeVersion ~= ZLF_WELCOME_VERSION then
+            ShowWelcomeWindow()
+        end
         UpdateMinimapPanel()
     elseif event == "PLAYER_REGEN_DISABLED" then
         if ZoneLevelForeverDB and ZoneLevelForeverDB.hideInCombat then
