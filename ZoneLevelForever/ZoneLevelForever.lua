@@ -110,6 +110,10 @@ local ZLF_MinimapPanel = nil
 
 function UpdateMinimapPanel()
     if not ZoneLevelForeverDB then return end
+    if ZoneLevelForeverDB.hideInCombat and (InCombatLockdown() or UnitAffectingCombat("player")) then
+        if ZLF_MinimapPanel and not ZLF_MinimapPanel.isTesting then ZLF_MinimapPanel:Hide() end
+        return
+    end
     
     if not ZoneLevelForeverDB.showMinimapPanel then
         if ZLF_MinimapPanel and not ZLF_MinimapPanel.isTesting then ZLF_MinimapPanel:Hide() end
@@ -463,6 +467,7 @@ local function InitializeDB()
         if ZoneLevelForeverDB.colorHerbs == nil then ZoneLevelForeverDB.colorHerbs = {r = 0.1, g = 1.0, b = 0.1} end
         if ZoneLevelForeverDB.colorMining == nil then ZoneLevelForeverDB.colorMining = {r = 0.8, g = 0.6, b = 0.2} end
         if ZoneLevelForeverDB.showMinimapPanel == nil then ZoneLevelForeverDB.showMinimapPanel = false end
+        if ZoneLevelForeverDB.hideInCombat == nil then ZoneLevelForeverDB.hideInCombat = false end
     end
     if ZLF_UpdateLocale then ZLF_UpdateLocale() end
 end
@@ -475,9 +480,9 @@ local function CreateOptionsPanel()
     title:SetPoint("TOPLEFT", 16, -16)
     title:SetText(ZLF_L and ZLF_L["OPT_TITLE"] or "ZoneLevel: Forever Settings")
 
-    local function CreateCheckbox(name, labelText, dbKey, yOffset)
+    local function CreateCheckbox(name, labelText, dbKey, yOffset, xOffset)
         local cb = CreateFrame("CheckButton", name, panel, "InterfaceOptionsCheckButtonTemplate")
-        cb:SetPoint("TOPLEFT", 16, yOffset)
+        cb:SetPoint("TOPLEFT", xOffset or 16, yOffset)
         _G[cb:GetName() .. "Text"]:SetText(labelText)
         cb:SetChecked(ZoneLevelForeverDB[dbKey])
         cb:SetScript("OnClick", function(self)
@@ -578,9 +583,31 @@ local function CreateOptionsPanel()
     CreateCheckbox("ZLF_CheckTransport", ZLF_L and ZLF_L["OPT_SHOW_TRANSPORT"] or "Show Transportation Routes", "showTransport", -110)
     CreateCheckbox("ZLF_CheckIcons", ZLF_L and ZLF_L["OPT_SHOW_ICONS"] or "Show Faction Icons", "showIcons", -140)
     CreateCheckbox("ZLF_CheckWindow", ZLF_L and ZLF_L["OPT_SHOW_WINDOW"] or "Use Dedicated Window", "useOwnWindow", -170)
-    CreateCheckbox("ZLF_CheckMinimapPanel", ZLF_L and ZLF_L["OPT_SHOW_MINIMAP"] or "Show Minimap Panel", "showMinimapPanel", -200)
-    CreateCheckbox("ZLF_CheckHerbs", ZLF_L and ZLF_L["OPT_SHOW_HERBS"] or "Show Herbs", "showHerbs", -230)
-    CreateCheckbox("ZLF_CheckMining", ZLF_L and ZLF_L["OPT_SHOW_MINING"] or "Show Mining", "showMining", -260)
+    local cbMinimap = CreateCheckbox("ZLF_CheckMinimapPanel", ZLF_L and ZLF_L["OPT_SHOW_MINIMAP"] or "Show Minimap Panel", "showMinimapPanel", -200)
+    local cbHideCombat = CreateCheckbox("ZLF_CheckHideInCombat", ZLF_L and ZLF_L["OPT_HIDE_IN_COMBAT"] or "Hide Current Zone Panel in Combat", "hideInCombat", -230, 36)
+    
+    local oldMinimapClick = cbMinimap:GetScript("OnClick")
+    cbMinimap:SetScript("OnClick", function(self)
+        oldMinimapClick(self)
+        if self:GetChecked() then
+            cbHideCombat:Enable()
+            _G[cbHideCombat:GetName().."Text"]:SetTextColor(1, 1, 1)
+        else
+            cbHideCombat:Disable()
+            _G[cbHideCombat:GetName().."Text"]:SetTextColor(0.5, 0.5, 0.5)
+        end
+    end)
+    
+    if cbMinimap:GetChecked() then
+        cbHideCombat:Enable()
+        _G[cbHideCombat:GetName().."Text"]:SetTextColor(1, 1, 1)
+    else
+        cbHideCombat:Disable()
+        _G[cbHideCombat:GetName().."Text"]:SetTextColor(0.5, 0.5, 0.5)
+    end
+
+    CreateCheckbox("ZLF_CheckHerbs", ZLF_L and ZLF_L["OPT_SHOW_HERBS"] or "Show Herbs", "showHerbs", -260)
+    CreateCheckbox("ZLF_CheckMining", ZLF_L and ZLF_L["OPT_SHOW_MINING"] or "Show Mining", "showMining", -290)
 
     CreateSlider("ZLF_SliderLevel", "Level Font Size", "fontSizeLevel", 250, -60, 8, 24, 1)
     CreateSlider("ZLF_SliderFishing", "Fishing Font Size", "fontSizeFishing", 250, -100, 8, 24, 1)
@@ -597,7 +624,7 @@ local function CreateOptionsPanel()
 
     local moveBtn = CreateFrame("Button", "ZLF_MoveWindowBtn", panel, "UIPanelButtonTemplate")
     moveBtn:SetSize(150, 24)
-    moveBtn:SetPoint("TOPLEFT", 16, -290)
+    moveBtn:SetPoint("TOPLEFT", 16, -320)
     moveBtn:SetText("Unlock Windows")
     moveBtn:SetScript("OnClick", function()
         if ZLF_InfoWindow and ZLF_InfoWindow.isTesting then
@@ -649,7 +676,7 @@ local function CreateOptionsPanel()
 
     local resetBtn = CreateFrame("Button", "ZLF_ResetBtn", panel, "UIPanelButtonTemplate")
     resetBtn:SetSize(150, 24)
-    resetBtn:SetPoint("TOPLEFT", 16, -330)
+    resetBtn:SetPoint("TOPLEFT", 16, -350)
     resetBtn:SetText(ZLF_L and ZLF_L["OPT_RESET"] or "Reset Defaults")
     resetBtn:SetScript("OnClick", function()
         ZoneLevelForeverDB = nil
@@ -724,6 +751,10 @@ end
 
 SLASH_ZONELEVELFOREVER1 = "/zlf"
 SlashCmdList["ZONELEVELFOREVER"] = function(msg)
+    if InCombatLockdown() then
+        print("|cffffff00ZoneLevel: Forever - Cannot open settings in combat.|r")
+        return
+    end
     if Settings and Settings.OpenToCategory and ZoneLevelForeverOptionsPanel.category then
         Settings.OpenToCategory(ZoneLevelForeverOptionsPanel.category:GetID())
     elseif InterfaceOptionsFrame_OpenToCategory then
@@ -1146,6 +1177,10 @@ local function InitializeZoneLevelForever()
         end)
 
         ZLF_MapButton:SetScript("OnClick", function()
+            if InCombatLockdown() then
+                print("|cffffff00ZoneLevel: Forever - Cannot open settings in combat.|r")
+                return
+            end
             if Settings and Settings.OpenToCategory and ZoneLevelForeverOptionsPanel.category then
                 Settings.OpenToCategory(ZoneLevelForeverOptionsPanel.category:GetID())
             elseif InterfaceOptionsFrame_OpenToCategory then
@@ -1175,6 +1210,8 @@ frame:RegisterEvent("PLAYER_LEVEL_UP")
 frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 frame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 frame:RegisterEvent("GET_ITEM_INFO_RECEIVED")
+    frame:RegisterEvent("PLAYER_REGEN_DISABLED")
+    frame:RegisterEvent("PLAYER_REGEN_ENABLED")
 frame:SetScript("OnEvent", function(self, event, arg1)
     if event == "GET_ITEM_INFO_RECEIVED" then
         UpdateZoneStrings()
@@ -1189,6 +1226,12 @@ frame:SetScript("OnEvent", function(self, event, arg1)
     elseif event == "PLAYER_LEVEL_UP" then
         UpdateZoneLevelColors()
     elseif event == "PLAYER_ENTERING_WORLD" or event == "ZONE_CHANGED_NEW_AREA" then
+        UpdateMinimapPanel()
+    elseif event == "PLAYER_REGEN_DISABLED" then
+        if ZoneLevelForeverDB and ZoneLevelForeverDB.hideInCombat then
+            if ZLF_MinimapPanel and not ZLF_MinimapPanel.isTesting then ZLF_MinimapPanel:Hide() end
+        end
+    elseif event == "PLAYER_REGEN_ENABLED" then
         UpdateMinimapPanel()
     end
 end)
