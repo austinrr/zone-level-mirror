@@ -8,11 +8,11 @@ local mapTable = {
     --[[Arathi Highlands]]		[1417] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821}, mining = {2771, 2775, 2772, 2776, 3858}},
     --[[Badlands]]				[1418] = {minLevel = 35, 	maxLevel = 45,		dungeons = {{id=1337, text=" (35-45)"}}, transport = "Boats: Steamwheedle Port", faction = "Contested", herbs = {3355, 3356, 3818, 3821, 4625}, mining = {2772, 2776, 3858, 7911}},
     --[[Blasted Lands]]			[1419] = {minLevel = 45, 	maxLevel = 55,                             faction = "Contested", herbs = {3818, 3821, 3358, 4625, 8838, 8846}, mining = {2772, 2776, 3858, 7911, 10620}},
-    --[[Burning Steppes]]		[1428] = {minLevel = 50, 	maxLevel = 58,		minFish = "330",       dungeons = {{id=17803, text=" (52-60)"}, {id=17804, text=" (55-60)"}, {id=2717, text=" (60)"}, {id=2677, text=" (60)"}}, faction = "Contested", herbs = {4625, 13464, 13463, 13465, 13468}, mining = {3858, 7911, 10620, 10620}},
+    --[[Burning Steppes]]		[1428] = {minLevel = 50, 	maxLevel = 58,		minFish = "330",       dungeons = {{id=17803, text=" (52-60)"}, {id=17804, text=" (55-60)"}, {id=2717, text=" (60)"}, {id=2677, text=" (60)"}}, faction = "Contested", herbs = {4625, 13464, 13463, 13465, 13468}, mining = {3858, 7911, 10620}},
     --[[Deadwind Pass]]			[1430] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", herbs = {13463, 13465}, mining = {3858, 7911, 10620}},
     --[[Dun Morogh]]			[1426] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = {{id=16919, text=" (13-18)"}, {id=721, text=" (24-34)"}}, transport = "Deeprun Tram: Stormwind", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
     --[[Duskwood]]				[1431] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        faction = "Contested", herbs = {785, 2450, 2453, 3369, 3356}, mining = {2770, 2771, 2775, 2772}},
-    --[[Eastern Plaguelands]]	[1423] = {minLevel = 53, 	maxLevel = 60,		minFish = "330",       dungeons = {{id=2017, text=" (55-60)"}, {id=3456, text=" (60)"}}, faction = "Contested", herbs = {8836, 8838, 13466, 13463, 13468}, mining = {3858, 7911, 10620, 10620}},
+    --[[Eastern Plaguelands]]	[1423] = {minLevel = 53, 	maxLevel = 60,		minFish = "330",       dungeons = {{id=2017, text=" (55-60)"}, {id=3456, text=" (60)"}}, faction = "Contested", herbs = {8836, 8838, 13466, 13463, 13468}, mining = {3858, 7911, 10620}},
     --[[Elwynn Forest]]			[1429] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Deeprun Tram: Ironforge", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
     --[[Hillsbrad Foothills]]	[1424] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        transport = "Boats: Auberdine", faction = "Contested", herbs = {785, 2450, 2453, 3356, 3357}, mining = {2770, 2771, 2775, 2772}},
     --[[Ironforge]]				[1455] = {minFish = 1,                                                 faction = "Alliance"},
@@ -27,12 +27,12 @@ local mapTable = {
     --[[Tirisfal Glades]]		[1420] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = {{id=16611, text=" (15-20)"}, {id=796, text=" (26-45)"}}, transport = "Zeppelins: Orgrimmar, Grom'gol", faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
     --[[Undercity]]				[1458] = {minFish = 1,                                                 faction = "Horde"},
     --[[Westfall]]				[1436] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = {{id=1581, text=" (15-25)"}}, faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450}, mining = {2770, 2771, 2775}},
-    --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		minFish = "205",       dungeons = {{id=2057, text=" (55-60)"}}, faction = "Contested", herbs = {8836, 8838, 13466, 13463}, mining = {3858, 7911, 10620, 10620}},
+    --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		minFish = "205",       dungeons = {{id=2057, text=" (55-60)"}}, faction = "Contested", herbs = {8836, 8838, 13466, 13463}, mining = {3858, 7911, 10620}},
     --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        dungeons = {{id=16732, text=" (24-29)"}}, transport = "Boats: Theramore, Auberdine", faction = "Contested", herbs = {2450, 2453, 3355, 3356, 3357}, mining = {2771, 2775, 2772}},
 
     -- Kalimdor
     --[[Ashenvale]]				[1440] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        dungeons = {{id=719, text=" (20-30)"}}, faction = "Contested", herbs = {785, 2450, 2453, 3356, 3357}, mining = {2770, 2771, 2775, 2772, 2776}},
-    --[[Azshara]]				[1447] = {minLevel = 45, 	maxLevel = 55,		minFish = "205 (330)", dungeons = {{text="Blackmaw Hold (55-60)"}}, faction = "Contested", herbs = {8838, 8831, 8846, 13463, 13465}, mining = {3858, 7911, 10620, 10620}},
+    --[[Azshara]]				[1447] = {minLevel = 45, 	maxLevel = 55,		minFish = "205 (330)", dungeons = {{text="Blackmaw Hold (55-60)"}}, faction = "Contested", herbs = {8838, 8831, 8846, 13463, 13465}, mining = {3858, 7911, 10620}},
     --[[Darkshore]]				[1439] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         transport = "Boats: Menethil Harbor, Rut'theran, Southshore", faction = "Alliance", herbs = {785, 2450, 3820}, mining = {2770, 2771, 2775}},
     --[[Darnassus]]				[1457] = {minFish = 1,                                                 faction = "Alliance"},
     --[[Desolace]]				[1443] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = {{id=2100, text=" (40-50)"}}, faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821}, mining = {2772, 2776, 3858, 7911}},
@@ -43,16 +43,16 @@ local mapTable = {
     --[[Moonglade]]				[1450] = {minFish = 205,                                               faction = "Sanctuary", herbs = {2447, 765, 2449}},
     --[[Mulgore]]				[1412] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
     --[[Orgrimmar]]				[1454] = {minFish = 1,                                                 dungeons = {{id=2437, text=" (13-18)"}}, faction = "Horde"},
-    --[[Silithus]]				[1451] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       dungeons = {{id=3429, text=" (60)"}, {id=3428, text=" (60)"}}, faction = "Contested", herbs = {8838, 13464, 13463, 13465, 13468}, mining = {3858, 7911, 10620, 10620}},
+    --[[Silithus]]				[1451] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       dungeons = {{id=3429, text=" (60)"}, {id=3428, text=" (60)"}}, faction = "Contested", herbs = {8838, 13464, 13463, 13465, 13468}, mining = {3858, 7911, 10620}},
     --[[Stonetalon Mountains]]	[1442] = {minLevel = 15, 	maxLevel = 27,		minFish = "55",        transport = "Sky Boats: Zephras Isle", faction = "Contested", herbs = {785, 2450, 2453, 3355}, mining = {2770, 2771, 2775, 2772}},
     --[[Tanaris]]				[1446] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       dungeons = {{id=978, text=" (42-52)"}}, transport = "Boats: Powderfuse Port", faction = "Contested", herbs = {4625, 8831}, mining = {2772, 2776, 3858, 7911, 10620}},
     --[[Teldrassil]]			[1438] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Boats: Auberdine", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
     --[[The Barrens]]			[1413] = {minLevel = 10, 	maxLevel = 25,		minFish = "1",         dungeons = {{id=718, text=" (15-25)"}, {id=491, text=" (25-35)"}, {id=722, text=" (35-45)"}}, transport = "Boats: Booty Bay", faction = "Horde", herbs = {785, 2450, 2453, 3820}, mining = {2770, 2771, 2775, 2772}},
     --[[Thousand Needles]]		[1441] = {minLevel = 25, 	maxLevel = 35,		minFish = "130",       faction = "Contested", herbs = {2453, 3355, 3356, 3357}, mining = {2771, 2775, 2772, 2776, 3858}},
     --[[Thunder Bluff]]			[1456] = {minFish = 1,                                                 faction = "Horde"},
-    --[[Un'Goro Crater]]		[1449] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       dungeons = {{text="Shaper's Terrace (58-60)"}}, faction = "Contested", herbs = {8839, 13465, 13464, 13468}, mining = {3858, 7911, 10620, 10620}},
-    --[[Winterspring]]			[1452] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", herbs = {13467, 13465, 13463, 13468}, mining = {3858, 7911, 10620, 10620}},
-    
+    --[[Un'Goro Crater]]		[1449] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       dungeons = {{text="Shaper's Terrace (58-60)"}}, faction = "Contested", herbs = {8839, 13465, 13464, 13468}, mining = {3858, 7911, 10620}},
+    --[[Winterspring]]			[1452] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", herbs = {13467, 13465, 13463, 13468}, mining = {3858, 7911, 10620}},
+
     -- Forever
     --[[Hyjal]]					[2482] = {minLevel = 60, 	maxLevel = 60,                             dungeons = {{id=2743, text=" (60)"}, {id=3277, text=" (60)"}}, faction = "Contested"},
     --[[Zephras Isle]]			[2521] = {minLevel = 1, 	maxLevel = 12,                             transport = "Sky Boats: Dalaran, Skywatcher Plateau", faction = "Contested"},
@@ -67,420 +67,380 @@ local factionIcons = {
     ["Sanctuary"] = "",
 }
 
+local FONT = "Fonts\\FRIZQT__.TTF"
+
+-- Info lines shown under the zone name, in display order
+local LINES = {
+    { text = "zifFishingText",   str = "fishingString",   size = "fontSizeFishing",   color = "colorFishing" },
+    { text = "zifDungeonText",   str = "dungeonString",   size = "fontSizeDungeons",  color = "colorDungeons" },
+    { text = "zifTransportText", str = "transportString", size = "fontSizeTransport", color = "colorTransport" },
+    { text = "zifHerbsText",     str = "herbsString",     size = "fontSizeHerbs",     color = "colorHerbs" },
+    { text = "zifMiningText",    str = "miningString",    size = "fontSizeMining",    color = "colorMining" },
+}
+
+local DEFAULTS = {
+    showFishing = true,
+    showDungeons = true,
+    showIcons = true,
+    showTransport = true,
+    useOwnWindow = false,
+    showMinimapPanel = false,
+    hideInCombat = false,
+    showHerbs = false,
+    showMining = false,
+    fontSizeLevel = 18,
+    fontSizeFishing = 18,
+    fontSizeDungeons = 18,
+    fontSizeTransport = 18,
+    fontSizeHerbs = 16,
+    fontSizeMining = 16,
+    colorFishing = {r = 1, g = 1, b = 1},
+    colorDungeons = {r = 1, g = 0.82, b = 0},
+    colorTransport = {r = 0, g = 0.8, b = 1},
+    colorHerbs = {r = 0.2, g = 0.8, b = 0.2},
+    colorMining = {r = 0.8, g = 0.4, b = 0.1},
+}
+
+local PANEL_BACKDROP = {
+    bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
+    edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+    tile = true, tileSize = 16, edgeSize = 16,
+    insets = { left = 4, right = 4, top = 4, bottom = 4 }
+}
+
 -- Optimization caching
 local lastCursorX, lastCursorY, lastName
+local lastHoveredMapID, lastHoveredName
+local QUERY_INTERVAL = 0.05
+local nextQueryTime = 0
 local zifTargetProvider = nil
 local ZIF_InfoWindow = nil
+local ZIF_MinimapPanel = nil
+local ZIF_MapButton = nil
 local C_Map_GetMapInfoAtPosition = C_Map.GetMapInfoAtPosition
 local MapUtil_FindBestAreaNameAtMouse = MapUtil.FindBestAreaNameAtMouse
+local GetItemName = (C_Item and C_Item.GetItemInfo) or GetItemInfo
+local RequestLoadItemDataByID = C_Item and C_Item.RequestLoadItemDataByID
+
+local eventFrame = CreateFrame("Frame")
+local UpdateMinimapPanel
+
+local function L(key, fallback)
+    return ZIF_L and ZIF_L[key] or fallback
+end
+
+-- Forces the map label to re-layout on the next frame (false differs from every map ID and from nil)
+local function InvalidateHover()
+    lastCursorX = nil
+    lastHoveredMapID = false
+end
+
+-- Font string helpers shared by the map label, info window and minimap panel
+
+local function CreateLineFontStrings(owner)
+    for _, line in ipairs(LINES) do
+        owner[line.text] = owner:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    end
+end
+
+local function ApplyLineStyles(owner)
+    for _, line in ipairs(LINES) do
+        local c = ZoneInfoForeverDB[line.color]
+        owner[line.text]:SetFont(FONT, ZoneInfoForeverDB[line.size], "OUTLINE")
+        owner[line.text]:SetTextColor(c.r, c.g, c.b)
+    end
+end
+
+local function HideLines(owner)
+    for _, line in ipairs(LINES) do
+        owner[line.text]:Hide()
+    end
+end
+
+-- Stacks the zone's info lines (owned by owner) inside a backdrop panel and sizes the panel to fit
+local function LayoutPanel(panel, owner, zoneData, name)
+    panel.header:SetText((zoneData.iconString or "") .. name .. (zoneData.levelString or ""))
+
+    local currentAnchor = panel.header
+    local maxWidth = panel.header:GetStringWidth()
+    local totalHeight = 15 + panel.header:GetStringHeight()
+
+    for _, line in ipairs(LINES) do
+        local fs = owner[line.text]
+        local s = zoneData[line.str]
+        if s and s ~= "" then
+            fs:SetParent(panel)
+            fs:SetJustifyH("LEFT")
+            fs:SetText(s)
+            fs:ClearAllPoints()
+            fs:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
+            fs:Show()
+            currentAnchor = fs
+            totalHeight = totalHeight + 6 + fs:GetStringHeight()
+            maxWidth = max(maxWidth, fs:GetStringWidth())
+        else
+            fs:Hide()
+        end
+    end
+
+    panel:SetSize(maxWidth + 24, totalHeight + 15)
+    panel:Show()
+end
+
+-- Shows the level next to the map's area label and stacks the info lines below it
+local function LayoutMapLabel(label, zoneData)
+    local currentAnchor = label.Name or (label.labels and label.labels[MAP_AREA_LABEL_TYPE.AREA_NAME])
+
+    label.zifLevelText:SetParent(label)
+    if zoneData.levelString and zoneData.levelString ~= "" then
+        label.zifLevelText:SetText(zoneData.levelString)
+        label.zifLevelText:ClearAllPoints()
+        label.zifLevelText:SetPoint("LEFT", currentAnchor, "RIGHT", 4, 0)
+        label.zifLevelText:Show()
+    else
+        label.zifLevelText:Hide()
+    end
+
+    for _, line in ipairs(LINES) do
+        local fs = label[line.text]
+        local s = zoneData[line.str]
+        if s and s ~= "" then
+            fs:SetParent(label)
+            fs:SetJustifyH("CENTER")
+            fs:SetText(s)
+            fs:ClearAllPoints()
+            fs:SetPoint("TOP", currentAnchor, "BOTTOM", 0, -4)
+            fs:Show()
+            currentAnchor = fs
+        else
+            fs:Hide()
+        end
+    end
+end
+
+local function CreateInfoPanel(name, parent, strata)
+    local panel = CreateFrame("Frame", name, parent, "BackdropTemplate")
+    panel:SetBackdrop(PANEL_BACKDROP)
+    panel:SetBackdropColor(0, 0, 0, 0.9)
+    panel:SetBackdropBorderColor(1, 1, 1, 0.5)
+    panel:SetMovable(true)
+    panel:EnableMouse(false)
+    panel:RegisterForDrag("LeftButton")
+    panel:SetScript("OnDragStart", panel.StartMoving)
+    panel:SetFrameStrata(strata)
+
+    panel.header = panel:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
+    panel.header:SetPoint("TOPLEFT", 12, -12)
+    return panel
+end
 
 local function UpdateZIF_FontStyles()
-    if not zifTargetProvider or not zifTargetProvider.Label then return end
-    local font = "Fonts\\FRIZQT__.TTF"
-    if zifTargetProvider.Label.zifLevelText then
-        zifTargetProvider.Label.zifLevelText:SetFont(font, ZoneInfoForeverDB.fontSizeLevel, "OUTLINE")
-        zifTargetProvider.Label.zifFishingText:SetFont(font, ZoneInfoForeverDB.fontSizeFishing, "OUTLINE")
-        zifTargetProvider.Label.zifDungeonText:SetFont(font, ZoneInfoForeverDB.fontSizeDungeons, "OUTLINE")
-        zifTargetProvider.Label.zifTransportText:SetFont(font, ZoneInfoForeverDB.fontSizeTransport, "OUTLINE")
-        if zifTargetProvider.Label.zifHerbsText then zifTargetProvider.Label.zifHerbsText:SetFont(font, ZoneInfoForeverDB.fontSizeHerbs, "OUTLINE") end
-        if zifTargetProvider.Label.zifMiningText then zifTargetProvider.Label.zifMiningText:SetFont(font, ZoneInfoForeverDB.fontSizeMining, "OUTLINE") end
-
-        local cF = ZoneInfoForeverDB.colorFishing
-        zifTargetProvider.Label.zifFishingText:SetTextColor(cF.r, cF.g, cF.b)
-        
-        local cD = ZoneInfoForeverDB.colorDungeons
-        zifTargetProvider.Label.zifDungeonText:SetTextColor(cD.r, cD.g, cD.b)
-        
-        local cT = ZoneInfoForeverDB.colorTransport
-        zifTargetProvider.Label.zifTransportText:SetTextColor(cT.r, cT.g, cT.b)
-
-        local cH = ZoneInfoForeverDB.colorHerbs
-        if zifTargetProvider.Label.zifHerbsText then zifTargetProvider.Label.zifHerbsText:SetTextColor(cH.r, cH.g, cH.b) end
-
-        local cM = ZoneInfoForeverDB.colorMining
-        if zifTargetProvider.Label.zifMiningText then zifTargetProvider.Label.zifMiningText:SetTextColor(cM.r, cM.g, cM.b) end
+    local label = zifTargetProvider and zifTargetProvider.Label
+    if label and label.zifLevelText then
+        label.zifLevelText:SetFont(FONT, ZoneInfoForeverDB.fontSizeLevel, "OUTLINE")
+        ApplyLineStyles(label)
     end
-    lastCursorX = nil -- force map update
+    if ZIF_MinimapPanel then ApplyLineStyles(ZIF_MinimapPanel) end
+    InvalidateHover()
     UpdateMinimapPanel()
+end
+
+-- Minimap Panel Logic
+
+local function GetMinimapPanel()
+    if ZIF_MinimapPanel then return ZIF_MinimapPanel end
+
+    local panel = CreateInfoPanel("ZIF_MinimapPanel", UIParent, "BACKGROUND")
+    panel:SetScript("OnDragStop", function(s)
+        s:StopMovingOrSizing()
+        local p, _, rp, x, y = s:GetPoint()
+        ZoneInfoForeverDB.minimapPanelPoint = p
+        ZoneInfoForeverDB.minimapPanelRelPoint = rp
+        ZoneInfoForeverDB.minimapPanelX = x
+        ZoneInfoForeverDB.minimapPanelY = y
+    end)
+
+    if ZoneInfoForeverDB.minimapPanelPoint then
+        panel:SetPoint(ZoneInfoForeverDB.minimapPanelPoint, UIParent, ZoneInfoForeverDB.minimapPanelRelPoint or ZoneInfoForeverDB.minimapPanelPoint, ZoneInfoForeverDB.minimapPanelX or 0, ZoneInfoForeverDB.minimapPanelY or 0)
+    else
+        panel:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -20, 20)
+    end
+
+    CreateLineFontStrings(panel)
+    ApplyLineStyles(panel)
+
+    ZIF_MinimapPanel = panel
+    return panel
+end
+
+function UpdateMinimapPanel()
+    if not ZoneInfoForeverDB then return end
+
+    local hidden = not ZoneInfoForeverDB.showMinimapPanel
+        or (ZoneInfoForeverDB.hideInCombat and (InCombatLockdown() or UnitAffectingCombat("player")))
+    if hidden then
+        if ZIF_MinimapPanel and not ZIF_MinimapPanel.isTesting then ZIF_MinimapPanel:Hide() end
+        return
+    end
+
+    local panel = GetMinimapPanel()
+    if panel.isTesting then return end
+
+    local mapID = C_Map.GetBestMapForUnit("player")
+    local mapInfo = mapID and C_Map.GetMapInfo(mapID)
+    local zoneData = mapInfo and mapTable[mapID]
+
+    if zoneData then
+        LayoutPanel(panel, panel, zoneData, mapInfo.name)
+    else
+        panel:Hide()
+    end
 end
 
 -- Configuration & String Builder
 
--- Minimap Panel Logic
-local ZIF_MinimapPanel = nil
+local TRANSPORT_PREFIXES = {
+    ["Boats:"] = "PREFIX_BOATS",
+    ["Sky Boats:"] = "PREFIX_SKY_BOATS",
+    ["Zeppelins:"] = "PREFIX_ZEPPELINS",
+    ["Deeprun Tram:"] = "PREFIX_TRAM",
+}
 
-function UpdateMinimapPanel()
-    if not ZoneInfoForeverDB then return end
-    if ZoneInfoForeverDB.hideInCombat and (InCombatLockdown() or UnitAffectingCombat("player")) then
-        if ZIF_MinimapPanel and not ZIF_MinimapPanel.isTesting then ZIF_MinimapPanel:Hide() end
-        return
-    end
-    
-    if not ZoneInfoForeverDB.showMinimapPanel then
-        if ZIF_MinimapPanel and not ZIF_MinimapPanel.isTesting then ZIF_MinimapPanel:Hide() end
-        return
-    end
-
-    if not ZIF_MinimapPanel then
-        ZIF_MinimapPanel = CreateFrame("Frame", "ZIF_MinimapPanel", UIParent, "BackdropTemplate")
-        ZIF_MinimapPanel:SetBackdrop({
-            bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
-            edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-            tile = true, tileSize = 16, edgeSize = 16,
-            insets = { left = 4, right = 4, top = 4, bottom = 4 }
-        })
-        ZIF_MinimapPanel:SetBackdropColor(0, 0, 0, 0.9)
-        ZIF_MinimapPanel:SetBackdropBorderColor(1, 1, 1, 0.5)
-        ZIF_MinimapPanel:SetMovable(true)
-        ZIF_MinimapPanel:EnableMouse(false)
-        ZIF_MinimapPanel:RegisterForDrag("LeftButton")
-        ZIF_MinimapPanel:SetScript("OnDragStart", ZIF_MinimapPanel.StartMoving)
-        ZIF_MinimapPanel:SetScript("OnDragStop", function(s)
-            s:StopMovingOrSizing()
-            local p, _, rp, x, y = s:GetPoint()
-            ZoneInfoForeverDB.minimapPanelPoint = p
-            ZoneInfoForeverDB.minimapPanelRelPoint = rp
-            ZoneInfoForeverDB.minimapPanelX = x
-            ZoneInfoForeverDB.minimapPanelY = y
-        end)
-        ZIF_MinimapPanel:SetFrameStrata("BACKGROUND")
-
-        if ZoneInfoForeverDB.minimapPanelPoint then
-            ZIF_MinimapPanel:SetPoint(ZoneInfoForeverDB.minimapPanelPoint, UIParent, ZoneInfoForeverDB.minimapPanelRelPoint or ZoneInfoForeverDB.minimapPanelPoint, ZoneInfoForeverDB.minimapPanelX or 0, ZoneInfoForeverDB.minimapPanelY or 0)
+-- Translates "Prefix: Dest1, Dest2" segments separated by a literal \n
+local function TranslateTransport(t)
+    local segments = {}
+    for segment in (t .. "\\n"):gmatch("(.-)\\n") do
+        local prefix, dests = segment:match("^(.-:)%s*(.*)$")
+        if prefix and TRANSPORT_PREFIXES[prefix] then
+            local names = {}
+            for rawDest in dests:gmatch("[^,]+") do
+                local dest = rawDest:match("^%s*(.-)%s*$")
+                names[#names + 1] = L("LOC_" .. dest, dest)
+            end
+            segments[#segments + 1] = L(TRANSPORT_PREFIXES[prefix], prefix) .. " " .. table.concat(names, ", ")
         else
-            ZIF_MinimapPanel:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -20, 20)
+            segments[#segments + 1] = segment
         end
-        
-        ZIF_MinimapPanel.header = ZIF_MinimapPanel:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
-        ZIF_MinimapPanel.header:SetPoint("TOPLEFT", 12, -12)
-
-        ZIF_MinimapPanel.zifFishingText = ZIF_MinimapPanel:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-        ZIF_MinimapPanel.zifDungeonText = ZIF_MinimapPanel:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-        ZIF_MinimapPanel.zifTransportText = ZIF_MinimapPanel:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-        ZIF_MinimapPanel.zifHerbsText = ZIF_MinimapPanel:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-        ZIF_MinimapPanel.zifMiningText = ZIF_MinimapPanel:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-        
-        ZIF_MinimapPanel.zifFishingText:SetJustifyH("LEFT")
-        ZIF_MinimapPanel.zifDungeonText:SetJustifyH("LEFT")
-        ZIF_MinimapPanel.zifTransportText:SetJustifyH("LEFT")
-        ZIF_MinimapPanel.zifHerbsText:SetJustifyH("LEFT")
-        ZIF_MinimapPanel.zifMiningText:SetJustifyH("LEFT")
     end
-    
-    if ZIF_MinimapPanel.isTesting then return end
+    return table.concat(segments, "\\n")
+end
 
-    local mapID = C_Map.GetBestMapForUnit("player")
-    if not mapID then 
-        ZIF_MinimapPanel:Hide()
-        return 
+local function BuildDungeonString(dungeons)
+    local names = {}
+    for i, d in ipairs(dungeons) do
+        local name = d.id and C_Map.GetAreaInfo(d.id)
+        if name then
+            if name ~= d.text then name = name .. (d.text or "") end
+        else
+            name = d.text or "???"
+            name = L("DUNGEON_" .. name, name)
+        end
+        names[i] = name
     end
-    
-    local mapInfo = C_Map.GetMapInfo(mapID)
-    if not mapInfo then
-        ZIF_MinimapPanel:Hide()
-        return
+    return table.concat(names, "\n")
+end
+
+-- Locale-dependent strings never change during a session, so they are built once
+local function BuildStaticStrings()
+    local fishingPrefix = L("PREFIX_FISHING", "Fishing: ")
+    for _, v in pairs(mapTable) do
+        v.fishingBase = v.minFish and (fishingPrefix .. v.minFish)
+        v.dungeonBase = v.dungeons and BuildDungeonString(v.dungeons)
+        v.transportBase = v.transport and TranslateTransport(v.transport)
     end
-    
-    local name = mapInfo.name
-    local zoneData = mapTable[mapID]
-    
-    if zoneData then
-        ZIF_MinimapPanel.header:SetText((zoneData.iconString or "") .. name .. (zoneData.levelString or ""))
-        
-        local font = "Fonts\\FRIZQT__.TTF"
-        ZIF_MinimapPanel.zifFishingText:SetFont(font, ZoneInfoForeverDB.fontSizeFishing, "OUTLINE")
-        ZIF_MinimapPanel.zifDungeonText:SetFont(font, ZoneInfoForeverDB.fontSizeDungeons, "OUTLINE")
-        ZIF_MinimapPanel.zifTransportText:SetFont(font, ZoneInfoForeverDB.fontSizeTransport, "OUTLINE")
-        ZIF_MinimapPanel.zifHerbsText:SetFont(font, ZoneInfoForeverDB.fontSizeHerbs, "OUTLINE")
-        ZIF_MinimapPanel.zifMiningText:SetFont(font, ZoneInfoForeverDB.fontSizeMining, "OUTLINE")
+end
 
-        local cF = ZoneInfoForeverDB.colorFishing
-        ZIF_MinimapPanel.zifFishingText:SetTextColor(cF.r, cF.g, cF.b)
-        local cD = ZoneInfoForeverDB.colorDungeons
-        ZIF_MinimapPanel.zifDungeonText:SetTextColor(cD.r, cD.g, cD.b)
-        local cT = ZoneInfoForeverDB.colorTransport
-        ZIF_MinimapPanel.zifTransportText:SetTextColor(cT.r, cT.g, cT.b)
-        local cH = ZoneInfoForeverDB.colorHerbs
-        ZIF_MinimapPanel.zifHerbsText:SetTextColor(cH.r, cH.g, cH.b)
-        local cM = ZoneInfoForeverDB.colorMining
-        ZIF_MinimapPanel.zifMiningText:SetTextColor(cM.r, cM.g, cM.b)
+local itemNames = {}
+local pendingItems = {}
 
-        local currentAnchor = ZIF_MinimapPanel.header
-        local maxWidth = ZIF_MinimapPanel.header:GetStringWidth()
-        local totalHeight = 15 + ZIF_MinimapPanel.header:GetStringHeight()
-        
-        if zoneData.fishingString and zoneData.fishingString ~= "" then
-            ZIF_MinimapPanel.zifFishingText:SetText(zoneData.fishingString)
-            ZIF_MinimapPanel.zifFishingText:ClearAllPoints()
-            ZIF_MinimapPanel.zifFishingText:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
-            ZIF_MinimapPanel.zifFishingText:Show()
-            currentAnchor = ZIF_MinimapPanel.zifFishingText
-            totalHeight = totalHeight + 6 + ZIF_MinimapPanel.zifFishingText:GetStringHeight()
-            maxWidth = max(maxWidth, ZIF_MinimapPanel.zifFishingText:GetStringWidth())
-        else
-            ZIF_MinimapPanel.zifFishingText:Hide()
+local function ItemListString(prefix, ids)
+    local names = {}
+    for i, id in ipairs(ids) do
+        local name = itemNames[id]
+        if not name then
+            name = GetItemName and GetItemName(id)
+            if name then
+                itemNames[id] = name
+            else
+                pendingItems[id] = true
+                if RequestLoadItemDataByID then RequestLoadItemDataByID(id) end
+                name = "..."
+            end
         end
-        
-        if zoneData.dungeonString and zoneData.dungeonString ~= "" then
-            ZIF_MinimapPanel.zifDungeonText:SetText(zoneData.dungeonString)
-            ZIF_MinimapPanel.zifDungeonText:ClearAllPoints()
-            ZIF_MinimapPanel.zifDungeonText:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
-            ZIF_MinimapPanel.zifDungeonText:Show()
-            currentAnchor = ZIF_MinimapPanel.zifDungeonText
-            totalHeight = totalHeight + 6 + ZIF_MinimapPanel.zifDungeonText:GetStringHeight()
-            maxWidth = max(maxWidth, ZIF_MinimapPanel.zifDungeonText:GetStringWidth())
-        else
-            ZIF_MinimapPanel.zifDungeonText:Hide()
-        end
-
-        if zoneData.transportString and zoneData.transportString ~= "" then
-            ZIF_MinimapPanel.zifTransportText:SetText(zoneData.transportString)
-            ZIF_MinimapPanel.zifTransportText:ClearAllPoints()
-            ZIF_MinimapPanel.zifTransportText:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
-            ZIF_MinimapPanel.zifTransportText:Show()
-            currentAnchor = ZIF_MinimapPanel.zifTransportText
-            totalHeight = totalHeight + 6 + ZIF_MinimapPanel.zifTransportText:GetStringHeight()
-            maxWidth = max(maxWidth, ZIF_MinimapPanel.zifTransportText:GetStringWidth())
-        else
-            ZIF_MinimapPanel.zifTransportText:Hide()
-        end
-        
-        if zoneData.herbsString and zoneData.herbsString ~= "" then
-            ZIF_MinimapPanel.zifHerbsText:SetText(zoneData.herbsString)
-            ZIF_MinimapPanel.zifHerbsText:ClearAllPoints()
-            ZIF_MinimapPanel.zifHerbsText:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
-            ZIF_MinimapPanel.zifHerbsText:Show()
-            currentAnchor = ZIF_MinimapPanel.zifHerbsText
-            totalHeight = totalHeight + 6 + ZIF_MinimapPanel.zifHerbsText:GetStringHeight()
-            maxWidth = max(maxWidth, ZIF_MinimapPanel.zifHerbsText:GetStringWidth())
-        else
-            ZIF_MinimapPanel.zifHerbsText:Hide()
-        end
-
-        if zoneData.miningString and zoneData.miningString ~= "" then
-            ZIF_MinimapPanel.zifMiningText:SetText(zoneData.miningString)
-            ZIF_MinimapPanel.zifMiningText:ClearAllPoints()
-            ZIF_MinimapPanel.zifMiningText:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
-            ZIF_MinimapPanel.zifMiningText:Show()
-            currentAnchor = ZIF_MinimapPanel.zifMiningText
-            totalHeight = totalHeight + 6 + ZIF_MinimapPanel.zifMiningText:GetStringHeight()
-            maxWidth = max(maxWidth, ZIF_MinimapPanel.zifMiningText:GetStringWidth())
-        else
-            ZIF_MinimapPanel.zifMiningText:Hide()
-        end
-        
-        ZIF_MinimapPanel:SetSize(maxWidth + 24, totalHeight + 15)
-        ZIF_MinimapPanel:Show()
-    else
-        ZIF_MinimapPanel:Hide()
+        names[i] = name
     end
+    return prefix .. table.concat(names, ", ")
 end
 
 local function UpdateZoneStrings()
-    if not ZoneInfoForeverDB then return end
-    
-    lastCursorX = nil -- Invalidate cache when settings change
-    
-    for k, v in pairs(mapTable) do
-        if ZoneInfoForeverDB.showIcons and v.faction and factionIcons[v.faction] then
-            v.iconString = factionIcons[v.faction]
-        else
-            v.iconString = ""
-        end
+    local db = ZoneInfoForeverDB
+    if not db then return end
 
-        if ZoneInfoForeverDB.showFishing and v.minFish then
-            v.fishingString = (ZIF_L and ZIF_L["PREFIX_FISHING"] or "Fishing: ") .. v.minFish
-        else
-            v.fishingString = nil
-        end
-        
-        if ZoneInfoForeverDB.showDungeons and v.dungeons then
-            if type(v.dungeons) == "table" then
-                local dNames = {}
-                for _, d in ipairs(v.dungeons) do
-                                        local name = d.id and C_Map.GetAreaInfo(d.id)
-                    if not name then 
-                        name = d.text or "???" 
-                        if ZIF_L and ZIF_L["DUNGEON_" .. name] then
-                            name = ZIF_L["DUNGEON_" .. name]
-                        end
-                    else
-                        if name ~= d.text then name = name .. (d.text or "") end
-                    end
-                    table.insert(dNames, name)
-                end
-                v.dungeonString = table.concat(dNames, "\n")
-            else
-                local d = v.dungeons
-                if ZIF_L then
-                    -- Translate known dungeon names if they exist in Locales
-                    for eng, loc in pairs(ZIF_L) do
-                        if type(eng) == "string" and type(loc) == "string" and eng ~= loc and string.match(eng, "^DUNGEON_") then
-                            d = string.gsub(d, string.sub(eng, 9), loc)
-                        end
-                    end
-                end
-                v.dungeonString = d
-            end
-        else
-            v.dungeonString = nil
-        end
-        
-        if ZoneInfoForeverDB.showTransport and v.transport then
-            if type(v.transport) == "table" then
-                local tNames = {}
-                for _, tInfo in ipairs(v.transport) do
-                    local prefixStr = tInfo.prefix
-                    if ZIF_L then
-                        prefixStr = string.gsub(prefixStr, "Boats:", ZIF_L["PREFIX_BOATS"] or "Boats:")
-                        prefixStr = string.gsub(prefixStr, "Sky Boats:", ZIF_L["PREFIX_SKY_BOATS"] or "Sky Boats:")
-                        prefixStr = string.gsub(prefixStr, "Zeppelins:", ZIF_L["PREFIX_ZEPPELINS"] or "Zeppelins:")
-                        prefixStr = string.gsub(prefixStr, "Deeprun Tram:", ZIF_L["PREFIX_TRAM"] or "Deeprun Tram:")
-                    end
-                    local destNames = {}
-                    for _, destId in ipairs(tInfo.dests) do
-                        local name = C_Map.GetAreaInfo(destId)
-                        if not name then name = "???" end
-                        table.insert(destNames, name)
-                    end
-                    table.insert(tNames, prefixStr .. " " .. table.concat(destNames, ", "))
-                end
-                v.transportString = table.concat(tNames, "\n")
-            else
-                local t = v.transport
-                if ZIF_L then
-                    t = string.gsub(t, "Boats:", ZIF_L["PREFIX_BOATS"] or "Boats:")
-                    t = string.gsub(t, "Sky Boats:", ZIF_L["PREFIX_SKY_BOATS"] or "Sky Boats:")
-                    t = string.gsub(t, "Zeppelins:", ZIF_L["PREFIX_ZEPPELINS"] or "Zeppelins:")
-                    t = string.gsub(t, "Deeprun Tram:", ZIF_L["PREFIX_TRAM"] or "Deeprun Tram:")
-                    
-                    -- Translate known locations if they exist in Locales
-                    for eng, loc in pairs(ZIF_L) do
-                        if type(eng) == "string" and type(loc) == "string" and eng ~= loc and string.match(eng, "^LOC_") then
-                            t = string.gsub(t, string.sub(eng, 5), loc)
-                        end
-                    end
-                end
-                v.transportString = t
-            end
-        else
-            v.transportString = nil
-        end
+    local herbsPrefix = L("PREFIX_HERBS", "Herbs: ")
+    local miningPrefix = L("PREFIX_MINING", "Mining: ")
 
-        if ZoneInfoForeverDB.showHerbs and v.herbs then
-            if type(v.herbs) == "table" then
-                local names = {}
-                for _, id in ipairs(v.herbs) do
-                    if type(id) == "number" then
-                        local GetItemInfoFunc = (C_Item and C_Item.GetItemInfo) or GetItemInfo
-                        local itemName = GetItemInfoFunc and GetItemInfoFunc(id)
-                        if itemName then
-                            table.insert(names, itemName)
-                        else
-                            if C_Item and C_Item.RequestLoadItemDataByID then
-                                C_Item.RequestLoadItemDataByID(id)
-                            end
-                            table.insert(names, "...")
-                        end
-                    else
-                        table.insert(names, id)
-                    end
-                end
-                v.herbsString = (ZIF_L and ZIF_L["PREFIX_HERBS"] or "Herbs: ") .. table.concat(names, ", ")
-            else
-                v.herbsString = (ZIF_L and ZIF_L["PREFIX_HERBS"] or "Herbs: ") .. v.herbs
-            end
-        else
-            v.herbsString = nil
-        end
-
-        if ZoneInfoForeverDB.showMining and v.mining then
-            if type(v.mining) == "table" then
-                local names = {}
-                for _, id in ipairs(v.mining) do
-                    if type(id) == "number" then
-                        local GetItemInfoFunc = (C_Item and C_Item.GetItemInfo) or GetItemInfo
-                        local itemName = GetItemInfoFunc and GetItemInfoFunc(id)
-                        if itemName then
-                            table.insert(names, itemName)
-                        else
-                            if C_Item and C_Item.RequestLoadItemDataByID then
-                                C_Item.RequestLoadItemDataByID(id)
-                            end
-                            table.insert(names, "...")
-                        end
-                    else
-                        table.insert(names, id)
-                    end
-                end
-                v.miningString = (ZIF_L and ZIF_L["PREFIX_MINING"] or "Mining: ") .. table.concat(names, ", ")
-            else
-                v.miningString = (ZIF_L and ZIF_L["PREFIX_MINING"] or "Mining: ") .. v.mining
-            end
-        else
-            v.miningString = nil
-        end
+    for _, v in pairs(mapTable) do
+        v.iconString = db.showIcons and factionIcons[v.faction] or ""
+        v.fishingString = db.showFishing and v.fishingBase or nil
+        v.dungeonString = db.showDungeons and v.dungeonBase or nil
+        v.transportString = db.showTransport and v.transportBase or nil
+        v.herbsString = db.showHerbs and v.herbs and ItemListString(herbsPrefix, v.herbs) or nil
+        v.miningString = db.showMining and v.mining and ItemListString(miningPrefix, v.mining) or nil
     end
+
+    -- Only listen for item data while some of our item names are still missing
+    if next(pendingItems) then
+        eventFrame:RegisterEvent("GET_ITEM_INFO_RECEIVED")
+    else
+        eventFrame:UnregisterEvent("GET_ITEM_INFO_RECEIVED")
+    end
+
+    InvalidateHover()
     UpdateMinimapPanel()
 end
 
+local rebuildQueued = false
+local function QueueZoneStringsRebuild()
+    if rebuildQueued then return end
+    rebuildQueued = true
+    C_Timer.After(0.2, function()
+        rebuildQueued = false
+        UpdateZoneStrings()
+    end)
+end
+
 local function InitializeDB()
-    if not ZoneInfoForeverDB then
-        ZoneInfoForeverDB = {
-            showFishing = true,
-            showDungeons = true,
-            showIcons = true,
-            showTransport = true,
-            useOwnWindow = false,
-            fontSizeLevel = 18,
-            fontSizeFishing = 18,
-            fontSizeDungeons = 18,
-            fontSizeTransport = 18,
-            colorFishing = {r = 1, g = 1, b = 1},
-            colorDungeons = {r = 1, g = 0.82, b = 0},
-            colorTransport = {r = 0, g = 0.8, b = 1},
-            showMinimapPanel = false,
-            showHerbs = false,
-            showMining = false,
-            fontSizeHerbs = 16,
-            fontSizeMining = 16,
-            colorHerbs = {r = 0.2, g = 0.8, b = 0.2},
-            colorMining = {r = 0.8, g = 0.4, b = 0.1},
-        }
-    else
-        -- Provide defaults for newly added fields
-        if ZoneInfoForeverDB.showFishing == nil then ZoneInfoForeverDB.showFishing = true end
-        if ZoneInfoForeverDB.showDungeons == nil then ZoneInfoForeverDB.showDungeons = true end
-        if ZoneInfoForeverDB.showIcons == nil then ZoneInfoForeverDB.showIcons = true end
-        if ZoneInfoForeverDB.showTransport == nil then ZoneInfoForeverDB.showTransport = true end
-        if ZoneInfoForeverDB.useOwnWindow == nil then ZoneInfoForeverDB.useOwnWindow = false end
-        if ZoneInfoForeverDB.showHerbs == nil then ZoneInfoForeverDB.showHerbs = false end
-        if ZoneInfoForeverDB.showMining == nil then ZoneInfoForeverDB.showMining = false end
-        if ZoneInfoForeverDB.fontSizeLevel == nil then ZoneInfoForeverDB.fontSizeLevel = 18 end
-        if ZoneInfoForeverDB.fontSizeFishing == nil then ZoneInfoForeverDB.fontSizeFishing = 18 end
-        if ZoneInfoForeverDB.fontSizeDungeons == nil then ZoneInfoForeverDB.fontSizeDungeons = 18 end
-        if ZoneInfoForeverDB.fontSizeTransport == nil then ZoneInfoForeverDB.fontSizeTransport = 18 end
-        if ZoneInfoForeverDB.fontSizeHerbs == nil then ZoneInfoForeverDB.fontSizeHerbs = 16 end
-        if ZoneInfoForeverDB.fontSizeMining == nil then ZoneInfoForeverDB.fontSizeMining = 16 end
-        if ZoneInfoForeverDB.colorFishing == nil then ZoneInfoForeverDB.colorFishing = {r = 1, g = 1, b = 1} end
-        if ZoneInfoForeverDB.colorDungeons == nil then ZoneInfoForeverDB.colorDungeons = {r = 1, g = 0.82, b = 0} end
-        if ZoneInfoForeverDB.colorTransport == nil then ZoneInfoForeverDB.colorTransport = {r = 0, g = 0.8, b = 1} end
-        if ZoneInfoForeverDB.colorHerbs == nil then ZoneInfoForeverDB.colorHerbs = {r = 0.1, g = 1.0, b = 0.1} end
-        if ZoneInfoForeverDB.colorMining == nil then ZoneInfoForeverDB.colorMining = {r = 0.8, g = 0.6, b = 0.2} end
-        if ZoneInfoForeverDB.showMinimapPanel == nil then ZoneInfoForeverDB.showMinimapPanel = false end
-        if ZoneInfoForeverDB.hideInCombat == nil then ZoneInfoForeverDB.hideInCombat = false end
-        if ZoneInfoForeverDB.lastSeenWelcomeVersion == nil then ZoneInfoForeverDB.lastSeenWelcomeVersion = "0.0.0" end
+    ZoneInfoForeverDB = ZoneInfoForeverDB or {}
+    for k, v in pairs(DEFAULTS) do
+        if ZoneInfoForeverDB[k] == nil then
+            ZoneInfoForeverDB[k] = type(v) == "table" and {r = v.r, g = v.g, b = v.b} or v
+        end
     end
-    if ZIF_UpdateLocale then ZIF_UpdateLocale() end
+end
+
+local function OpenSettings()
+    if InCombatLockdown() then
+        print("|cffffff00Zone Info: Forever - Cannot open settings in combat.|r")
+        return
+    end
+    if Settings and Settings.OpenToCategory and ZoneInfoForeverOptionsPanel.category then
+        Settings.OpenToCategory(ZoneInfoForeverOptionsPanel.category:GetID())
+    elseif InterfaceOptionsFrame_OpenToCategory then
+        InterfaceOptionsFrame_OpenToCategory(ZoneInfoForeverOptionsPanel)
+        InterfaceOptionsFrame_OpenToCategory(ZoneInfoForeverOptionsPanel) -- Repeated to fix Blizzard bug where it opens to wrong page initially
+    end
 end
 
 local function CreateOptionsPanel()
     local panel = CreateFrame("Frame", "ZoneInfoForeverOptionsPanel", UIParent)
     panel.name = "Zone Info: Forever"
-    
+
+    local checkboxes, sliders, swatches = {}, {}, {}
+    local unlocked = false
+
     local title = panel:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
     title:SetPoint("TOPLEFT", 16, -16)
-    title:SetText(ZIF_L and ZIF_L["OPT_TITLE"] or "Zone Info: Forever Settings")
+    title:SetText(L("OPT_TITLE", "Zone Info: Forever Settings"))
 
     local function CreateCheckbox(name, labelText, dbKey, yOffset, xOffset)
         local cb = CreateFrame("CheckButton", name, panel, "InterfaceOptionsCheckButtonTemplate")
@@ -491,6 +451,7 @@ local function CreateOptionsPanel()
             ZoneInfoForeverDB[dbKey] = self:GetChecked()
             UpdateZoneStrings()
         end)
+        checkboxes[dbKey] = cb
         return cb
     end
 
@@ -501,29 +462,29 @@ local function CreateOptionsPanel()
         slider:SetValueStep(step)
         slider:SetObeyStepOnDrag(true)
         slider:SetValue(ZoneInfoForeverDB[dbKey])
-        
-        _G[name .. "Text"]:SetText(labelText)
+
+        -- Current value goes in the title so nothing hangs below the slider
+        local title = _G[name .. "Text"]
+        title:SetText(labelText .. ": " .. ZoneInfoForeverDB[dbKey])
         _G[name .. "Low"]:SetText(minV)
         _G[name .. "High"]:SetText(maxV)
-
-        local valText = slider:CreateFontString(nil, "ARTWORK", "GameFontHighlightSmall")
-        valText:SetPoint("TOP", slider, "BOTTOM", 0, -3)
-        valText:SetText(ZoneInfoForeverDB[dbKey])
 
         slider:SetScript("OnValueChanged", function(self, value)
             local rounded = math.floor(value + 0.5)
             ZoneInfoForeverDB[dbKey] = rounded
-            valText:SetText(rounded)
+            title:SetText(labelText .. ": " .. rounded)
             UpdateZIF_FontStyles()
         end)
+        sliders[dbKey] = slider
         return slider
     end
 
-    local function CreateColorSwatch(name, labelText, dbKey, xOffset, yOffset)
+    -- Placed to the right of its slider so each row reads as one setting
+    local function CreateColorSwatch(name, labelText, dbKey, slider)
         local button = CreateFrame("Button", name, panel)
         button:SetSize(16, 16)
-        button:SetPoint("TOPLEFT", xOffset, yOffset)
-        
+        button:SetPoint("LEFT", slider, "RIGHT", 24, 0)
+
         local bg = button:CreateTexture(nil, "BACKGROUND")
         bg:SetSize(14, 14)
         bg:SetPoint("CENTER")
@@ -542,14 +503,14 @@ local function CreateOptionsPanel()
 
         button:SetScript("OnClick", function()
             local c = ZoneInfoForeverDB[dbKey]
-            
+
             local function OnColorChanged()
                 local r, g, b = ColorPickerFrame:GetColorRGB()
                 ZoneInfoForeverDB[dbKey] = {r = r, g = g, b = b}
                 button.tex:SetColorTexture(r, g, b)
                 UpdateZIF_FontStyles()
             end
-            
+
             local function OnColorCanceled()
                 ZoneInfoForeverDB[dbKey] = {r = c.r, g = c.g, b = c.b}
                 button.tex:SetColorTexture(c.r, c.g, c.b)
@@ -576,169 +537,147 @@ local function CreateOptionsPanel()
                 ColorPickerFrame:Show()
             end
         end)
-        
+
+        swatches[dbKey] = button
         return button
     end
 
-    CreateCheckbox("ZIF_CheckFishing", ZIF_L and ZIF_L["OPT_SHOW_FISHING"] or "Show Fishing Levels", "showFishing", -50)
-    CreateCheckbox("ZIF_CheckDungeons", ZIF_L and ZIF_L["OPT_SHOW_DUNGEONS"] or "Show Dungeons", "showDungeons", -80)
-    CreateCheckbox("ZIF_CheckTransport", ZIF_L and ZIF_L["OPT_SHOW_TRANSPORT"] or "Show Transportation Routes", "showTransport", -110)
-    CreateCheckbox("ZIF_CheckIcons", ZIF_L and ZIF_L["OPT_SHOW_ICONS"] or "Show Faction Icons", "showIcons", -140)
-    CreateCheckbox("ZIF_CheckWindow", ZIF_L and ZIF_L["OPT_SHOW_WINDOW"] or "Use Dedicated Window", "useOwnWindow", -170)
-    local cbMinimap = CreateCheckbox("ZIF_CheckMinimapPanel", ZIF_L and ZIF_L["OPT_SHOW_MINIMAP"] or "Show Minimap Panel", "showMinimapPanel", -200)
-    local cbHideCombat = CreateCheckbox("ZIF_CheckHideInCombat", ZIF_L and ZIF_L["OPT_HIDE_IN_COMBAT"] or "Hide Current Zone Panel in Combat", "hideInCombat", -230, 36)
-    
-    local oldMinimapClick = cbMinimap:GetScript("OnClick")
-    cbMinimap:SetScript("OnClick", function(self)
-        oldMinimapClick(self)
-        if self:GetChecked() then
+    CreateCheckbox("ZIF_CheckFishing", L("OPT_SHOW_FISHING", "Show Fishing Levels"), "showFishing", -50)
+    CreateCheckbox("ZIF_CheckDungeons", L("OPT_SHOW_DUNGEONS", "Show Dungeons"), "showDungeons", -80)
+    CreateCheckbox("ZIF_CheckTransport", L("OPT_SHOW_TRANSPORT", "Show Transportation Routes"), "showTransport", -110)
+    CreateCheckbox("ZIF_CheckIcons", L("OPT_SHOW_ICONS", "Show Faction Icons"), "showIcons", -140)
+    CreateCheckbox("ZIF_CheckWindow", L("OPT_SHOW_WINDOW", "Use Dedicated Window"), "useOwnWindow", -170)
+    local cbMinimap = CreateCheckbox("ZIF_CheckMinimapPanel", L("OPT_SHOW_MINIMAP", "Show Minimap Panel"), "showMinimapPanel", -200)
+    local cbHideCombat = CreateCheckbox("ZIF_CheckHideInCombat", L("OPT_HIDE_IN_COMBAT", "Hide Current Zone Panel in Combat"), "hideInCombat", -230, 36)
+
+    local function RefreshHideCombatState()
+        local label = _G[cbHideCombat:GetName() .. "Text"]
+        if ZoneInfoForeverDB.showMinimapPanel then
             cbHideCombat:Enable()
-            _G[cbHideCombat:GetName().."Text"]:SetTextColor(1, 1, 1)
+            label:SetTextColor(1, 1, 1)
         else
             cbHideCombat:Disable()
-            _G[cbHideCombat:GetName().."Text"]:SetTextColor(0.5, 0.5, 0.5)
+            label:SetTextColor(0.5, 0.5, 0.5)
         end
-    end)
-    
-    if cbMinimap:GetChecked() then
-        cbHideCombat:Enable()
-        _G[cbHideCombat:GetName().."Text"]:SetTextColor(1, 1, 1)
-    else
-        cbHideCombat:Disable()
-        _G[cbHideCombat:GetName().."Text"]:SetTextColor(0.5, 0.5, 0.5)
     end
 
-    CreateCheckbox("ZIF_CheckHerbs", ZIF_L and ZIF_L["OPT_SHOW_HERBS"] or "Show Herbs", "showHerbs", -260)
-    CreateCheckbox("ZIF_CheckMining", ZIF_L and ZIF_L["OPT_SHOW_MINING"] or "Show Mining", "showMining", -290)
+    cbMinimap:HookScript("OnClick", RefreshHideCombatState)
+    RefreshHideCombatState()
 
-    CreateSlider("ZIF_SliderLevel", "Level Font Size", "fontSizeLevel", 250, -60, 8, 24, 1)
-    CreateSlider("ZIF_SliderFishing", "Fishing Font Size", "fontSizeFishing", 250, -100, 8, 24, 1)
-    CreateSlider("ZIF_SliderDungeons", "Dungeons Font Size", "fontSizeDungeons", 250, -140, 8, 24, 1)
-    CreateSlider("ZIF_SliderTransport", "Transport Font Size", "fontSizeTransport", 250, -180, 8, 24, 1)
-    CreateSlider("ZIF_SliderHerbs", "Herbs Font Size", "fontSizeHerbs", 250, -220, 8, 24, 1)
-    CreateSlider("ZIF_SliderMining", "Mining Font Size", "fontSizeMining", 250, -260, 8, 24, 1)
+    CreateCheckbox("ZIF_CheckHerbs", L("OPT_SHOW_HERBS", "Show Herbs"), "showHerbs", -260)
+    CreateCheckbox("ZIF_CheckMining", L("OPT_SHOW_MINING", "Show Mining"), "showMining", -290)
 
-    CreateColorSwatch("ZIF_ColorFishing", "Fishing Color", "colorFishing", 420, -100)
-    CreateColorSwatch("ZIF_ColorDungeons", "Dungeons Color", "colorDungeons", 420, -140)
-    CreateColorSwatch("ZIF_ColorTransport", "Transport Color", "colorTransport", 420, -180)
-    CreateColorSwatch("ZIF_ColorHerbs", "Herbs Color", "colorHerbs", 420, -220)
-    CreateColorSwatch("ZIF_ColorMining", "Mining Color", "colorMining", 420, -260)
+    -- Right column: one row per text type, slider with its color swatch beside it
+    local SLIDER_X, SLIDER_TOP, SLIDER_ROW = 340, -70, 50
+    local function RowY(row) return SLIDER_TOP - (row - 1) * SLIDER_ROW end
+
+    CreateSlider("ZIF_SliderLevel", "Level Font Size", "fontSizeLevel", SLIDER_X, RowY(1), 8, 24, 1)
+    local sFishing = CreateSlider("ZIF_SliderFishing", "Fishing Font Size", "fontSizeFishing", SLIDER_X, RowY(2), 8, 24, 1)
+    local sDungeons = CreateSlider("ZIF_SliderDungeons", "Dungeons Font Size", "fontSizeDungeons", SLIDER_X, RowY(3), 8, 24, 1)
+    local sTransport = CreateSlider("ZIF_SliderTransport", "Transport Font Size", "fontSizeTransport", SLIDER_X, RowY(4), 8, 24, 1)
+    local sHerbs = CreateSlider("ZIF_SliderHerbs", "Herbs Font Size", "fontSizeHerbs", SLIDER_X, RowY(5), 8, 24, 1)
+    local sMining = CreateSlider("ZIF_SliderMining", "Mining Font Size", "fontSizeMining", SLIDER_X, RowY(6), 8, 24, 1)
+
+    CreateColorSwatch("ZIF_ColorFishing", "Fishing Color", "colorFishing", sFishing)
+    CreateColorSwatch("ZIF_ColorDungeons", "Dungeons Color", "colorDungeons", sDungeons)
+    CreateColorSwatch("ZIF_ColorTransport", "Transport Color", "colorTransport", sTransport)
+    CreateColorSwatch("ZIF_ColorHerbs", "Herbs Color", "colorHerbs", sHerbs)
+    CreateColorSwatch("ZIF_ColorMining", "Mining Color", "colorMining", sMining)
 
     local moveBtn = CreateFrame("Button", "ZIF_MoveWindowBtn", panel, "UIPanelButtonTemplate")
     moveBtn:SetSize(150, 24)
-    moveBtn:SetPoint("TOPLEFT", 16, -320)
+    moveBtn:SetPoint("TOPLEFT", 16, -345)
     moveBtn:SetText("Unlock Windows")
-    moveBtn:SetScript("OnClick", function()
-        if ZIF_InfoWindow and ZIF_InfoWindow.isTesting then
+
+    local function LockWindows()
+        unlocked = false
+        if ZIF_InfoWindow then
             ZIF_InfoWindow.isTesting = false
             ZIF_InfoWindow:EnableMouse(false)
             ZIF_InfoWindow:Hide()
-            if ZIF_MinimapPanel then
-                ZIF_MinimapPanel.isTesting = false
-                ZIF_MinimapPanel:EnableMouse(false)
-                UpdateMinimapPanel()
-            end
-            moveBtn:SetText("Unlock Windows")
-        else
-            ZoneInfoForeverDB.useOwnWindow = true
-            _G["ZIF_CheckWindow"]:SetChecked(true)
-            ZoneInfoForeverDB.showMinimapPanel = true
-            _G["ZIF_CheckMinimapPanel"]:SetChecked(true)
-            
-            if ZIF_InfoWindow then
-                ZIF_InfoWindow.header:SetText("Drag Me (Map)!")
-                if zifTargetProvider and zifTargetProvider.Label then
-                    zifTargetProvider.Label.zifLevelText:Hide()
-                    zifTargetProvider.Label.zifFishingText:Hide()
-                    zifTargetProvider.Label.zifDungeonText:Hide()
-                    zifTargetProvider.Label.zifTransportText:Hide()
-                end
-                ZIF_InfoWindow:SetSize(200, 80)
-                ZIF_InfoWindow.isTesting = true
-                ZIF_InfoWindow:EnableMouse(true)
-                ZIF_InfoWindow:Show()
-            end
-            
-            if ZIF_MinimapPanel then
-                ZIF_MinimapPanel.isTesting = true
-                ZIF_MinimapPanel:EnableMouse(true)
-                ZIF_MinimapPanel.header:SetText("Drag Me (Minimap)!")
-                ZIF_MinimapPanel.zifFishingText:Hide()
-                ZIF_MinimapPanel.zifDungeonText:Hide()
-                ZIF_MinimapPanel.zifTransportText:Hide()
-                ZIF_MinimapPanel:SetSize(200, 80)
-                ZIF_MinimapPanel:Show()
-            end
-            moveBtn:SetText("Lock Windows")
         end
-    end)
+        if ZIF_MinimapPanel then
+            ZIF_MinimapPanel.isTesting = false
+            ZIF_MinimapPanel:EnableMouse(false)
+        end
+        moveBtn:SetText("Unlock Windows")
+        InvalidateHover()
+        UpdateMinimapPanel()
+    end
 
-    
-    
+    moveBtn:SetScript("OnClick", function()
+        if unlocked then
+            LockWindows()
+            return
+        end
+
+        unlocked = true
+        ZoneInfoForeverDB.useOwnWindow = true
+        checkboxes.useOwnWindow:SetChecked(true)
+        ZoneInfoForeverDB.showMinimapPanel = true
+        checkboxes.showMinimapPanel:SetChecked(true)
+        RefreshHideCombatState()
+
+        if ZIF_InfoWindow then
+            local label = zifTargetProvider and zifTargetProvider.Label
+            if label and label.zifLevelText then
+                label.zifLevelText:Hide()
+                HideLines(label)
+            end
+            ZIF_InfoWindow.header:SetText("Drag Me (Map)!")
+            ZIF_InfoWindow:SetSize(200, 80)
+            ZIF_InfoWindow.isTesting = true
+            ZIF_InfoWindow:EnableMouse(true)
+            ZIF_InfoWindow:Show()
+        end
+
+        UpdateMinimapPanel() -- creates the panel if it was never shown before
+        if ZIF_MinimapPanel then
+            ZIF_MinimapPanel.isTesting = true
+            ZIF_MinimapPanel:EnableMouse(true)
+            ZIF_MinimapPanel.header:SetText("Drag Me (Minimap)!")
+            HideLines(ZIF_MinimapPanel)
+            ZIF_MinimapPanel:SetSize(200, 80)
+            ZIF_MinimapPanel:Show()
+        end
+        moveBtn:SetText("Lock Windows")
+    end)
 
     local resetBtn = CreateFrame("Button", "ZIF_ResetBtn", panel, "UIPanelButtonTemplate")
     resetBtn:SetSize(150, 24)
-    resetBtn:SetPoint("TOPLEFT", 16, -350)
-    resetBtn:SetText(ZIF_L and ZIF_L["OPT_RESET"] or "Reset Defaults")
+    resetBtn:SetPoint("TOPLEFT", 16, -377)
+    resetBtn:SetText(L("OPT_RESET", "Reset Defaults"))
     resetBtn:SetScript("OnClick", function()
+        local lastSeenWelcomeVersion = ZoneInfoForeverDB.lastSeenWelcomeVersion
         ZoneInfoForeverDB = nil
         InitializeDB()
-        
-        _G["ZIF_CheckFishing"]:SetChecked(ZoneInfoForeverDB.showFishing)
-        _G["ZIF_CheckDungeons"]:SetChecked(ZoneInfoForeverDB.showDungeons)
-        _G["ZIF_CheckTransport"]:SetChecked(ZoneInfoForeverDB.showTransport)
-        _G["ZIF_CheckIcons"]:SetChecked(ZoneInfoForeverDB.showIcons)
-        _G["ZIF_CheckWindow"]:SetChecked(ZoneInfoForeverDB.useOwnWindow)
-        _G["ZIF_CheckMinimapPanel"]:SetChecked(ZoneInfoForeverDB.showMinimapPanel)
-        _G["ZIF_CheckHerbs"]:SetChecked(ZoneInfoForeverDB.showHerbs)
-        _G["ZIF_CheckMining"]:SetChecked(ZoneInfoForeverDB.showMining)
+        ZoneInfoForeverDB.lastSeenWelcomeVersion = lastSeenWelcomeVersion
 
-        _G["ZIF_SliderLevel"]:SetValue(ZoneInfoForeverDB.fontSizeLevel)
-        _G["ZIF_SliderFishing"]:SetValue(ZoneInfoForeverDB.fontSizeFishing)
-        _G["ZIF_SliderDungeons"]:SetValue(ZoneInfoForeverDB.fontSizeDungeons)
-        _G["ZIF_SliderTransport"]:SetValue(ZoneInfoForeverDB.fontSizeTransport)
-        _G["ZIF_SliderHerbs"]:SetValue(ZoneInfoForeverDB.fontSizeHerbs)
-        _G["ZIF_SliderMining"]:SetValue(ZoneInfoForeverDB.fontSizeMining)
-
-        local cf = ZoneInfoForeverDB.colorFishing
-        _G["ZIF_ColorFishing"].tex:SetColorTexture(cf.r, cf.g, cf.b)
-        local cd = ZoneInfoForeverDB.colorDungeons
-        _G["ZIF_ColorDungeons"].tex:SetColorTexture(cd.r, cd.g, cd.b)
-        local ct = ZoneInfoForeverDB.colorTransport
-        _G["ZIF_ColorTransport"].tex:SetColorTexture(ct.r, ct.g, ct.b)
-        local ch = ZoneInfoForeverDB.colorHerbs
-        if ch and _G["ZIF_ColorHerbs"] then _G["ZIF_ColorHerbs"].tex:SetColorTexture(ch.r, ch.g, ch.b) end
-        local cm = ZoneInfoForeverDB.colorMining
-        if cm and _G["ZIF_ColorMining"] then _G["ZIF_ColorMining"].tex:SetColorTexture(cm.r, cm.g, cm.b) end
+        for dbKey, cb in pairs(checkboxes) do cb:SetChecked(ZoneInfoForeverDB[dbKey]) end
+        RefreshHideCombatState()
+        for dbKey, slider in pairs(sliders) do slider:SetValue(ZoneInfoForeverDB[dbKey]) end
+        for dbKey, button in pairs(swatches) do
+            local c = ZoneInfoForeverDB[dbKey]
+            button.tex:SetColorTexture(c.r, c.g, c.b)
+        end
 
         if ZIF_InfoWindow then
             ZIF_InfoWindow:ClearAllPoints()
             local parentAnchor = WorldMapFrame.ScrollContainer or WorldMapFrame
             ZIF_InfoWindow:SetPoint("BOTTOMRIGHT", parentAnchor, "BOTTOMRIGHT", -10, 60)
-            if ZIF_InfoWindow.isTesting then
-                ZIF_InfoWindow.isTesting = false
-                ZIF_InfoWindow:EnableMouse(false)
-                ZIF_InfoWindow:Hide()
-                _G["ZIF_MoveWindowBtn"]:SetText("Unlock Windows")
-            end
         end
         if ZIF_MinimapPanel then
             ZIF_MinimapPanel:ClearAllPoints()
             ZIF_MinimapPanel:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -20, 20)
-            if ZIF_MinimapPanel.isTesting then
-                ZIF_MinimapPanel.isTesting = false
-                ZIF_MinimapPanel:EnableMouse(false)
-            end
         end
-
         if ZIF_MapButton then
             ZIF_MapButton:ClearAllPoints()
             ZIF_MapButton:SetPoint("BOTTOMLEFT", WorldMapFrame, "BOTTOMLEFT", 10, 10)
         end
 
+        LockWindows()
         UpdateZoneStrings()
         UpdateZIF_FontStyles()
-        UpdateMinimapPanel()
     end)
 
     -- Integrate into Blizzard Interface Options
@@ -752,24 +691,13 @@ local function CreateOptionsPanel()
 end
 
 SLASH_ZONEINFOFOREVER1 = "/zif"
-SlashCmdList["ZONEINFOFOREVER"] = function(msg)
-    if InCombatLockdown() then
-        print("|cffffff00Zone Info: Forever - Cannot open settings in combat.|r")
-        return
-    end
-    if Settings and Settings.OpenToCategory and ZoneInfoForeverOptionsPanel.category then
-        Settings.OpenToCategory(ZoneInfoForeverOptionsPanel.category:GetID())
-    elseif InterfaceOptionsFrame_OpenToCategory then
-        InterfaceOptionsFrame_OpenToCategory(ZoneInfoForeverOptionsPanel)
-        InterfaceOptionsFrame_OpenToCategory(ZoneInfoForeverOptionsPanel) -- Repeated to fix Blizzard bug where it opens to wrong page initially
-    end
-end
+SlashCmdList["ZONEINFOFOREVER"] = OpenSettings
 
 -- Update zone level colors based on current player level
-local function UpdateZoneInfoColors()
-    lastCursorX = nil -- Invalidate cache when colors change
-    local currentLevel = UnitLevel("player")
-    for k, v in pairs(mapTable) do
+local function UpdateZoneInfoColors(level)
+    InvalidateHover()
+    local currentLevel = level or UnitLevel("player")
+    for _, v in pairs(mapTable) do
         if v.minLevel and v.maxLevel then
             local color
             if currentLevel < v.minLevel then
@@ -779,7 +707,7 @@ local function UpdateZoneInfoColors()
             else
                 color = QuestDifficultyColors["difficult"]
             end
-            
+
             -- Convert RGB table to Hex string safely
             if type(color) == "table" then
                 local r = math.floor((color.r or 1) * 255 + 0.5)
@@ -801,236 +729,103 @@ local function UpdateZoneInfoColors()
     end
 end
 
-local lastHoveredMapID = nil
+local function HideZoneInfo(label)
+    if ZIF_InfoWindow and not ZIF_InfoWindow.isTesting then ZIF_InfoWindow:Hide() end
+    if label.zifLevelText then
+        label.zifLevelText:Hide()
+        HideLines(label)
+    end
+end
+
+-- Lays out the zone info and returns the text to use for the map's area label
+local function ShowZoneInfo(label, zoneData, name)
+    if ZoneInfoForeverDB.useOwnWindow then
+        label.zifLevelText:Hide()
+        if ZIF_InfoWindow then LayoutPanel(ZIF_InfoWindow, label, zoneData, name) end
+        return name
+    end
+
+    if ZIF_InfoWindow and not ZIF_InfoWindow.isTesting then ZIF_InfoWindow:Hide() end
+    LayoutMapLabel(label, zoneData)
+    return (zoneData.iconString or "") .. name
+end
 
 -- Hook AreaLabelFrameMixin.OnUpdate
 local function AreaLabelOnUpdate(self)
     local map = self.dataProvider:GetMap()
-    if map:IsCanvasMouseFocus() then
-        local normalizedCursorX, normalizedCursorY = map:GetNormalizedCursorPosition()
-        
-        if lastCursorX == normalizedCursorX and lastCursorY == normalizedCursorY then
-            if lastName then
-                self:SetLabel(MAP_AREA_LABEL_TYPE.AREA_NAME, lastName, nil)
-            end
-        else
-            lastCursorX, lastCursorY = normalizedCursorX, normalizedCursorY
-            local name
-            local mapID = map:GetMapID()
-            local positionMapInfo = C_Map_GetMapInfoAtPosition(mapID, normalizedCursorX, normalizedCursorY)
-            local hoveredMapID = positionMapInfo and positionMapInfo.mapID or nil
-
-            if hoveredMapID and hoveredMapID ~= mapID then
-                name = positionMapInfo.name
-                if hoveredMapID ~= lastHoveredMapID then
-                    lastHoveredMapID = hoveredMapID
-                    local zoneData = mapTable[hoveredMapID]
-                    
-                    if zoneData then
-                        self.zifLevelText:SetText(zoneData.levelString)
-                        self.zifFishingText:SetText(zoneData.fishingString)
-                        self.zifDungeonText:SetText(zoneData.dungeonString)
-                        self.zifTransportText:SetText(zoneData.transportString)
-                        self.zifHerbsText:SetText(zoneData.herbsString)
-                        self.zifMiningText:SetText(zoneData.miningString)
-                        
-                        if ZoneInfoForeverDB.useOwnWindow then
-                            if ZIF_InfoWindow then
-                                ZIF_InfoWindow.header:SetText((zoneData.iconString or "") .. name .. (zoneData.levelString or ""))
-                                self.zifLevelText:Hide()
-                                
-                                local currentAnchor = ZIF_InfoWindow.header
-                                local maxWidth = ZIF_InfoWindow.header:GetStringWidth()
-                                local totalHeight = 15 + ZIF_InfoWindow.header:GetStringHeight()
-                                
-                                self.zifFishingText:SetParent(ZIF_InfoWindow)
-                                self.zifDungeonText:SetParent(ZIF_InfoWindow)
-                                self.zifTransportText:SetParent(ZIF_InfoWindow)
-                                self.zifHerbsText:SetParent(ZIF_InfoWindow)
-                                self.zifMiningText:SetParent(ZIF_InfoWindow)
-
-                                self.zifFishingText:SetJustifyH("LEFT")
-                                self.zifDungeonText:SetJustifyH("LEFT")
-                                self.zifTransportText:SetJustifyH("LEFT")
-                                self.zifHerbsText:SetJustifyH("LEFT")
-                                self.zifMiningText:SetJustifyH("LEFT")
-
-                                if zoneData.fishingString and zoneData.fishingString ~= "" then
-                                    self.zifFishingText:ClearAllPoints()
-                                    self.zifFishingText:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
-                                    self.zifFishingText:Show()
-                                    currentAnchor = self.zifFishingText
-                                    totalHeight = totalHeight + 6 + self.zifFishingText:GetStringHeight()
-                                    maxWidth = max(maxWidth, self.zifFishingText:GetStringWidth())
-                                else
-                                    self.zifFishingText:Hide()
-                                end
-                                
-                                if zoneData.dungeonString and zoneData.dungeonString ~= "" then
-                                    self.zifDungeonText:ClearAllPoints()
-                                    self.zifDungeonText:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
-                                    self.zifDungeonText:Show()
-                                    currentAnchor = self.zifDungeonText
-                                    totalHeight = totalHeight + 6 + self.zifDungeonText:GetStringHeight()
-                                    maxWidth = max(maxWidth, self.zifDungeonText:GetStringWidth())
-                                else
-                                    self.zifDungeonText:Hide()
-                                end
-
-                                if zoneData.transportString and zoneData.transportString ~= "" then
-                                    self.zifTransportText:ClearAllPoints()
-                                    self.zifTransportText:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
-                                    self.zifTransportText:Show()
-                                    currentAnchor = self.zifTransportText
-                                    totalHeight = totalHeight + 6 + self.zifTransportText:GetStringHeight()
-                                    maxWidth = max(maxWidth, self.zifTransportText:GetStringWidth())
-                                else
-                                    self.zifTransportText:Hide()
-                                end
-                                
-                                if zoneData.herbsString and zoneData.herbsString ~= "" then
-                                    self.zifHerbsText:ClearAllPoints()
-                                    self.zifHerbsText:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
-                                    self.zifHerbsText:Show()
-                                    currentAnchor = self.zifHerbsText
-                                    totalHeight = totalHeight + 6 + self.zifHerbsText:GetStringHeight()
-                                    maxWidth = max(maxWidth, self.zifHerbsText:GetStringWidth())
-                                else
-                                    self.zifHerbsText:Hide()
-                                end
-
-                                if zoneData.miningString and zoneData.miningString ~= "" then
-                                    self.zifMiningText:ClearAllPoints()
-                                    self.zifMiningText:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
-                                    self.zifMiningText:Show()
-                                    currentAnchor = self.zifMiningText
-                                    totalHeight = totalHeight + 6 + self.zifMiningText:GetStringHeight()
-                                    maxWidth = max(maxWidth, self.zifMiningText:GetStringWidth())
-                                else
-                                    self.zifMiningText:Hide()
-                                end
-                                
-                                ZIF_InfoWindow:SetSize(maxWidth + 24, totalHeight + 15)
-                                ZIF_InfoWindow:Show()
-                            end
-                        else
-                            if ZIF_InfoWindow and not ZIF_InfoWindow.isTesting then ZIF_InfoWindow:Hide() end
-                            name = (zoneData.iconString or "") .. name
-                            
-                            self.zifLevelText:SetParent(self)
-                            self.zifFishingText:SetParent(self)
-                            self.zifDungeonText:SetParent(self)
-                            self.zifTransportText:SetParent(self)
-
-                            self.zifFishingText:SetJustifyH("CENTER")
-                            self.zifDungeonText:SetJustifyH("CENTER")
-                            self.zifTransportText:SetJustifyH("CENTER")
-                            
-                            local currentAnchor = self.Name or (self.labels and self.labels[MAP_AREA_LABEL_TYPE.AREA_NAME])
-                            
-                            if zoneData.levelString and zoneData.levelString ~= "" then
-                                self.zifLevelText:SetText(zoneData.levelString)
-                                self.zifLevelText:ClearAllPoints()
-                                self.zifLevelText:SetPoint("LEFT", currentAnchor, "RIGHT", 4, 0)
-                                self.zifLevelText:Show()
-                            else
-                                self.zifLevelText:Hide()
-                            end
-                            
-                            if zoneData.fishingString and zoneData.fishingString ~= "" then
-                                self.zifFishingText:ClearAllPoints()
-                                self.zifFishingText:SetPoint("TOP", currentAnchor, "BOTTOM", 0, -4)
-                                self.zifFishingText:Show()
-                                currentAnchor = self.zifFishingText
-                            else
-                                self.zifFishingText:Hide()
-                            end
-                            
-                            if zoneData.dungeonString and zoneData.dungeonString ~= "" then
-                                self.zifDungeonText:ClearAllPoints()
-                                self.zifDungeonText:SetPoint("TOP", currentAnchor, "BOTTOM", 0, -4)
-                                self.zifDungeonText:Show()
-                                currentAnchor = self.zifDungeonText
-                            else
-                                self.zifDungeonText:Hide()
-                            end
-
-                            if zoneData.transportString and zoneData.transportString ~= "" then
-                                self.zifTransportText:ClearAllPoints()
-                                self.zifTransportText:SetPoint("TOP", currentAnchor, "BOTTOM", 0, -4)
-                                self.zifTransportText:Show()
-                                currentAnchor = self.zifTransportText
-                            else
-                                self.zifTransportText:Hide()
-                            end
-
-                            if zoneData.herbsString and zoneData.herbsString ~= "" then
-                                self.zifHerbsText:ClearAllPoints()
-                                self.zifHerbsText:SetPoint("TOP", currentAnchor, "BOTTOM", 0, -4)
-                                self.zifHerbsText:Show()
-                                currentAnchor = self.zifHerbsText
-                            else
-                                self.zifHerbsText:Hide()
-                            end
-
-                            if zoneData.miningString and zoneData.miningString ~= "" then
-                                self.zifMiningText:ClearAllPoints()
-                                self.zifMiningText:SetPoint("TOP", currentAnchor, "BOTTOM", 0, -4)
-                                self.zifMiningText:Show()
-                            else
-                                self.zifMiningText:Hide()
-                            end
-                        end
-                    else
-                        if ZIF_InfoWindow and not ZIF_InfoWindow.isTesting then ZIF_InfoWindow:Hide() end
-                        self.zifLevelText:Hide()
-                        self.zifFishingText:Hide()
-                        self.zifDungeonText:Hide()
-                        self.zifTransportText:Hide()
-                        self.zifHerbsText:Hide()
-                        self.zifMiningText:Hide()
-                    end
-                end
-            else
-                name = MapUtil_FindBestAreaNameAtMouse(mapID, normalizedCursorX, normalizedCursorY)
-                if lastHoveredMapID ~= nil then
-                    lastHoveredMapID = nil
-                    if ZIF_InfoWindow and not ZIF_InfoWindow.isTesting then ZIF_InfoWindow:Hide() end
-                    if self.zifLevelText then
-                        self.zifLevelText:Hide()
-                        self.zifFishingText:Hide()
-                        self.zifDungeonText:Hide()
-                        self.zifTransportText:Hide()
-                        self.zifHerbsText:Hide()
-                        self.zifMiningText:Hide()
-                    end
-                end
-            end
-            
-            if name ~= lastName then
-                lastName = name
-                if name then
-                    self:SetLabel(MAP_AREA_LABEL_TYPE.AREA_NAME, name, nil)
-                end
-                self:EvaluateLabels()
-            end
-        end
-    else
+    if not map:IsCanvasMouseFocus() then
         if lastCursorX or lastCursorY then
             lastCursorX, lastCursorY, lastName, lastHoveredMapID = nil, nil, nil, nil
-            if ZIF_InfoWindow and not ZIF_InfoWindow.isTesting then ZIF_InfoWindow:Hide() end
-            if self.zifLevelText then
-                self.zifLevelText:Hide()
-                self.zifFishingText:Hide()
-                self.zifDungeonText:Hide()
-                self.zifTransportText:Hide()
-                self.zifHerbsText:Hide()
-                self.zifMiningText:Hide()
-                self.zifDungeonText:Hide()
-                self.zifTransportText:Hide()
-            end
+            HideZoneInfo(self)
             self:EvaluateLabels()
         end
+        return
+    end
+
+    local normalizedCursorX, normalizedCursorY = map:GetNormalizedCursorPosition()
+    -- Map queries allocate a new table per call, so they are throttled while the cursor moves
+    local now = GetTime()
+    if (lastCursorX == normalizedCursorX and lastCursorY == normalizedCursorY) or now < nextQueryTime then
+        if lastName then
+            self:SetLabel(MAP_AREA_LABEL_TYPE.AREA_NAME, lastName, nil)
+        end
+        return
+    end
+    lastCursorX, lastCursorY = normalizedCursorX, normalizedCursorY
+    nextQueryTime = now + QUERY_INTERVAL
+
+    local name
+    local mapID = map:GetMapID()
+    local positionMapInfo = C_Map_GetMapInfoAtPosition(mapID, normalizedCursorX, normalizedCursorY)
+    local hoveredMapID = positionMapInfo and positionMapInfo.mapID or nil
+
+    if hoveredMapID and hoveredMapID ~= mapID then
+        if hoveredMapID ~= lastHoveredMapID then
+            lastHoveredMapID = hoveredMapID
+            local zoneData = mapTable[hoveredMapID]
+            if zoneData then
+                lastHoveredName = ShowZoneInfo(self, zoneData, positionMapInfo.name)
+            else
+                lastHoveredName = positionMapInfo.name
+                HideZoneInfo(self)
+            end
+        end
+        name = lastHoveredName
+    else
+        name = MapUtil_FindBestAreaNameAtMouse(mapID, normalizedCursorX, normalizedCursorY)
+        if lastHoveredMapID ~= nil then
+            lastHoveredMapID = nil
+            HideZoneInfo(self)
+        end
+    end
+
+    if name ~= lastName then
+        lastName = name
+        if name then
+            self:SetLabel(MAP_AREA_LABEL_TYPE.AREA_NAME, name, nil)
+        end
+        self:EvaluateLabels()
+    end
+end
+
+local function SaveInfoWindowPosition(s)
+    s:StopMovingOrSizing()
+    local parentAnchor = WorldMapFrame.ScrollContainer or WorldMapFrame
+    local sX, sY = s:GetCenter()
+    local pX, pY = parentAnchor:GetCenter()
+
+    if sX and pX then
+        local dx, dy = sX - pX, sY - pY
+        s:ClearAllPoints()
+        s:SetPoint("CENTER", parentAnchor, "CENTER", dx, dy)
+        ZoneInfoForeverDB.windowPosX = dx
+        ZoneInfoForeverDB.windowPosY = dy
+        ZoneInfoForeverDB.windowPoint = "CENTER"
+    else
+        local p, _, _, x, y = s:GetPoint()
+        ZoneInfoForeverDB.windowPosX = x
+        ZoneInfoForeverDB.windowPosY = y
+        ZoneInfoForeverDB.windowPoint = p
     end
 end
 
@@ -1048,86 +843,26 @@ local function InitializeZoneInfoForever()
 
     if zifTargetProvider then
         if not ZIF_InfoWindow then
-            ZIF_InfoWindow = CreateFrame("Frame", "ZIF_InfoWindow", WorldMapFrame, "BackdropTemplate")
-            ZIF_InfoWindow:SetBackdrop({
-                bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
-                edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-                tile = true, tileSize = 16, edgeSize = 16,
-                insets = { left = 4, right = 4, top = 4, bottom = 4 }
-            })
-            ZIF_InfoWindow:SetBackdropColor(0, 0, 0, 0.9)
-            ZIF_InfoWindow:SetBackdropBorderColor(1, 1, 1, 0.5)
-            ZIF_InfoWindow:SetMovable(true)
-            ZIF_InfoWindow:EnableMouse(false)
-            ZIF_InfoWindow:RegisterForDrag("LeftButton")
-            ZIF_InfoWindow:SetScript("OnDragStart", ZIF_InfoWindow.StartMoving)
-            ZIF_InfoWindow:SetScript("OnDragStop", function(s)
-                s:StopMovingOrSizing()
-                local parentAnchor = WorldMapFrame.ScrollContainer or WorldMapFrame
-                local sLeft = s:GetLeft()
-                local sTop = s:GetTop()
-                local pLeft = parentAnchor:GetLeft()
-                local pTop = parentAnchor:GetTop()
-                
-                if sLeft and sTop and pLeft and pTop then
-                    local x = (sLeft - pLeft) / parentAnchor:GetEffectiveScale()
-                    local y = (sTop - pTop) / parentAnchor:GetEffectiveScale()
-                    -- Wait, GetLeft is already in scaled coordinates relative to screen, so sLeft - pLeft is the distance in pixels.
-                    -- But wait! GetLeft returns coordinates relative to the screen, NOT scaled! They are effectively scaled.
-                    -- So to set point, we must divide by parent's effective scale so that UI element scales correctly.
-                    
-                    s:ClearAllPoints()
-                    s:SetPoint("TOPLEFT", parentAnchor, "BOTTOMLEFT", (sLeft - pLeft), (sTop - pTop) + parentAnchor:GetHeight()) 
-                    -- Actually TOPLEFT to BOTTOMLEFT makes y offset positive? No, TOPLEFT to TOPLEFT is easiest!
-                    -- But wait, TOPLEFT to BOTTOMLEFT of parent...
-                end
-                
-                -- The easiest foolproof way is just Center to Center
-                if sLeft and sTop and pLeft and pTop then
-                    local sX, sY = s:GetCenter()
-                    local pX, pY = parentAnchor:GetCenter()
-                    local scale = s:GetEffectiveScale()
-                    
-                    -- dx, dy in UI coordinates
-                    local dx = (sX - pX) 
-                    local dy = (sY - pY) 
-                    s:ClearAllPoints()
-                    s:SetPoint("CENTER", parentAnchor, "CENTER", dx, dy)
-                    ZoneInfoForeverDB.windowPosX = dx
-                    ZoneInfoForeverDB.windowPosY = dy
-                    ZoneInfoForeverDB.windowPoint = "CENTER"
-                else
-                    local p, rt, rp, x, y = s:GetPoint()
-                    ZoneInfoForeverDB.windowPosX = x
-                    ZoneInfoForeverDB.windowPosY = y
-                    ZoneInfoForeverDB.windowPoint = p
-                end
-            end)
-            ZIF_InfoWindow:SetFrameStrata("TOOLTIP")
-            
+            ZIF_InfoWindow = CreateInfoPanel("ZIF_InfoWindow", WorldMapFrame, "TOOLTIP")
+            ZIF_InfoWindow:SetScript("OnDragStop", SaveInfoWindowPosition)
+
             local pt = ZoneInfoForeverDB.windowPoint or "BOTTOMRIGHT"
             local x = ZoneInfoForeverDB.windowPosX or -10
             local y = ZoneInfoForeverDB.windowPosY or 60
             local parentAnchor = WorldMapFrame.ScrollContainer or WorldMapFrame
             ZIF_InfoWindow:SetPoint(pt, parentAnchor, pt, x, y)
-            
-            ZIF_InfoWindow.header = ZIF_InfoWindow:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
-            ZIF_InfoWindow.header:SetPoint("TOPLEFT", 12, -12)
             ZIF_InfoWindow:Hide()
         end
 
-        if not zifTargetProvider.Label.zifLevelText then
-            zifTargetProvider.Label.zifLevelText = zifTargetProvider.Label:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-            zifTargetProvider.Label.zifFishingText = zifTargetProvider.Label:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-            zifTargetProvider.Label.zifDungeonText = zifTargetProvider.Label:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-            zifTargetProvider.Label.zifTransportText = zifTargetProvider.Label:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-            zifTargetProvider.Label.zifHerbsText = zifTargetProvider.Label:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-            zifTargetProvider.Label.zifMiningText = zifTargetProvider.Label:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+        local label = zifTargetProvider.Label
+        if not label.zifLevelText then
+            label.zifLevelText = label:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+            CreateLineFontStrings(label)
             UpdateZIF_FontStyles()
         end
 
         -- Securely hook SetScript to detect when other addons (like Leatrix) try to overwrite the label script
-        hooksecurefunc(zifTargetProvider.Label, "SetScript", function(self, scriptType, handler)
+        hooksecurefunc(label, "SetScript", function(self, scriptType, handler)
             if scriptType == "OnUpdate" and not self.ZIF_Rehooking then
                 self.ZIF_Rehooking = true
                 self:HookScript("OnUpdate", AreaLabelOnUpdate)
@@ -1136,35 +871,35 @@ local function InitializeZoneInfoForever()
         end)
 
         -- Apply initial hook
-        if not zifTargetProvider.Label.ZIF_Rehooking then
-            zifTargetProvider.Label.ZIF_Rehooking = true
-            zifTargetProvider.Label:HookScript("OnUpdate", AreaLabelOnUpdate)
-            zifTargetProvider.Label.ZIF_Rehooking = false
+        if not label.ZIF_Rehooking then
+            label.ZIF_Rehooking = true
+            label:HookScript("OnUpdate", AreaLabelOnUpdate)
+            label.ZIF_Rehooking = false
         end
     end
 
     if not ZIF_MapButton and WorldMapFrame then
         ZIF_MapButton = CreateFrame("Button", "ZIF_MapButton", WorldMapFrame)
         ZIF_MapButton:SetSize(32, 32)
-        
+
         local pt = ZoneInfoForeverDB.mapBtnPoint or "BOTTOMLEFT"
         local x = ZoneInfoForeverDB.mapBtnX or 10
         local y = ZoneInfoForeverDB.mapBtnY or 10
         ZIF_MapButton:SetPoint(pt, WorldMapFrame, pt, x, y)
         ZIF_MapButton:SetFrameLevel(WorldMapFrame:GetFrameLevel() + 5)
-        
+
         local icon = ZIF_MapButton:CreateTexture(nil, "BACKGROUND")
         icon:SetTexture("Interface\\WorldMap\\UI-World-Icon")
         icon:SetSize(20, 20)
         icon:SetPoint("TOPLEFT", 6, -6)
-        
+
         local border = ZIF_MapButton:CreateTexture(nil, "OVERLAY")
         border:SetTexture("Interface\\Minimap\\MiniMap-TrackingBorder")
         border:SetSize(54, 54)
         border:SetPoint("TOPLEFT", 0, 0)
 
         ZIF_MapButton:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight", "ADD")
-        
+
         ZIF_MapButton:SetMovable(true)
         ZIF_MapButton:RegisterForDrag("LeftButton", "RightButton")
         ZIF_MapButton:SetScript("OnDragStart", function(s)
@@ -1172,25 +907,14 @@ local function InitializeZoneInfoForever()
         end)
         ZIF_MapButton:SetScript("OnDragStop", function(s)
             s:StopMovingOrSizing()
-            local p, rt, rp, curX, curY = s:GetPoint()
+            local p, _, _, curX, curY = s:GetPoint()
             ZoneInfoForeverDB.mapBtnX = curX
             ZoneInfoForeverDB.mapBtnY = curY
             ZoneInfoForeverDB.mapBtnPoint = p
         end)
 
-        ZIF_MapButton:SetScript("OnClick", function()
-            if InCombatLockdown() then
-                print("|cffffff00Zone Info: Forever - Cannot open settings in combat.|r")
-                return
-            end
-            if Settings and Settings.OpenToCategory and ZoneInfoForeverOptionsPanel.category then
-                Settings.OpenToCategory(ZoneInfoForeverOptionsPanel.category:GetID())
-            elseif InterfaceOptionsFrame_OpenToCategory then
-                InterfaceOptionsFrame_OpenToCategory(ZoneInfoForeverOptionsPanel)
-                InterfaceOptionsFrame_OpenToCategory(ZoneInfoForeverOptionsPanel)
-            end
-        end)
-        
+        ZIF_MapButton:SetScript("OnClick", OpenSettings)
+
         ZIF_MapButton:SetScript("OnEnter", function(self)
             GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT")
             GameTooltip:SetText("Zone Info: Forever")
@@ -1217,14 +941,14 @@ local function ShowWelcomeWindow()
     frame:SetSize(450, 320)
     frame:SetPoint("CENTER", UIParent, "CENTER", 0, 100)
     frame:SetFrameStrata("DIALOG")
-    
+
     frame:SetBackdrop({
         bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
         edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
         tile = true, tileSize = 32, edgeSize = 32,
         insets = { left = 11, right = 12, top = 12, bottom = 11 }
     })
-    
+
     local header = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
     header:SetPoint("TOP", 0, -20)
     header:SetText("Welcome to Zone Info: Forever!")
@@ -1235,7 +959,7 @@ local function ShowWelcomeWindow()
     body:SetPoint("BOTTOMRIGHT", -30, 60)
     body:SetJustifyH("LEFT")
     body:SetJustifyV("TOP")
-    
+
     local text = "Thank you so much for using Zone Info: Forever! (Formerly Zone Level)\n\n"
     text = text .. "I truly hope you enjoy the addon and that we will all meet again after the WoW: Forever beta is finished.\n\n"
     text = text .. "|cffffff00Quick Tips:|r\n"
@@ -1243,9 +967,9 @@ local function ShowWelcomeWindow()
     text = text .. "• Hold |cff00ccffShift|r and drag to freely move the World Map settings button.\n\n"
     text = text .. "Also, if you want to easily highlight newly added quests, be sure to check out my other addon: |cff00ff00Forever Quests|r!\n\n"
     text = text .. "If you have any feedback, dont be shy to comment on CurseForge page :)"
-    
+
     body:SetText(text)
-    
+
     local closeBtn = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
     closeBtn:SetSize(120, 26)
     closeBtn:SetPoint("BOTTOM", 0, 25)
@@ -1254,32 +978,46 @@ local function ShowWelcomeWindow()
         ZoneInfoForeverDB.lastSeenWelcomeVersion = ZIF_WELCOME_VERSION
         frame:Hide()
     end)
-    
+
     ZIF_WelcomeFrame = frame
 end
 
-local frame = CreateFrame("Frame")
-frame:RegisterEvent("ADDON_LOADED")
-frame:RegisterEvent("PLAYER_LOGIN")
-frame:RegisterEvent("PLAYER_LEVEL_UP")
-frame:RegisterEvent("PLAYER_ENTERING_WORLD")
-frame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
-frame:RegisterEvent("GET_ITEM_INFO_RECEIVED")
-    frame:RegisterEvent("PLAYER_REGEN_DISABLED")
-    frame:RegisterEvent("PLAYER_REGEN_ENABLED")
-frame:SetScript("OnEvent", function(self, event, arg1)
+eventFrame:RegisterEvent("ADDON_LOADED")
+eventFrame:RegisterEvent("PLAYER_LOGIN")
+eventFrame:RegisterEvent("PLAYER_LEVEL_UP")
+eventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
+eventFrame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+eventFrame:RegisterEvent("PLAYER_REGEN_DISABLED")
+eventFrame:RegisterEvent("PLAYER_REGEN_ENABLED")
+eventFrame:SetScript("OnEvent", function(self, event, arg1, arg2)
     if event == "GET_ITEM_INFO_RECEIVED" then
-        UpdateZoneStrings()
-        return
-    end
-    if event == "ADDON_LOADED" and arg1 == "ZoneInfoForever" then
+        if pendingItems[arg1] then
+            pendingItems[arg1] = nil
+            local name = GetItemName and GetItemName(arg1)
+            if name then
+                itemNames[arg1] = name
+            elseif arg2 == false then
+                -- Don't keep re-requesting items the server says don't exist
+                itemNames[arg1] = "???"
+            else
+                return -- no name yet; rebuilding now would just re-request it in a loop
+            end
+            QueueZoneStringsRebuild()
+        end
+    elseif event == "ADDON_LOADED" and arg1 == "ZoneInfoForever" then
+        self:UnregisterEvent("ADDON_LOADED")
         InitializeDB()
+        if ZIF_UpdateLocale then ZIF_UpdateLocale() end
+        BuildStaticStrings()
         UpdateZoneStrings()
         CreateOptionsPanel()
+        -- Loaded after login (e.g. on demand), so PLAYER_LOGIN won't fire
+        if IsLoggedIn() then InitializeZoneInfoForever() end
     elseif event == "PLAYER_LOGIN" then
         InitializeZoneInfoForever()
     elseif event == "PLAYER_LEVEL_UP" then
-        UpdateZoneInfoColors()
+        UpdateZoneInfoColors(arg1)
+        UpdateMinimapPanel()
     elseif event == "PLAYER_ENTERING_WORLD" or event == "ZONE_CHANGED_NEW_AREA" then
         if event == "PLAYER_ENTERING_WORLD" and ZoneInfoForeverDB and ZoneInfoForeverDB.lastSeenWelcomeVersion ~= ZIF_WELCOME_VERSION then
             ShowWelcomeWindow()
@@ -1293,8 +1031,3 @@ frame:SetScript("OnEvent", function(self, event, arg1)
         UpdateMinimapPanel()
     end
 end)
-
--- Just in case it's loaded after PLAYER_LOGIN
-if IsLoggedIn() then
-    InitializeZoneInfoForever()
-end
