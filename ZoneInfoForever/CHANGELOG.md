@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.8.1
+- New addon icon.
+
 ## 1.8
 
 ### Performance
