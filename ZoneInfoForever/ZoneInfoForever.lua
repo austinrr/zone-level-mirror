@@ -67,7 +67,8 @@ local factionIcons = {
     ["Sanctuary"] = "",
 }
 
-local FONT = "Fonts\\FRIZQT__.TTF"
+-- Use the client's own font so Cyrillic, Korean and Chinese text doesn't render as squares
+local FONT = GameFontNormal:GetFont()
 
 -- Info lines shown under the zone name, in display order
 local LINES = {

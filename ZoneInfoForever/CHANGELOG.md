@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.8.2
+- Fixed text showing as squares on Russian, Korean and Chinese clients.
+
 ## 1.8.1
 - New addon icon.
 
