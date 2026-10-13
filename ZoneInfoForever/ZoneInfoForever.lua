@@ -126,6 +126,14 @@ local RequestLoadItemDataByID = C_Item and C_Item.RequestLoadItemDataByID
 local eventFrame = CreateFrame("Frame")
 local UpdateMinimapPanel
 
+-- EllesmereUI skinning facade, handed to us at login when EllesmereUI is installed (nil otherwise)
+local skin
+
+-- The user's EllesmereUI font when skinned, otherwise the client's own font
+local function GetLineFont()
+    return skin and skin.GetFont() or FONT
+end
+
 local function L(key, fallback)
     return ZIF_L and ZIF_L[key] or fallback
 end
@@ -147,7 +155,7 @@ end
 local function ApplyLineStyles(owner)
     for _, line in ipairs(LINES) do
         local c = ZoneInfoForeverDB[line.color]
-        owner[line.text]:SetFont(FONT, ZoneInfoForeverDB[line.size], "OUTLINE")
+        owner[line.text]:SetFont(GetLineFont(), ZoneInfoForeverDB[line.size], "OUTLINE")
         owner[line.text]:SetTextColor(c.r, c.g, c.b)
     end
 end
@@ -219,6 +227,36 @@ local function LayoutMapLabel(label, zoneData)
     end
 end
 
+-- EllesmereUI skins. Each one is a no-op without EllesmereUI and safe to call again on the same frame.
+
+-- Flat EllesmereUI panel in place of the tooltip backdrop (the backdrop textures get faded out)
+local function SkinInfoPanel(panel)
+    if not skin or not panel then return end
+    skin.Panel(panel)
+    skin.Font(panel.header)
+end
+
+-- Square EllesmereUI button in place of the round minimap-style border
+local function SkinMapButton(button)
+    if not skin or not button then return end
+    skin.Button(button, { "Icon" })
+    button.Border:SetAlpha(0)
+    button.Icon:ClearAllPoints()
+    button.Icon:SetPoint("CENTER")
+    button.Icon:SetSize(22, 22)
+end
+
+local function SkinOptionsPanel(panel)
+    if not skin or not panel or not panel.zifCheckboxes then return end
+    for _, cb in pairs(panel.zifCheckboxes) do
+        skin.Checkbox(cb)
+    end
+    for _, button in ipairs(panel.zifButtons) do
+        skin.Button(button)
+        skin.WhiteButtonLabel(button)
+    end
+end
+
 local function CreateInfoPanel(name, parent, strata)
     local panel = CreateFrame("Frame", name, parent, "BackdropTemplate")
     panel:SetBackdrop(PANEL_BACKDROP)
@@ -232,13 +270,15 @@ local function CreateInfoPanel(name, parent, strata)
 
     panel.header = panel:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
     panel.header:SetPoint("TOPLEFT", 12, -12)
+
+    SkinInfoPanel(panel)
     return panel
 end
 
 local function UpdateZIF_FontStyles()
     local label = zifTargetProvider and zifTargetProvider.Label
     if label and label.zifLevelText then
-        label.zifLevelText:SetFont(FONT, ZoneInfoForeverDB.fontSizeLevel, "OUTLINE")
+        label.zifLevelText:SetFont(GetLineFont(), ZoneInfoForeverDB.fontSizeLevel, "OUTLINE")
         ApplyLineStyles(label)
     end
     if ZIF_MinimapPanel then ApplyLineStyles(ZIF_MinimapPanel) end
@@ -681,6 +721,11 @@ local function CreateOptionsPanel()
         UpdateZIF_FontStyles()
     end)
 
+    -- Kept for the EllesmereUI skin, which may arrive after the panel is built
+    panel.zifCheckboxes = checkboxes
+    panel.zifButtons = { moveBtn, resetBtn }
+    SkinOptionsPanel(panel)
+
     -- Integrate into Blizzard Interface Options
     if Settings and Settings.RegisterCanvasLayoutCategory then
         local category = Settings.RegisterCanvasLayoutCategory(panel, panel.name)
@@ -889,17 +934,21 @@ local function InitializeZoneInfoForever()
         ZIF_MapButton:SetPoint(pt, WorldMapFrame, pt, x, y)
         ZIF_MapButton:SetFrameLevel(WorldMapFrame:GetFrameLevel() + 5)
 
-        local icon = ZIF_MapButton:CreateTexture(nil, "BACKGROUND")
+        -- ARTWORK so the EllesmereUI button fill (BACKGROUND) can't cover it
+        local icon = ZIF_MapButton:CreateTexture(nil, "ARTWORK")
         icon:SetTexture("Interface\\WorldMap\\UI-World-Icon")
         icon:SetSize(20, 20)
         icon:SetPoint("TOPLEFT", 6, -6)
+        ZIF_MapButton.Icon = icon
 
         local border = ZIF_MapButton:CreateTexture(nil, "OVERLAY")
         border:SetTexture("Interface\\Minimap\\MiniMap-TrackingBorder")
         border:SetSize(54, 54)
         border:SetPoint("TOPLEFT", 0, 0)
+        ZIF_MapButton.Border = border
 
         ZIF_MapButton:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight", "ADD")
+        SkinMapButton(ZIF_MapButton)
 
         ZIF_MapButton:SetMovable(true)
         ZIF_MapButton:RegisterForDrag("LeftButton", "RightButton")
@@ -932,6 +981,16 @@ end
 -- Event handling
 
 local ZIF_WelcomeFrame = nil
+
+local function SkinWelcomeWindow(frame)
+    if not skin or not frame then return end
+    skin.Panel(frame)
+    skin.Font(frame.header, skin.GetAccentColor())
+    skin.Font(frame.body)
+    skin.Button(frame.closeBtn)
+    skin.WhiteButtonLabel(frame.closeBtn)
+end
+
 local function ShowWelcomeWindow()
     if ZIF_WelcomeFrame then
         ZIF_WelcomeFrame:Show()
@@ -979,6 +1038,9 @@ local function ShowWelcomeWindow()
         ZoneInfoForeverDB.lastSeenWelcomeVersion = ZIF_WELCOME_VERSION
         frame:Hide()
     end)
+
+    frame.header, frame.body, frame.closeBtn = header, body, closeBtn
+    SkinWelcomeWindow(frame)
 
     ZIF_WelcomeFrame = frame
 end
@@ -1032,3 +1094,20 @@ eventFrame:SetScript("OnEvent", function(self, event, arg1, arg2)
         UpdateMinimapPanel()
     end
 end)
+
+-- EllesmereUI skin support. EllesmereUI calls this once at login, only while the user has
+-- third-party skinning enabled for this addon; frames created later skin themselves via `skin`.
+if EllesmereUI and EllesmereUI.RegisterSkin then
+    EllesmereUI.RegisterSkin("ZoneInfoForever", function(S)
+        skin = S
+        SkinInfoPanel(ZIF_InfoWindow)
+        SkinInfoPanel(ZIF_MinimapPanel)
+        SkinMapButton(ZIF_MapButton)
+        SkinOptionsPanel(ZoneInfoForeverOptionsPanel)
+        SkinWelcomeWindow(ZIF_WelcomeFrame)
+
+        -- Map label and panel lines are re-fonted by hand, so follow live EllesmereUI look changes
+        S.OnLooksChanged(UpdateZIF_FontStyles)
+        UpdateZIF_FontStyles()
+    end)
+end
