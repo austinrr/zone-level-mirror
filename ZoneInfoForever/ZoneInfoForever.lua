@@ -1,4 +1,4 @@
-local ZIF_WELCOME_VERSION = "1.7.1"
+local ZIF_WELCOME_VERSION = "1.9.1"
 -- Zone Info: Forever
 -- Standalone addon to show zone levels on the map
 
@@ -998,7 +998,7 @@ local function ShowWelcomeWindow()
     end
 
     local frame = CreateFrame("Frame", "ZIF_WelcomeWindow", UIParent, "BackdropTemplate")
-    frame:SetSize(450, 320)
+    frame:SetSize(450, 380)
     frame:SetPoint("CENTER", UIParent, "CENTER", 0, 100)
     frame:SetFrameStrata("DIALOG")
 
@@ -1020,13 +1020,15 @@ local function ShowWelcomeWindow()
     body:SetJustifyH("LEFT")
     body:SetJustifyV("TOP")
 
-    local text = "Thank you so much for using Zone Info: Forever! (Formerly Zone Level)\n\n"
-    text = text .. "I truly hope you enjoy the addon and that we will all meet again after the WoW: Forever beta is finished.\n\n"
+    local text = "Thank you so much for using Zone Info: Forever! I hope it makes your adventures across Azeroth a little easier.\n\n"
+    text = text .. "I'm looking forward to seeing all of you when WoW: Forever goes live on |cff00ccffNovember 4th|r!\n\n"
     text = text .. "|cffffff00Quick Tips:|r\n"
     text = text .. "• Type |cff00ccff/zif|r or click the World Map button to open the Settings.\n"
     text = text .. "• Hold |cff00ccffShift|r and drag to freely move the World Map settings button.\n\n"
-    text = text .. "Also, if you want to easily highlight newly added quests, be sure to check out my other addon: |cff00ff00Forever Quests|r!\n\n"
-    text = text .. "If you have any feedback, dont be shy to comment on CurseForge page :)"
+    text = text .. "|cffffff00Check out my other addons:|r\n"
+    text = text .. "• |cff00ff00Forever Quests|r - easily highlights newly added quests.\n"
+    text = text .. "• |cff00ff00Class Quests Forever|r - every class quest in one journal, with an alert when a level-up unlocks a new one.\n\n"
+    text = text .. "If you have any feedback, don't be shy to comment on the CurseForge page :)"
 
     body:SetText(text)
 

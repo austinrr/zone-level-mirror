@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.9.1
+- New welcome message.
+
 ## 1.9
 - Added EllesmereUI skin support. With EllesmereUI installed, the map info window, the Current Zone panel, the world map button, the settings checkboxes and buttons, and the welcome window match the EllesmereUI look, and zone info text uses your EllesmereUI font. You can turn it off in EllesmereUI under Blizzard Skins+ > Window Skins > Third-Party Addons.
 
