@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.9.2
+
+### Fixes
+- The faction icon next to the zone name on the map now stays visible.
+- Zone info no longer stays on screen after you click into a zone without moving the mouse.
+- With Leatrix Maps "Show zone levels" on, the level is no longer shown twice and the info lines no longer overlap its text.
+- "Unlock Windows": hovering a zone no longer overwrites the "Drag Me" window.
+- Zone level colors now use your new level right after you level up.
+- The world map button now keeps its position after a reload and follows the map once you've moved it.
+- Stranglethorn Vale transport routes now reliably show on two lines.
+
+### Dungeon data
+- Dustwallow Marsh now lists Alcaz Prison instead of Scalebeard's Cave.
+- Removed the incorrect Hive'Zora and Warsong Gulch entries from Mount Hyjal.
+- Updated the level ranges of 20 dungeons.
+- Blackmaw Hold, Shaper's Terrace and Krol'dok Stronghold now use the game's own localized names.
+
+### Translations
+- Settings, the world map button tooltip and the combat message can now be translated, with new translations for all supported languages. These are machine translations, so corrections are welcome.
+
+### Performance
+- Hovering the world map no longer repeats the area name lookup and label updates the game already does.
+
+### Under the hood
+- Removed code for APIs this client doesn't use, replaced deprecated settings templates (checkboxes play their click sound again), and removed about 200 redundant translation lines.
+
 ## 1.9.1
 - New welcome message.
 

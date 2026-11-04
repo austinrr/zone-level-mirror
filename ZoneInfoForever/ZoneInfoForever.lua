@@ -1,62 +1,64 @@
-local ZIF_WELCOME_VERSION = "1.9.1"
+local ZIF_WELCOME_VERSION = "1.9.2"
 -- Zone Info: Forever
 -- Standalone addon to show zone levels on the map
+
+local _, ns = ...
 
 local mapTable = {
     -- Eastern Kingdoms
     --[[Alterac Mountains]]		[1416] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = {{id=16560, text=" (28-33)"}}, transport = "Sky Boats: Zephras Isle", faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821}, mining = {2771, 2775, 2772, 2776, 3858}},
     --[[Arathi Highlands]]		[1417] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821}, mining = {2771, 2775, 2772, 2776, 3858}},
-    --[[Badlands]]				[1418] = {minLevel = 35, 	maxLevel = 45,		dungeons = {{id=1337, text=" (35-45)"}}, transport = "Boats: Steamwheedle Port", faction = "Contested", herbs = {3355, 3356, 3818, 3821, 4625}, mining = {2772, 2776, 3858, 7911}},
+    --[[Badlands]]				[1418] = {minLevel = 35, 	maxLevel = 45,		dungeons = {{id=1337, text=" (38-48)"}}, transport = "Boats: Steamwheedle Port", faction = "Contested", herbs = {3355, 3356, 3818, 3821, 4625}, mining = {2772, 2776, 3858, 7911}},
     --[[Blasted Lands]]			[1419] = {minLevel = 45, 	maxLevel = 55,                             faction = "Contested", herbs = {3818, 3821, 3358, 4625, 8838, 8846}, mining = {2772, 2776, 3858, 7911, 10620}},
     --[[Burning Steppes]]		[1428] = {minLevel = 50, 	maxLevel = 58,		minFish = "330",       dungeons = {{id=17803, text=" (52-60)"}, {id=17804, text=" (55-60)"}, {id=2717, text=" (60)"}, {id=2677, text=" (60)"}}, faction = "Contested", herbs = {4625, 13464, 13463, 13465, 13468}, mining = {3858, 7911, 10620}},
     --[[Deadwind Pass]]			[1430] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", herbs = {13463, 13465}, mining = {3858, 7911, 10620}},
-    --[[Dun Morogh]]			[1426] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = {{id=16919, text=" (13-18)"}, {id=721, text=" (24-34)"}}, transport = "Deeprun Tram: Stormwind", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
+    --[[Dun Morogh]]			[1426] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = {{id=16919, text=" (13-20)"}, {id=721, text=" (29-38)"}}, transport = "Deeprun Tram: Stormwind", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
     --[[Duskwood]]				[1431] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        faction = "Contested", herbs = {785, 2450, 2453, 3369, 3356}, mining = {2770, 2771, 2775, 2772}},
-    --[[Eastern Plaguelands]]	[1423] = {minLevel = 53, 	maxLevel = 60,		minFish = "330",       dungeons = {{id=2017, text=" (55-60)"}, {id=3456, text=" (60)"}}, faction = "Contested", herbs = {8836, 8838, 13466, 13463, 13468}, mining = {3858, 7911, 10620}},
+    --[[Eastern Plaguelands]]	[1423] = {minLevel = 53, 	maxLevel = 60,		minFish = "330",       dungeons = {{id=2017, text=" (58-60)"}, {id=3456, text=" (60)"}}, faction = "Contested", herbs = {8836, 8838, 13466, 13463, 13468}, mining = {3858, 7911, 10620}},
     --[[Elwynn Forest]]			[1429] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Deeprun Tram: Ironforge", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
     --[[Hillsbrad Foothills]]	[1424] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        transport = "Boats: Auberdine", faction = "Contested", herbs = {785, 2450, 2453, 3356, 3357}, mining = {2770, 2771, 2775, 2772}},
     --[[Ironforge]]				[1455] = {minFish = 1,                                                 faction = "Alliance"},
     --[[Loch Modan]]			[1432] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450}, mining = {2770, 2771, 2775}},
     --[[Redridge Mountains]]	[1433] = {minLevel = 15, 	maxLevel = 25,		minFish = "55",        faction = "Contested", herbs = {785, 2450, 2453}, mining = {2770, 2771, 2775}},
     --[[Searing Gorge]]			[1427] = {minLevel = 43, 	maxLevel = 50,                             dungeons = {{id=17803, text=" (52-60)"}, {id=17804, text=" (55-60)"}, {id=2717, text=" (60)"}, {id=2677, text=" (60)"}}, faction = "Contested", herbs = {4625, 3821}, mining = {2772, 2776, 3858, 7911, 10620}},
-    --[[Silverpine Forest]]		[1421] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = {{id=209, text=" (18-28)"}}, faction = "Horde", herbs = {2447, 765, 2449, 785, 2450}, mining = {2770, 2771, 2775}},
-    --[[Stormwind City]]		[1453] = {minFish = 1,                                                 dungeons = {{id=717, text=" (22-30)"}}, faction = "Alliance"},
-    --[[Stranglethorn Vale]]	[1434] = {minLevel = 30, 	maxLevel = 45,		minFish = "130 (205)", dungeons = {{text="The Drowned City (35-40)"}, {id=1977, text=" (60)"}}, transport = "Zeppelins: Orgrimmar, Undercity\\nBoats: Ratchet", faction = "Contested", herbs = {3356, 3357, 3818, 3821, 3358}, mining = {2772, 2776, 3858, 7911}},
-    --[[Swamp of Sorrows]]		[1435] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = {{id=1417, text=" (45-55)"}}, faction = "Contested", herbs = {3356, 3357, 3818, 3821, 8839}, mining = {2772, 2776, 3858}},
+    --[[Silverpine Forest]]		[1421] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = {{id=209, text=" (20-30)"}}, faction = "Horde", herbs = {2447, 765, 2449, 785, 2450}, mining = {2770, 2771, 2775}},
+    --[[Stormwind City]]		[1453] = {minFish = 1,                                                 dungeons = {{id=717, text=" (24-32)"}}, faction = "Alliance"},
+    --[[Stranglethorn Vale]]	[1434] = {minLevel = 30, 	maxLevel = 45,		minFish = "130 (205)", dungeons = {{name="The Drowned City", text=" (35-40)"}, {id=1977, text=" (60)"}}, transport = "Zeppelins: Orgrimmar, Undercity\nBoats: Ratchet", faction = "Contested", herbs = {3356, 3357, 3818, 3821, 3358}, mining = {2772, 2776, 3858, 7911}},
+    --[[Swamp of Sorrows]]		[1435] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = {{id=1417, text=" (49-56)"}}, faction = "Contested", herbs = {3356, 3357, 3818, 3821, 8839}, mining = {2772, 2776, 3858}},
     --[[The Hinterlands]]		[1425] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       faction = "Contested", herbs = {3818, 3821, 3358, 8838, 8845}, mining = {2772, 2776, 3858, 7911}},
-    --[[Tirisfal Glades]]		[1420] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = {{id=16611, text=" (15-20)"}, {id=796, text=" (26-45)"}}, transport = "Zeppelins: Orgrimmar, Grom'gol", faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
+    --[[Tirisfal Glades]]		[1420] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = {{id=16611, text=" (15-22)"}, {id=796, text=" (30-45)"}}, transport = "Zeppelins: Orgrimmar, Grom'gol", faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
     --[[Undercity]]				[1458] = {minFish = 1,                                                 faction = "Horde"},
-    --[[Westfall]]				[1436] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = {{id=1581, text=" (15-25)"}}, faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450}, mining = {2770, 2771, 2775}},
-    --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		minFish = "205",       dungeons = {{id=2057, text=" (55-60)"}}, faction = "Contested", herbs = {8836, 8838, 13466, 13463}, mining = {3858, 7911, 10620}},
-    --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        dungeons = {{id=16732, text=" (24-29)"}}, transport = "Boats: Theramore, Auberdine", faction = "Contested", herbs = {2450, 2453, 3355, 3356, 3357}, mining = {2771, 2775, 2772}},
+    --[[Westfall]]				[1436] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = {{id=1581, text=" (17-26)"}}, faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450}, mining = {2770, 2771, 2775}},
+    --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		minFish = "205",       dungeons = {{id=2057, text=" (58-60)"}}, faction = "Contested", herbs = {8836, 8838, 13466, 13463}, mining = {3858, 7911, 10620}},
+    --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        dungeons = {{id=16732, text=" (26-33)"}}, transport = "Boats: Theramore, Auberdine", faction = "Contested", herbs = {2450, 2453, 3355, 3356, 3357}, mining = {2771, 2775, 2772}},
 
     -- Kalimdor
-    --[[Ashenvale]]				[1440] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        dungeons = {{id=719, text=" (20-30)"}}, faction = "Contested", herbs = {785, 2450, 2453, 3356, 3357}, mining = {2770, 2771, 2775, 2772, 2776}},
-    --[[Azshara]]				[1447] = {minLevel = 45, 	maxLevel = 55,		minFish = "205 (330)", dungeons = {{text="Blackmaw Hold (55-60)"}}, faction = "Contested", herbs = {8838, 8831, 8846, 13463, 13465}, mining = {3858, 7911, 10620}},
+    --[[Ashenvale]]				[1440] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        dungeons = {{id=719, text=" (24-32)"}}, faction = "Contested", herbs = {785, 2450, 2453, 3356, 3357}, mining = {2770, 2771, 2775, 2772, 2776}},
+    --[[Azshara]]				[1447] = {minLevel = 45, 	maxLevel = 55,		minFish = "205 (330)", dungeons = {{id=1216, name="Blackmaw Hold", text=" (55-60)"}}, faction = "Contested", herbs = {8838, 8831, 8846, 13463, 13465}, mining = {3858, 7911, 10620}},
     --[[Darkshore]]				[1439] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         transport = "Boats: Menethil Harbor, Rut'theran, Southshore", faction = "Alliance", herbs = {785, 2450, 3820}, mining = {2770, 2771, 2775}},
     --[[Darnassus]]				[1457] = {minFish = 1,                                                 faction = "Alliance"},
-    --[[Desolace]]				[1443] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = {{id=2100, text=" (40-50)"}}, faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821}, mining = {2772, 2776, 3858, 7911}},
+    --[[Desolace]]				[1443] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = {{id=2100, text=" (45-52)"}}, faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821}, mining = {2772, 2776, 3858, 7911}},
     --[[Durotar]]				[1411] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Zeppelins: Undercity, Grom'gol", faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
-    --[[Dustwallow Marsh]]		[1445] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = {{id=3140, text=" (48-53)"}, {id=2159, text=" (60)"}}, transport = "Boats: Menethil Harbor", faction = "Contested", herbs = {3356, 3357, 3358, 3820}, mining = {2772, 2776, 3858}},
+    --[[Dustwallow Marsh]]		[1445] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = {{name="Alcaz Prison", text=" (48-53)"}, {id=2159, text=" (60)"}}, transport = "Boats: Menethil Harbor", faction = "Contested", herbs = {3356, 3357, 3358, 3820}, mining = {2772, 2776, 3858}},
     --[[Felwood]]				[1448] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       faction = "Contested", herbs = {8838, 8846, 13464, 13463, 13466}, mining = {3858, 7911, 10620}},
-    --[[Feralas]]				[1444] = {minLevel = 40, 	maxLevel = 50,		minFish = "205 (330)", dungeons = {{id=2557, text=" (54-60)"}}, transport = "Boats: Feathermoon, Forgotten Coast", faction = "Contested", herbs = {3356, 3357, 3818, 3821, 3358, 8838}, mining = {2772, 2776, 3858, 7911}},
+    --[[Feralas]]				[1444] = {minLevel = 40, 	maxLevel = 50,		minFish = "205 (330)", dungeons = {{id=2557, text=" (55-60)"}}, transport = "Boats: Feathermoon, Forgotten Coast", faction = "Contested", herbs = {3356, 3357, 3818, 3821, 3358, 8838}, mining = {2772, 2776, 3858, 7911}},
     --[[Moonglade]]				[1450] = {minFish = 205,                                               faction = "Sanctuary", herbs = {2447, 765, 2449}},
     --[[Mulgore]]				[1412] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
     --[[Orgrimmar]]				[1454] = {minFish = 1,                                                 dungeons = {{id=2437, text=" (13-18)"}}, faction = "Horde"},
     --[[Silithus]]				[1451] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       dungeons = {{id=3429, text=" (60)"}, {id=3428, text=" (60)"}}, faction = "Contested", herbs = {8838, 13464, 13463, 13465, 13468}, mining = {3858, 7911, 10620}},
     --[[Stonetalon Mountains]]	[1442] = {minLevel = 15, 	maxLevel = 27,		minFish = "55",        transport = "Sky Boats: Zephras Isle", faction = "Contested", herbs = {785, 2450, 2453, 3355}, mining = {2770, 2771, 2775, 2772}},
-    --[[Tanaris]]				[1446] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       dungeons = {{id=978, text=" (42-52)"}}, transport = "Boats: Powderfuse Port", faction = "Contested", herbs = {4625, 8831}, mining = {2772, 2776, 3858, 7911, 10620}},
+    --[[Tanaris]]				[1446] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       dungeons = {{id=978, text=" (43-50)"}}, transport = "Boats: Powderfuse Port", faction = "Contested", herbs = {4625, 8831}, mining = {2772, 2776, 3858, 7911, 10620}},
     --[[Teldrassil]]			[1438] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Boats: Auberdine", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
-    --[[The Barrens]]			[1413] = {minLevel = 10, 	maxLevel = 25,		minFish = "1",         dungeons = {{id=718, text=" (15-25)"}, {id=491, text=" (25-35)"}, {id=722, text=" (35-45)"}}, transport = "Boats: Booty Bay", faction = "Horde", herbs = {785, 2450, 2453, 3820}, mining = {2770, 2771, 2775, 2772}},
+    --[[The Barrens]]			[1413] = {minLevel = 10, 	maxLevel = 25,		minFish = "1",         dungeons = {{id=718, text=" (15-24)"}, {id=491, text=" (29-38)"}, {id=722, text=" (37-46)"}}, transport = "Boats: Booty Bay", faction = "Horde", herbs = {785, 2450, 2453, 3820}, mining = {2770, 2771, 2775, 2772}},
     --[[Thousand Needles]]		[1441] = {minLevel = 25, 	maxLevel = 35,		minFish = "130",       faction = "Contested", herbs = {2453, 3355, 3356, 3357}, mining = {2771, 2775, 2772, 2776, 3858}},
     --[[Thunder Bluff]]			[1456] = {minFish = 1,                                                 faction = "Horde"},
-    --[[Un'Goro Crater]]		[1449] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       dungeons = {{text="Shaper's Terrace (58-60)"}}, faction = "Contested", herbs = {8839, 13465, 13464, 13468}, mining = {3858, 7911, 10620}},
+    --[[Un'Goro Crater]]		[1449] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       dungeons = {{id=16985, name="Shaper's Terrace", text=" (58-60)"}}, faction = "Contested", herbs = {8839, 13465, 13464, 13468}, mining = {3858, 7911, 10620}},
     --[[Winterspring]]			[1452] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", herbs = {13467, 13465, 13463, 13468}, mining = {3858, 7911, 10620}},
 
     -- Forever
-    --[[Hyjal]]					[2482] = {minLevel = 60, 	maxLevel = 60,                             dungeons = {{id=2743, text=" (60)"}, {id=3277, text=" (60)"}}, faction = "Contested"},
+    --[[Hyjal]]					[2482] = {minLevel = 60, 	maxLevel = 60,                             faction = "Contested"},
     --[[Zephras Isle]]			[2521] = {minLevel = 1, 	maxLevel = 12,                             transport = "Sky Boats: Dalaran, Skywatcher Plateau", faction = "Contested"},
-    --[[Riverglades]]			[2548] = {minLevel = 35, 	maxLevel = 45,                             dungeons = {{text="Krol'dok Stronghold (40-55)"}}, faction = "Contested", herbs = {3818, 3821, 3358}, mining = {2772, 2776, 3858}},
+    --[[Riverglades]]			[2548] = {minLevel = 35, 	maxLevel = 45,                             dungeons = {{id=17780, name="Krol'dok Stronghold", text=" (40-45)"}}, faction = "Contested", herbs = {3818, 3821, 3358}, mining = {2772, 2776, 3858}},
     --[[Shen'dralas]]			[2652] = {minLevel = 35, 	maxLevel = 45,                             faction = "Contested", herbs = {3818, 3821, 3358}, mining = {2772, 2776, 3858}},
 }
 
@@ -110,8 +112,7 @@ local PANEL_BACKDROP = {
 }
 
 -- Optimization caching
-local lastCursorX, lastCursorY, lastName
-local lastHoveredMapID, lastHoveredName
+local lastCursorX, lastCursorY, lastMapID, lastHoveredMapID
 local QUERY_INTERVAL = 0.05
 local nextQueryTime = 0
 local zifTargetProvider = nil
@@ -119,9 +120,8 @@ local ZIF_InfoWindow = nil
 local ZIF_MinimapPanel = nil
 local ZIF_MapButton = nil
 local C_Map_GetMapInfoAtPosition = C_Map.GetMapInfoAtPosition
-local MapUtil_FindBestAreaNameAtMouse = MapUtil.FindBestAreaNameAtMouse
-local GetItemName = (C_Item and C_Item.GetItemInfo) or GetItemInfo
-local RequestLoadItemDataByID = C_Item and C_Item.RequestLoadItemDataByID
+local GetItemName = C_Item.GetItemNameByID
+local RequestLoadItemDataByID = C_Item.RequestLoadItemDataByID
 
 local eventFrame = CreateFrame("Frame")
 local UpdateMinimapPanel
@@ -135,7 +135,7 @@ local function GetLineFont()
 end
 
 local function L(key, fallback)
-    return ZIF_L and ZIF_L[key] or fallback
+    return ns.L[key] or fallback
 end
 
 -- Forces the map label to re-layout on the next frame (false differs from every map ID and from nil)
@@ -196,19 +196,30 @@ local function LayoutPanel(panel, owner, zoneData, name)
     panel:Show()
 end
 
--- Shows the level next to the map's area label and stacks the info lines below it
+-- Shows the faction icon and level beside the map's area label and stacks the info lines below it.
+-- The label's own OnUpdate ran just before our hook, so Name and Description are current. It may be
+-- a replacement (Leatrix_Maps) that already put a colored level in Name and text in Description.
 local function LayoutMapLabel(label, zoneData)
-    local currentAnchor = label.Name or (label.labels and label.labels[MAP_AREA_LABEL_TYPE.AREA_NAME])
+    if zoneData.iconString and zoneData.iconString ~= "" then
+        label.zifIconText:SetText(zoneData.iconString)
+        label.zifIconText:Show()
+    else
+        label.zifIconText:Hide()
+    end
 
-    label.zifLevelText:SetParent(label)
-    if zoneData.levelString and zoneData.levelString ~= "" then
+    local nameText = label.Name:GetText()
+    local levelInName = nameText and nameText:find("|c", 1, true)
+    if zoneData.levelString and zoneData.levelString ~= "" and not levelInName then
         label.zifLevelText:SetText(zoneData.levelString)
         label.zifLevelText:ClearAllPoints()
-        label.zifLevelText:SetPoint("LEFT", currentAnchor, "RIGHT", 4, 0)
+        label.zifLevelText:SetPoint("LEFT", label.Name, "RIGHT", 4, 0)
         label.zifLevelText:Show()
     else
         label.zifLevelText:Hide()
     end
+
+    local description = label.Description:GetText()
+    local currentAnchor = (description and description ~= "") and label.Description or label.Name
 
     for _, line in ipairs(LINES) do
         local fs = label[line.text]
@@ -347,10 +358,10 @@ local TRANSPORT_PREFIXES = {
     ["Deeprun Tram:"] = "PREFIX_TRAM",
 }
 
--- Translates "Prefix: Dest1, Dest2" segments separated by a literal \n
+-- Translates "Prefix: Dest1, Dest2" segments, one per line
 local function TranslateTransport(t)
     local segments = {}
-    for segment in (t .. "\\n"):gmatch("(.-)\\n") do
+    for segment in t:gmatch("[^\n]+") do
         local prefix, dests = segment:match("^(.-:)%s*(.*)$")
         if prefix and TRANSPORT_PREFIXES[prefix] then
             local names = {}
@@ -363,20 +374,17 @@ local function TranslateTransport(t)
             segments[#segments + 1] = segment
         end
     end
-    return table.concat(segments, "\\n")
+    return table.concat(segments, "\n")
 end
 
 local function BuildDungeonString(dungeons)
     local names = {}
     for i, d in ipairs(dungeons) do
         local name = d.id and C_Map.GetAreaInfo(d.id)
-        if name then
-            if name ~= d.text then name = name .. (d.text or "") end
-        else
-            name = d.text or "???"
-            name = L("DUNGEON_" .. name, name)
+        if not name then
+            name = d.name and L("DUNGEON_" .. d.name, d.name) or "???"
         end
-        names[i] = name
+        names[i] = name .. d.text
     end
     return table.concat(names, "\n")
 end
@@ -399,12 +407,12 @@ local function ItemListString(prefix, ids)
     for i, id in ipairs(ids) do
         local name = itemNames[id]
         if not name then
-            name = GetItemName and GetItemName(id)
+            name = GetItemName(id)
             if name then
                 itemNames[id] = name
             else
                 pendingItems[id] = true
-                if RequestLoadItemDataByID then RequestLoadItemDataByID(id) end
+                RequestLoadItemDataByID(id)
                 name = "..."
             end
         end
@@ -461,15 +469,10 @@ end
 
 local function OpenSettings()
     if InCombatLockdown() then
-        print("|cffffff00Zone Info: Forever - Cannot open settings in combat.|r")
+        print("|cffffff00" .. L("MSG_COMBAT", "Zone Info: Forever - Cannot open settings in combat.") .. "|r")
         return
     end
-    if Settings and Settings.OpenToCategory and ZoneInfoForeverOptionsPanel.category then
-        Settings.OpenToCategory(ZoneInfoForeverOptionsPanel.category:GetID())
-    elseif InterfaceOptionsFrame_OpenToCategory then
-        InterfaceOptionsFrame_OpenToCategory(ZoneInfoForeverOptionsPanel)
-        InterfaceOptionsFrame_OpenToCategory(ZoneInfoForeverOptionsPanel) -- Repeated to fix Blizzard bug where it opens to wrong page initially
-    end
+    Settings.OpenToCategory(ZoneInfoForeverOptionsPanel.category:GetID())
 end
 
 local function CreateOptionsPanel()
@@ -484,12 +487,15 @@ local function CreateOptionsPanel()
     title:SetText(L("OPT_TITLE", "Zone Info: Forever Settings"))
 
     local function CreateCheckbox(name, labelText, dbKey, yOffset, xOffset)
-        local cb = CreateFrame("CheckButton", name, panel, "InterfaceOptionsCheckButtonTemplate")
+        local cb = CreateFrame("CheckButton", name, panel, "UICheckButtonTemplate")
+        cb:SetSize(26, 26)
         cb:SetPoint("TOPLEFT", xOffset or 16, yOffset)
-        _G[cb:GetName() .. "Text"]:SetText(labelText)
+        cb.Text:SetText(labelText)
         cb:SetChecked(ZoneInfoForeverDB[dbKey])
         cb:SetScript("OnClick", function(self)
-            ZoneInfoForeverDB[dbKey] = self:GetChecked()
+            local checked = self:GetChecked()
+            PlaySound(checked and SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON or SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_OFF)
+            ZoneInfoForeverDB[dbKey] = checked
             UpdateZoneStrings()
         end)
         checkboxes[dbKey] = cb
@@ -497,7 +503,8 @@ local function CreateOptionsPanel()
     end
 
     local function CreateSlider(name, labelText, dbKey, xOffset, yOffset, minV, maxV, step)
-        local slider = CreateFrame("Slider", name, panel, "OptionsSliderTemplate")
+        local slider = CreateFrame("Slider", name, panel, "UISliderTemplateWithLabels")
+        slider:SetSize(144, 17)
         slider:SetPoint("TOPLEFT", xOffset, yOffset)
         slider:SetMinMaxValues(minV, maxV)
         slider:SetValueStep(step)
@@ -505,10 +512,10 @@ local function CreateOptionsPanel()
         slider:SetValue(ZoneInfoForeverDB[dbKey])
 
         -- Current value goes in the title so nothing hangs below the slider
-        local title = _G[name .. "Text"]
+        local title = slider.Text
         title:SetText(labelText .. ": " .. ZoneInfoForeverDB[dbKey])
-        _G[name .. "Low"]:SetText(minV)
-        _G[name .. "High"]:SetText(maxV)
+        slider.Low:SetText(minV)
+        slider.High:SetText(maxV)
 
         slider:SetScript("OnValueChanged", function(self, value)
             local rounded = math.floor(value + 0.5)
@@ -558,25 +565,14 @@ local function CreateOptionsPanel()
                 UpdateZIF_FontStyles()
             end
 
-            if ColorPickerFrame.SetupColorPickerAndShow then
-                local info = {
-                    r = c.r,
-                    g = c.g,
-                    b = c.b,
-                    hasOpacity = false,
-                    swatchFunc = OnColorChanged,
-                    cancelFunc = OnColorCanceled,
-                }
-                ColorPickerFrame:SetupColorPickerAndShow(info)
-            else
-                ColorPickerFrame.func = OnColorChanged
-                ColorPickerFrame.cancelFunc = OnColorCanceled
-                ColorPickerFrame.previousValues = {r = c.r, g = c.g, b = c.b}
-                ColorPickerFrame:SetColorRGB(c.r, c.g, c.b)
-                ColorPickerFrame.hasOpacity = false
-                ColorPickerFrame:Hide()
-                ColorPickerFrame:Show()
-            end
+            ColorPickerFrame:SetupColorPickerAndShow({
+                r = c.r,
+                g = c.g,
+                b = c.b,
+                hasOpacity = false,
+                swatchFunc = OnColorChanged,
+                cancelFunc = OnColorCanceled,
+            })
         end)
 
         swatches[dbKey] = button
@@ -587,12 +583,12 @@ local function CreateOptionsPanel()
     CreateCheckbox("ZIF_CheckDungeons", L("OPT_SHOW_DUNGEONS", "Show Dungeons"), "showDungeons", -80)
     CreateCheckbox("ZIF_CheckTransport", L("OPT_SHOW_TRANSPORT", "Show Transportation Routes"), "showTransport", -110)
     CreateCheckbox("ZIF_CheckIcons", L("OPT_SHOW_ICONS", "Show Faction Icons"), "showIcons", -140)
-    CreateCheckbox("ZIF_CheckWindow", L("OPT_SHOW_WINDOW", "Use Dedicated Window"), "useOwnWindow", -170)
-    local cbMinimap = CreateCheckbox("ZIF_CheckMinimapPanel", L("OPT_SHOW_MINIMAP", "Show Minimap Panel"), "showMinimapPanel", -200)
+    CreateCheckbox("ZIF_CheckWindow", L("OPT_SHOW_WINDOW", "Use Separate Movable Window"), "useOwnWindow", -170)
+    local cbMinimap = CreateCheckbox("ZIF_CheckMinimapPanel", L("OPT_SHOW_MINIMAP", "Show Current Zone Panel"), "showMinimapPanel", -200)
     local cbHideCombat = CreateCheckbox("ZIF_CheckHideInCombat", L("OPT_HIDE_IN_COMBAT", "Hide Current Zone Panel in Combat"), "hideInCombat", -230, 36)
 
     local function RefreshHideCombatState()
-        local label = _G[cbHideCombat:GetName() .. "Text"]
+        local label = cbHideCombat.Text
         if ZoneInfoForeverDB.showMinimapPanel then
             cbHideCombat:Enable()
             label:SetTextColor(1, 1, 1)
@@ -605,30 +601,30 @@ local function CreateOptionsPanel()
     cbMinimap:HookScript("OnClick", RefreshHideCombatState)
     RefreshHideCombatState()
 
-    CreateCheckbox("ZIF_CheckHerbs", L("OPT_SHOW_HERBS", "Show Herbs"), "showHerbs", -260)
-    CreateCheckbox("ZIF_CheckMining", L("OPT_SHOW_MINING", "Show Mining"), "showMining", -290)
+    CreateCheckbox("ZIF_CheckHerbs", L("OPT_SHOW_HERBS", "Show Herbalism Nodes list"), "showHerbs", -260)
+    CreateCheckbox("ZIF_CheckMining", L("OPT_SHOW_MINING", "Show Mining Ores list"), "showMining", -290)
 
     -- Right column: one row per text type, slider with its color swatch beside it
     local SLIDER_X, SLIDER_TOP, SLIDER_ROW = 340, -70, 50
     local function RowY(row) return SLIDER_TOP - (row - 1) * SLIDER_ROW end
 
-    CreateSlider("ZIF_SliderLevel", "Level Font Size", "fontSizeLevel", SLIDER_X, RowY(1), 8, 24, 1)
-    local sFishing = CreateSlider("ZIF_SliderFishing", "Fishing Font Size", "fontSizeFishing", SLIDER_X, RowY(2), 8, 24, 1)
-    local sDungeons = CreateSlider("ZIF_SliderDungeons", "Dungeons Font Size", "fontSizeDungeons", SLIDER_X, RowY(3), 8, 24, 1)
-    local sTransport = CreateSlider("ZIF_SliderTransport", "Transport Font Size", "fontSizeTransport", SLIDER_X, RowY(4), 8, 24, 1)
-    local sHerbs = CreateSlider("ZIF_SliderHerbs", "Herbs Font Size", "fontSizeHerbs", SLIDER_X, RowY(5), 8, 24, 1)
-    local sMining = CreateSlider("ZIF_SliderMining", "Mining Font Size", "fontSizeMining", SLIDER_X, RowY(6), 8, 24, 1)
+    CreateSlider("ZIF_SliderLevel", L("OPT_SIZE_LEVEL", "Level Font Size"), "fontSizeLevel", SLIDER_X, RowY(1), 8, 24, 1)
+    local sFishing = CreateSlider("ZIF_SliderFishing", L("OPT_SIZE_FISHING", "Fishing Font Size"), "fontSizeFishing", SLIDER_X, RowY(2), 8, 24, 1)
+    local sDungeons = CreateSlider("ZIF_SliderDungeons", L("OPT_SIZE_DUNGEONS", "Dungeons Font Size"), "fontSizeDungeons", SLIDER_X, RowY(3), 8, 24, 1)
+    local sTransport = CreateSlider("ZIF_SliderTransport", L("OPT_SIZE_TRANSPORT", "Transport Font Size"), "fontSizeTransport", SLIDER_X, RowY(4), 8, 24, 1)
+    local sHerbs = CreateSlider("ZIF_SliderHerbs", L("OPT_SIZE_HERBS", "Herbs Font Size"), "fontSizeHerbs", SLIDER_X, RowY(5), 8, 24, 1)
+    local sMining = CreateSlider("ZIF_SliderMining", L("OPT_SIZE_MINING", "Mining Font Size"), "fontSizeMining", SLIDER_X, RowY(6), 8, 24, 1)
 
-    CreateColorSwatch("ZIF_ColorFishing", "Fishing Color", "colorFishing", sFishing)
-    CreateColorSwatch("ZIF_ColorDungeons", "Dungeons Color", "colorDungeons", sDungeons)
-    CreateColorSwatch("ZIF_ColorTransport", "Transport Color", "colorTransport", sTransport)
-    CreateColorSwatch("ZIF_ColorHerbs", "Herbs Color", "colorHerbs", sHerbs)
-    CreateColorSwatch("ZIF_ColorMining", "Mining Color", "colorMining", sMining)
+    CreateColorSwatch("ZIF_ColorFishing", L("OPT_COLOR_FISHING", "Fishing Color"), "colorFishing", sFishing)
+    CreateColorSwatch("ZIF_ColorDungeons", L("OPT_COLOR_DUNGEONS", "Dungeons Color"), "colorDungeons", sDungeons)
+    CreateColorSwatch("ZIF_ColorTransport", L("OPT_COLOR_TRANSPORT", "Transport Color"), "colorTransport", sTransport)
+    CreateColorSwatch("ZIF_ColorHerbs", L("OPT_COLOR_HERBS", "Herbs Color"), "colorHerbs", sHerbs)
+    CreateColorSwatch("ZIF_ColorMining", L("OPT_COLOR_MINING", "Mining Color"), "colorMining", sMining)
 
     local moveBtn = CreateFrame("Button", "ZIF_MoveWindowBtn", panel, "UIPanelButtonTemplate")
     moveBtn:SetSize(150, 24)
     moveBtn:SetPoint("TOPLEFT", 16, -345)
-    moveBtn:SetText("Unlock Windows")
+    moveBtn:SetText(L("OPT_UNLOCK", "Unlock Windows"))
 
     local function LockWindows()
         unlocked = false
@@ -641,7 +637,7 @@ local function CreateOptionsPanel()
             ZIF_MinimapPanel.isTesting = false
             ZIF_MinimapPanel:EnableMouse(false)
         end
-        moveBtn:SetText("Unlock Windows")
+        moveBtn:SetText(L("OPT_UNLOCK", "Unlock Windows"))
         InvalidateHover()
         UpdateMinimapPanel()
     end
@@ -662,10 +658,11 @@ local function CreateOptionsPanel()
         if ZIF_InfoWindow then
             local label = zifTargetProvider and zifTargetProvider.Label
             if label and label.zifLevelText then
+                label.zifIconText:Hide()
                 label.zifLevelText:Hide()
                 HideLines(label)
             end
-            ZIF_InfoWindow.header:SetText("Drag Me (Map)!")
+            ZIF_InfoWindow.header:SetText(L("OPT_DRAG_MAP", "Drag Me (Map)!"))
             ZIF_InfoWindow:SetSize(200, 80)
             ZIF_InfoWindow.isTesting = true
             ZIF_InfoWindow:EnableMouse(true)
@@ -676,12 +673,12 @@ local function CreateOptionsPanel()
         if ZIF_MinimapPanel then
             ZIF_MinimapPanel.isTesting = true
             ZIF_MinimapPanel:EnableMouse(true)
-            ZIF_MinimapPanel.header:SetText("Drag Me (Minimap)!")
+            ZIF_MinimapPanel.header:SetText(L("OPT_DRAG_MINIMAP", "Drag Me (Minimap)!"))
             HideLines(ZIF_MinimapPanel)
             ZIF_MinimapPanel:SetSize(200, 80)
             ZIF_MinimapPanel:Show()
         end
-        moveBtn:SetText("Lock Windows")
+        moveBtn:SetText(L("OPT_LOCK", "Lock Windows"))
     end)
 
     local resetBtn = CreateFrame("Button", "ZIF_ResetBtn", panel, "UIPanelButtonTemplate")
@@ -704,8 +701,7 @@ local function CreateOptionsPanel()
 
         if ZIF_InfoWindow then
             ZIF_InfoWindow:ClearAllPoints()
-            local parentAnchor = WorldMapFrame.ScrollContainer or WorldMapFrame
-            ZIF_InfoWindow:SetPoint("BOTTOMRIGHT", parentAnchor, "BOTTOMRIGHT", -10, 60)
+            ZIF_InfoWindow:SetPoint("BOTTOMRIGHT", WorldMapFrame.ScrollContainer, "BOTTOMRIGHT", -10, 60)
         end
         if ZIF_MinimapPanel then
             ZIF_MinimapPanel:ClearAllPoints()
@@ -727,19 +723,16 @@ local function CreateOptionsPanel()
     SkinOptionsPanel(panel)
 
     -- Integrate into Blizzard Interface Options
-    if Settings and Settings.RegisterCanvasLayoutCategory then
-        local category = Settings.RegisterCanvasLayoutCategory(panel, panel.name)
-        Settings.RegisterAddOnCategory(category)
-        ZoneInfoForeverOptionsPanel.category = category
-    elseif InterfaceOptions_AddCategory then
-        InterfaceOptions_AddCategory(panel)
-    end
+    local category = Settings.RegisterCanvasLayoutCategory(panel, panel.name)
+    Settings.RegisterAddOnCategory(category)
+    panel.category = category
 end
 
 SLASH_ZONEINFOFOREVER1 = "/zif"
 SlashCmdList["ZONEINFOFOREVER"] = OpenSettings
 
--- Update zone level colors based on current player level
+-- Update zone level colors based on current player level. Takes the level explicitly because
+-- GetQuestDifficultyColor reads the player's level, which is still the old one during PLAYER_LEVEL_UP.
 local function UpdateZoneInfoColors(level)
     InvalidateHover()
     local currentLevel = level or UnitLevel("player")
@@ -747,27 +740,18 @@ local function UpdateZoneInfoColors(level)
         if v.minLevel and v.maxLevel then
             local color
             if currentLevel < v.minLevel then
-                color = GetQuestDifficultyColor(v.minLevel)
+                color = GetRelativeDifficultyColor(currentLevel, v.minLevel)
             elseif currentLevel > v.maxLevel then
-                color = GetQuestDifficultyColor(v.maxLevel - 2)
+                color = GetRelativeDifficultyColor(currentLevel, v.maxLevel - 2)
             else
                 color = QuestDifficultyColors["difficult"]
             end
-
-            -- Convert RGB table to Hex string safely
-            if type(color) == "table" then
-                local r = math.floor((color.r or 1) * 255 + 0.5)
-                local g = math.floor((color.g or 1) * 255 + 0.5)
-                local b = math.floor((color.b or 1) * 255 + 0.5)
-                color = string.format("|cff%02x%02x%02x", r, g, b)
-            else
-                color = "|cffffffff"
-            end
+            color = RGBTableToColorCode(color)
 
             if v.minLevel ~= v.maxLevel then
-                v.levelString = " " .. color .. "(" .. v.minLevel .. "-" .. v.maxLevel .. ")" .. (FONT_COLOR_CODE_CLOSE or "|r")
+                v.levelString = " " .. color .. "(" .. v.minLevel .. "-" .. v.maxLevel .. ")" .. FONT_COLOR_CODE_CLOSE
             else
-                v.levelString = " " .. color .. "(" .. v.maxLevel .. ")" .. (FONT_COLOR_CODE_CLOSE or "|r")
+                v.levelString = " " .. color .. "(" .. v.maxLevel .. ")" .. FONT_COLOR_CODE_CLOSE
             end
         else
             v.levelString = ""
@@ -778,85 +762,69 @@ end
 local function HideZoneInfo(label)
     if ZIF_InfoWindow and not ZIF_InfoWindow.isTesting then ZIF_InfoWindow:Hide() end
     if label.zifLevelText then
+        label.zifIconText:Hide()
         label.zifLevelText:Hide()
         HideLines(label)
     end
 end
 
--- Lays out the zone info and returns the text to use for the map's area label
 local function ShowZoneInfo(label, zoneData, name)
     if ZoneInfoForeverDB.useOwnWindow then
+        label.zifIconText:Hide()
         label.zifLevelText:Hide()
-        if ZIF_InfoWindow then LayoutPanel(ZIF_InfoWindow, label, zoneData, name) end
-        return name
+        if ZIF_InfoWindow and not ZIF_InfoWindow.isTesting then
+            LayoutPanel(ZIF_InfoWindow, label, zoneData, name)
+        end
+        return
     end
 
     if ZIF_InfoWindow and not ZIF_InfoWindow.isTesting then ZIF_InfoWindow:Hide() end
     LayoutMapLabel(label, zoneData)
-    return (zoneData.iconString or "") .. name
 end
 
--- Hook AreaLabelFrameMixin.OnUpdate
+-- Post-hook on the area label's OnUpdate. That handler rewrites the zone name every frame, so the
+-- name is left to it and this only manages our own icon, level and info lines.
 local function AreaLabelOnUpdate(self)
     local map = self.dataProvider:GetMap()
     if not map:IsCanvasMouseFocus() then
         if lastCursorX or lastCursorY then
-            lastCursorX, lastCursorY, lastName, lastHoveredMapID = nil, nil, nil, nil
+            lastCursorX, lastCursorY, lastMapID, lastHoveredMapID = nil, nil, nil, nil
             HideZoneInfo(self)
-            self:EvaluateLabels()
         end
         return
     end
 
     local normalizedCursorX, normalizedCursorY = map:GetNormalizedCursorPosition()
-    -- Map queries allocate a new table per call, so they are throttled while the cursor moves
-    local now = GetTime()
-    if (lastCursorX == normalizedCursorX and lastCursorY == normalizedCursorY) or now < nextQueryTime then
-        if lastName then
-            self:SetLabel(MAP_AREA_LABEL_TYPE.AREA_NAME, lastName, nil)
-        end
+    -- The map can change under a still cursor (clicking into a zone), so it is part of the check
+    local mapID = map:GetMapID()
+    if lastCursorX == normalizedCursorX and lastCursorY == normalizedCursorY and lastMapID == mapID then
         return
     end
-    lastCursorX, lastCursorY = normalizedCursorX, normalizedCursorY
+
+    -- Map queries allocate a new table per call, so they are throttled while the cursor moves
+    local now = GetTime()
+    if now < nextQueryTime then return end
     nextQueryTime = now + QUERY_INTERVAL
+    lastCursorX, lastCursorY, lastMapID = normalizedCursorX, normalizedCursorY, mapID
 
-    local name
-    local mapID = map:GetMapID()
     local positionMapInfo = C_Map_GetMapInfoAtPosition(mapID, normalizedCursorX, normalizedCursorY)
-    local hoveredMapID = positionMapInfo and positionMapInfo.mapID or nil
+    local hoveredMapID = positionMapInfo and positionMapInfo.mapID
+    if hoveredMapID == mapID then hoveredMapID = nil end
 
-    if hoveredMapID and hoveredMapID ~= mapID then
-        if hoveredMapID ~= lastHoveredMapID then
-            lastHoveredMapID = hoveredMapID
-            local zoneData = mapTable[hoveredMapID]
-            if zoneData then
-                lastHoveredName = ShowZoneInfo(self, zoneData, positionMapInfo.name)
-            else
-                lastHoveredName = positionMapInfo.name
-                HideZoneInfo(self)
-            end
-        end
-        name = lastHoveredName
-    else
-        name = MapUtil_FindBestAreaNameAtMouse(mapID, normalizedCursorX, normalizedCursorY)
-        if lastHoveredMapID ~= nil then
-            lastHoveredMapID = nil
+    if hoveredMapID ~= lastHoveredMapID then
+        lastHoveredMapID = hoveredMapID
+        local zoneData = hoveredMapID and mapTable[hoveredMapID]
+        if zoneData then
+            ShowZoneInfo(self, zoneData, positionMapInfo.name)
+        else
             HideZoneInfo(self)
         end
-    end
-
-    if name ~= lastName then
-        lastName = name
-        if name then
-            self:SetLabel(MAP_AREA_LABEL_TYPE.AREA_NAME, name, nil)
-        end
-        self:EvaluateLabels()
     end
 end
 
 local function SaveInfoWindowPosition(s)
     s:StopMovingOrSizing()
-    local parentAnchor = WorldMapFrame.ScrollContainer or WorldMapFrame
+    local parentAnchor = WorldMapFrame.ScrollContainer
     local sX, sY = s:GetCenter()
     local pX, pY = parentAnchor:GetCenter()
 
@@ -895,33 +863,27 @@ local function InitializeZoneInfoForever()
             local pt = ZoneInfoForeverDB.windowPoint or "BOTTOMRIGHT"
             local x = ZoneInfoForeverDB.windowPosX or -10
             local y = ZoneInfoForeverDB.windowPosY or 60
-            local parentAnchor = WorldMapFrame.ScrollContainer or WorldMapFrame
-            ZIF_InfoWindow:SetPoint(pt, parentAnchor, pt, x, y)
+            ZIF_InfoWindow:SetPoint(pt, WorldMapFrame.ScrollContainer, pt, x, y)
             ZIF_InfoWindow:Hide()
         end
 
         local label = zifTargetProvider.Label
         if not label.zifLevelText then
+            -- Same font as the label's Name, so the icon sits on the same line height
+            label.zifIconText = label:CreateFontString(nil, "OVERLAY", "WorldMapTextFont")
+            label.zifIconText:SetPoint("RIGHT", label.Name, "LEFT", 0, 0)
             label.zifLevelText = label:CreateFontString(nil, "OVERLAY", "GameFontNormal")
             CreateLineFontStrings(label)
             UpdateZIF_FontStyles()
         end
 
-        -- Securely hook SetScript to detect when other addons (like Leatrix) try to overwrite the label script
-        hooksecurefunc(label, "SetScript", function(self, scriptType, handler)
-            if scriptType == "OnUpdate" and not self.ZIF_Rehooking then
-                self.ZIF_Rehooking = true
+        -- SetScript drops script hooks, so reapply ours when other addons (like Leatrix) replace the handler
+        hooksecurefunc(label, "SetScript", function(self, scriptType)
+            if scriptType == "OnUpdate" then
                 self:HookScript("OnUpdate", AreaLabelOnUpdate)
-                self.ZIF_Rehooking = false
             end
         end)
-
-        -- Apply initial hook
-        if not label.ZIF_Rehooking then
-            label.ZIF_Rehooking = true
-            label:HookScript("OnUpdate", AreaLabelOnUpdate)
-            label.ZIF_Rehooking = false
-        end
+        label:HookScript("OnUpdate", AreaLabelOnUpdate)
     end
 
     if not ZIF_MapButton and WorldMapFrame then
@@ -957,10 +919,15 @@ local function InitializeZoneInfoForever()
         end)
         ZIF_MapButton:SetScript("OnDragStop", function(s)
             s:StopMovingOrSizing()
-            local p, _, _, curX, curY = s:GetPoint()
+            -- Dragging leaves the button anchored to the screen; keep it attached to the map's corner,
+            -- so it follows the map when the map moves or changes size
+            local curX = s:GetLeft() - WorldMapFrame:GetLeft()
+            local curY = s:GetBottom() - WorldMapFrame:GetBottom()
+            s:ClearAllPoints()
+            s:SetPoint("BOTTOMLEFT", WorldMapFrame, "BOTTOMLEFT", curX, curY)
             ZoneInfoForeverDB.mapBtnX = curX
             ZoneInfoForeverDB.mapBtnY = curY
-            ZoneInfoForeverDB.mapBtnPoint = p
+            ZoneInfoForeverDB.mapBtnPoint = "BOTTOMLEFT"
         end)
 
         ZIF_MapButton:SetScript("OnClick", OpenSettings)
@@ -968,8 +935,8 @@ local function InitializeZoneInfoForever()
         ZIF_MapButton:SetScript("OnEnter", function(self)
             GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT")
             GameTooltip:SetText("Zone Info: Forever")
-            GameTooltip:AddLine("Click to open settings.", 1, 1, 1)
-            GameTooltip:AddLine("Shift-Drag to move this button.", 0.7, 0.7, 0.7)
+            GameTooltip:AddLine(L("TIP_CLICK", "Click to open settings."), 1, 1, 1)
+            GameTooltip:AddLine(L("TIP_DRAG", "Shift-Drag to move this button."), 0.7, 0.7, 0.7)
             GameTooltip:Show()
         end)
         ZIF_MapButton:SetScript("OnLeave", function()
@@ -998,7 +965,7 @@ local function ShowWelcomeWindow()
     end
 
     local frame = CreateFrame("Frame", "ZIF_WelcomeWindow", UIParent, "BackdropTemplate")
-    frame:SetSize(450, 380)
+    frame:SetSize(450, 410)
     frame:SetPoint("CENTER", UIParent, "CENTER", 0, 100)
     frame:SetFrameStrata("DIALOG")
 
@@ -1021,13 +988,14 @@ local function ShowWelcomeWindow()
     body:SetJustifyV("TOP")
 
     local text = "Thank you so much for using Zone Info: Forever! I hope it makes your adventures across Azeroth a little easier.\n\n"
-    text = text .. "I'm looking forward to seeing all of you when WoW: Forever goes live on |cff00ccffNovember 4th|r!\n\n"
     text = text .. "|cffffff00Quick Tips:|r\n"
     text = text .. "• Type |cff00ccff/zif|r or click the World Map button to open the Settings.\n"
     text = text .. "• Hold |cff00ccffShift|r and drag to freely move the World Map settings button.\n\n"
     text = text .. "|cffffff00Check out my other addons:|r\n"
     text = text .. "• |cff00ff00Forever Quests|r - easily highlights newly added quests.\n"
-    text = text .. "• |cff00ff00Class Quests Forever|r - every class quest in one journal, with an alert when a level-up unlocks a new one.\n\n"
+    text = text .. "• |cff00ff00Class Quests Forever|r - every class quest in one journal, with an alert when a level-up unlocks a new one.\n"
+    text = text .. "• |cff00ff00Better Vendor UI|r - a wider vendor window with search, item filters and Always/Never sell junk lists.\n"
+    text = text .. "• |cff00ff00Questionable Drops|r - shows which mobs drop items that start quests you can still do.\n\n"
     text = text .. "If you have any feedback, don't be shy to comment on the CurseForge page :)"
 
     body:SetText(text)
@@ -1058,7 +1026,7 @@ eventFrame:SetScript("OnEvent", function(self, event, arg1, arg2)
     if event == "GET_ITEM_INFO_RECEIVED" then
         if pendingItems[arg1] then
             pendingItems[arg1] = nil
-            local name = GetItemName and GetItemName(arg1)
+            local name = GetItemName(arg1)
             if name then
                 itemNames[arg1] = name
             elseif arg2 == false then
@@ -1072,7 +1040,6 @@ eventFrame:SetScript("OnEvent", function(self, event, arg1, arg2)
     elseif event == "ADDON_LOADED" and arg1 == "ZoneInfoForever" then
         self:UnregisterEvent("ADDON_LOADED")
         InitializeDB()
-        if ZIF_UpdateLocale then ZIF_UpdateLocale() end
         BuildStaticStrings()
         UpdateZoneStrings()
         CreateOptionsPanel()
