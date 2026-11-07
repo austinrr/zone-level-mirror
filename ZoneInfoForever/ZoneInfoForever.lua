@@ -6,59 +6,59 @@ local _, ns = ...
 
 local mapTable = {
     -- Eastern Kingdoms
-    --[[Alterac Mountains]]		[1416] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = {{id=16560, text=" (28-33)"}}, transport = "Sky Boats: Zephras Isle", faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821}, mining = {2771, 2775, 2772, 2776, 3858}},
-    --[[Arathi Highlands]]		[1417] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821}, mining = {2771, 2775, 2772, 2776, 3858}},
-    --[[Badlands]]				[1418] = {minLevel = 35, 	maxLevel = 45,		dungeons = {{id=1337, text=" (38-48)"}}, transport = "Boats: Steamwheedle Port", faction = "Contested", herbs = {3355, 3356, 3818, 3821, 4625}, mining = {2772, 2776, 3858, 7911}},
+    --[[Alterac Mountains]]		[1416] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = {{id=16560, text=" (28-33)"}}, transport = "Sky Boats: Zephras Isle", faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821, 3358, 3819}, mining = {2771, 2775, 2772, 2776, 3858, 7911}},
+    --[[Arathi Highlands]]		[1417] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821, 3358}, mining = {2771, 2775, 2772, 2776, 3858, 7911}},
+    --[[Badlands]]				[1418] = {minLevel = 35, 	maxLevel = 45,		dungeons = {{id=1337, text=" (38-48)"}}, transport = "Boats: Steamwheedle Port", faction = "Contested", herbs = {3355, 3356, 3818, 3821, 3358, 4625}, mining = {2775, 2772, 2776, 3858, 7911}},
     --[[Blasted Lands]]			[1419] = {minLevel = 45, 	maxLevel = 55,                             faction = "Contested", herbs = {3818, 3821, 3358, 4625, 8838, 8846}, mining = {2772, 2776, 3858, 7911, 10620}},
-    --[[Burning Steppes]]		[1428] = {minLevel = 50, 	maxLevel = 58,		minFish = "330",       dungeons = {{id=17803, text=" (52-60)"}, {id=17804, text=" (55-60)"}, {id=2717, text=" (60)"}, {id=2677, text=" (60)"}}, faction = "Contested", herbs = {4625, 13464, 13463, 13465, 13468}, mining = {3858, 7911, 10620}},
+    --[[Burning Steppes]]		[1428] = {minLevel = 50, 	maxLevel = 58,		minFish = "330",       dungeons = {{id=17803, text=" (52-60)"}, {id=17804, text=" (55-60)"}, {id=2717, text=" (60)"}, {id=2677, text=" (60)"}}, faction = "Contested", herbs = {4625, 13464, 13463, 13465, 13468}, mining = {2776, 3858, 7911, 11370, 10620}},
     --[[Deadwind Pass]]			[1430] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", herbs = {13463, 13465}, mining = {3858, 7911, 10620}},
     --[[Dun Morogh]]			[1426] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = {{id=16919, text=" (13-20)"}, {id=721, text=" (29-38)"}}, transport = "Deeprun Tram: Stormwind", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
-    --[[Duskwood]]				[1431] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        faction = "Contested", herbs = {785, 2450, 2453, 3369, 3356}, mining = {2770, 2771, 2775, 2772}},
-    --[[Eastern Plaguelands]]	[1423] = {minLevel = 53, 	maxLevel = 60,		minFish = "330",       dungeons = {{id=2017, text=" (58-60)"}, {id=3456, text=" (60)"}}, faction = "Contested", herbs = {8836, 8838, 13466, 13463, 13468}, mining = {3858, 7911, 10620}},
+    --[[Duskwood]]				[1431] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        faction = "Contested", herbs = {785, 2450, 2453, 3355, 3369, 3356}, mining = {2770, 2771, 2775, 2772, 2776}},
+    --[[Eastern Plaguelands]]	[1423] = {minLevel = 53, 	maxLevel = 60,		minFish = "330",       dungeons = {{id=2017, text=" (58-60)"}, {id=3456, text=" (60)"}}, faction = "Contested", herbs = {8836, 8838, 13464, 13463, 13465, 13466, 13468}, mining = {3858, 7911, 10620}},
     --[[Elwynn Forest]]			[1429] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Deeprun Tram: Ironforge", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
-    --[[Hillsbrad Foothills]]	[1424] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        transport = "Boats: Auberdine", faction = "Contested", herbs = {785, 2450, 2453, 3356, 3357}, mining = {2770, 2771, 2775, 2772}},
-    --[[Ironforge]]				[1455] = {minFish = 1,                                                 faction = "Alliance"},
-    --[[Loch Modan]]			[1432] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450}, mining = {2770, 2771, 2775}},
-    --[[Redridge Mountains]]	[1433] = {minLevel = 15, 	maxLevel = 25,		minFish = "55",        faction = "Contested", herbs = {785, 2450, 2453}, mining = {2770, 2771, 2775}},
-    --[[Searing Gorge]]			[1427] = {minLevel = 43, 	maxLevel = 50,                             dungeons = {{id=17803, text=" (52-60)"}, {id=17804, text=" (55-60)"}, {id=2717, text=" (60)"}, {id=2677, text=" (60)"}}, faction = "Contested", herbs = {4625, 3821}, mining = {2772, 2776, 3858, 7911, 10620}},
-    --[[Silverpine Forest]]		[1421] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = {{id=209, text=" (20-30)"}}, faction = "Horde", herbs = {2447, 765, 2449, 785, 2450}, mining = {2770, 2771, 2775}},
+    --[[Hillsbrad Foothills]]	[1424] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        transport = "Boats: Auberdine", faction = "Contested", herbs = {785, 2450, 3820, 2453, 3355, 3356, 3357}, mining = {2770, 2771, 2775, 2772, 2776}},
+    --[[Ironforge]]				[1455] = {minFish = 1,                                                 dungeons = {{id=16919, text=" (13-20)"}}, faction = "Alliance"},
+    --[[Loch Modan]]			[1432] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450, 2453}, mining = {2770, 2771, 2775}},
+    --[[Redridge Mountains]]	[1433] = {minLevel = 15, 	maxLevel = 25,		minFish = "55",        faction = "Contested", herbs = {2449, 785, 2450, 2453}, mining = {2770, 2771, 2775}},
+    --[[Searing Gorge]]			[1427] = {minLevel = 43, 	maxLevel = 50,                             dungeons = {{id=17803, text=" (52-60)"}, {id=17804, text=" (55-60)"}, {id=2717, text=" (60)"}, {id=2677, text=" (60)"}}, faction = "Contested", herbs = {4625, 3821}, mining = {2772, 2776, 3858, 7911, 11370, 10620}},
+    --[[Silverpine Forest]]		[1421] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = {{id=209, text=" (20-30)"}}, faction = "Horde", herbs = {2447, 765, 2449, 785, 2450, 3820, 2453}, mining = {2770, 2771, 2775}},
     --[[Stormwind City]]		[1453] = {minFish = 1,                                                 dungeons = {{id=717, text=" (24-32)"}}, faction = "Alliance"},
-    --[[Stranglethorn Vale]]	[1434] = {minLevel = 30, 	maxLevel = 45,		minFish = "130 (205)", dungeons = {{name="The Drowned City", text=" (35-40)"}, {id=1977, text=" (60)"}}, transport = "Zeppelins: Orgrimmar, Undercity\nBoats: Ratchet", faction = "Contested", herbs = {3356, 3357, 3818, 3821, 3358}, mining = {2772, 2776, 3858, 7911}},
-    --[[Swamp of Sorrows]]		[1435] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = {{id=1417, text=" (49-56)"}}, faction = "Contested", herbs = {3356, 3357, 3818, 3821, 8839}, mining = {2772, 2776, 3858}},
-    --[[The Hinterlands]]		[1425] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       faction = "Contested", herbs = {3818, 3821, 3358, 8838, 8845}, mining = {2772, 2776, 3858, 7911}},
+    --[[Stranglethorn Vale]]	[1434] = {minLevel = 30, 	maxLevel = 45,		minFish = "130 (205)", dungeons = {{name="The Drowned City", text=" (35-40)"}, {id=1977, text=" (60)"}}, transport = "Zeppelins: Orgrimmar, Undercity\nBoats: Ratchet", faction = "Contested", herbs = {3820, 3355, 3356, 3357, 3818, 3821, 3358, 8831}, mining = {2775, 2772, 2776, 3858, 7911}},
+    --[[Swamp of Sorrows]]		[1435] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = {{id=1417, text=" (49-56)"}}, faction = "Contested", herbs = {3820, 3356, 3357, 3818, 3821, 3358, 8839}, mining = {2775, 2772, 2776, 3858}},
+    --[[The Hinterlands]]		[1425] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       faction = "Contested", herbs = {3820, 3818, 3821, 3358, 8831, 8838, 8845, 13464}, mining = {2772, 2776, 3858, 7911, 10620}},
     --[[Tirisfal Glades]]		[1420] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = {{id=16611, text=" (15-22)"}, {id=796, text=" (30-45)"}}, transport = "Zeppelins: Orgrimmar, Grom'gol", faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
     --[[Undercity]]				[1458] = {minFish = 1,                                                 faction = "Horde"},
-    --[[Westfall]]				[1436] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = {{id=1581, text=" (17-26)"}}, faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450}, mining = {2770, 2771, 2775}},
-    --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		minFish = "205",       dungeons = {{id=2057, text=" (58-60)"}}, faction = "Contested", herbs = {8836, 8838, 13466, 13463}, mining = {3858, 7911, 10620}},
-    --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        dungeons = {{id=16732, text=" (26-33)"}}, transport = "Boats: Theramore, Auberdine", faction = "Contested", herbs = {2450, 2453, 3355, 3356, 3357}, mining = {2771, 2775, 2772}},
+    --[[Westfall]]				[1436] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = {{id=1581, text=" (17-26)"}}, faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450, 3820, 2453}, mining = {2770, 2771, 2775}},
+    --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		minFish = "205",       dungeons = {{id=2057, text=" (58-60)"}}, faction = "Contested", herbs = {8836, 8838, 13463, 13465, 13466}, mining = {2776, 3858, 7911, 10620}},
+    --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        dungeons = {{id=16732, text=" (26-33)"}}, transport = "Boats: Theramore, Auberdine", faction = "Contested", herbs = {785, 2450, 3820, 2453, 3355, 3356, 3357}, mining = {2770, 2771, 2775, 2772}},
 
     -- Kalimdor
-    --[[Ashenvale]]				[1440] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        dungeons = {{id=719, text=" (24-32)"}}, faction = "Contested", herbs = {785, 2450, 2453, 3356, 3357}, mining = {2770, 2771, 2775, 2772, 2776}},
-    --[[Azshara]]				[1447] = {minLevel = 45, 	maxLevel = 55,		minFish = "205 (330)", dungeons = {{id=1216, name="Blackmaw Hold", text=" (55-60)"}}, faction = "Contested", herbs = {8838, 8831, 8846, 13463, 13465}, mining = {3858, 7911, 10620}},
-    --[[Darkshore]]				[1439] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         transport = "Boats: Menethil Harbor, Rut'theran, Southshore", faction = "Alliance", herbs = {785, 2450, 3820}, mining = {2770, 2771, 2775}},
+    --[[Ashenvale]]				[1440] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        dungeons = {{id=719, text=" (24-32)"}}, faction = "Contested", herbs = {785, 2450, 3820, 2453, 3355, 3356, 3357}, mining = {2770, 2771, 2775, 2772, 2776}},
+    --[[Azshara]]				[1447] = {minLevel = 45, 	maxLevel = 55,		minFish = "205 (330)", dungeons = {{id=1216, name="Blackmaw Hold", text=" (55-60)"}}, faction = "Contested", herbs = {3820, 3358, 8831, 8838, 8846, 13464, 13463, 13465}, mining = {2776, 3858, 7911, 10620}},
+    --[[Darkshore]]				[1439] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         transport = "Boats: Menethil Harbor, Rut'theran, Southshore", faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450, 3820, 2453}, mining = {2770, 2771, 2775}},
     --[[Darnassus]]				[1457] = {minFish = 1,                                                 faction = "Alliance"},
-    --[[Desolace]]				[1443] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = {{id=2100, text=" (45-52)"}}, faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821}, mining = {2772, 2776, 3858, 7911}},
-    --[[Durotar]]				[1411] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Zeppelins: Undercity, Grom'gol", faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
-    --[[Dustwallow Marsh]]		[1445] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = {{name="Alcaz Prison", text=" (48-53)"}, {id=2159, text=" (60)"}}, transport = "Boats: Menethil Harbor", faction = "Contested", herbs = {3356, 3357, 3358, 3820}, mining = {2772, 2776, 3858}},
-    --[[Felwood]]				[1448] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       faction = "Contested", herbs = {8838, 8846, 13464, 13463, 13466}, mining = {3858, 7911, 10620}},
-    --[[Feralas]]				[1444] = {minLevel = 40, 	maxLevel = 50,		minFish = "205 (330)", dungeons = {{id=2557, text=" (55-60)"}}, transport = "Boats: Feathermoon, Forgotten Coast", faction = "Contested", herbs = {3356, 3357, 3818, 3821, 3358, 8838}, mining = {2772, 2776, 3858, 7911}},
+    --[[Desolace]]				[1443] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = {{id=2100, text=" (45-52)"}}, faction = "Contested", herbs = {3820, 2453, 3355, 3369, 3356, 3357, 3818, 3821, 8846}, mining = {2771, 2775, 2772, 2776, 3858, 7911}},
+    --[[Durotar]]				[1411] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Zeppelins: Undercity, Grom'gol", faction = "Horde", herbs = {2447, 765, 2449, 785}, mining = {2770}},
+    --[[Dustwallow Marsh]]		[1445] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = {{name="Alcaz Prison", text=" (48-53)"}, {id=2159, text=" (60)"}}, transport = "Boats: Menethil Harbor", faction = "Contested", herbs = {3820, 3356, 3357, 3818, 3821, 3358}, mining = {2775, 2772, 2776, 3858, 7911}},
+    --[[Felwood]]				[1448] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       faction = "Contested", herbs = {8836, 8838, 8846, 13464, 13463, 13465, 13466}, mining = {2776, 3858, 7911, 10620}},
+    --[[Feralas]]				[1444] = {minLevel = 40, 	maxLevel = 50,		minFish = "205 (330)", dungeons = {{id=2557, text=" (55-60)"}}, transport = "Boats: Feathermoon, Forgotten Coast", faction = "Contested", herbs = {3820, 3356, 3357, 3818, 3821, 3358, 8831, 8838}, mining = {2772, 2776, 3858, 7911}},
     --[[Moonglade]]				[1450] = {minFish = 205,                                               faction = "Sanctuary", herbs = {2447, 765, 2449}},
     --[[Mulgore]]				[1412] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
     --[[Orgrimmar]]				[1454] = {minFish = 1,                                                 dungeons = {{id=2437, text=" (13-18)"}}, faction = "Horde"},
-    --[[Silithus]]				[1451] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       dungeons = {{id=3429, text=" (60)"}, {id=3428, text=" (60)"}}, faction = "Contested", herbs = {8838, 13464, 13463, 13465, 13468}, mining = {3858, 7911, 10620}},
-    --[[Stonetalon Mountains]]	[1442] = {minLevel = 15, 	maxLevel = 27,		minFish = "55",        transport = "Sky Boats: Zephras Isle", faction = "Contested", herbs = {785, 2450, 2453, 3355}, mining = {2770, 2771, 2775, 2772}},
-    --[[Tanaris]]				[1446] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       dungeons = {{id=978, text=" (43-50)"}}, transport = "Boats: Powderfuse Port", faction = "Contested", herbs = {4625, 8831}, mining = {2772, 2776, 3858, 7911, 10620}},
-    --[[Teldrassil]]			[1438] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Boats: Auberdine", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
-    --[[The Barrens]]			[1413] = {minLevel = 10, 	maxLevel = 25,		minFish = "1",         dungeons = {{id=718, text=" (15-24)"}, {id=491, text=" (29-38)"}, {id=722, text=" (37-46)"}}, transport = "Boats: Booty Bay", faction = "Horde", herbs = {785, 2450, 2453, 3820}, mining = {2770, 2771, 2775, 2772}},
-    --[[Thousand Needles]]		[1441] = {minLevel = 25, 	maxLevel = 35,		minFish = "130",       faction = "Contested", herbs = {2453, 3355, 3356, 3357}, mining = {2771, 2775, 2772, 2776, 3858}},
+    --[[Silithus]]				[1451] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       dungeons = {{id=3429, text=" (60)"}, {id=3428, text=" (60)"}}, faction = "Contested", herbs = {8838, 13464, 13463, 13465, 13468}, mining = {2776, 3858, 7911, 10620}},
+    --[[Stonetalon Mountains]]	[1442] = {minLevel = 15, 	maxLevel = 27,		minFish = "55",        transport = "Sky Boats: Zephras Isle", faction = "Contested", herbs = {785, 2450, 2453, 3355, 3356}, mining = {2770, 2771, 2775, 2772, 2776}},
+    --[[Tanaris]]				[1446] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       dungeons = {{id=978, text=" (43-50)"}}, transport = "Boats: Powderfuse Port", faction = "Contested", herbs = {3820, 4625, 8831}, mining = {2775, 2772, 2776, 3858, 7911, 10620}},
+    --[[Teldrassil]]			[1438] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Boats: Auberdine", faction = "Alliance", herbs = {2447, 765, 2449, 785}, mining = {2770}},
+    --[[The Barrens]]			[1413] = {minLevel = 10, 	maxLevel = 25,		minFish = "1",         dungeons = {{id=718, text=" (15-24)"}, {id=491, text=" (29-38)"}, {id=722, text=" (37-46)"}}, transport = "Boats: Booty Bay", faction = "Horde", herbs = {2447, 765, 2449, 785, 2450, 3820, 2453, 3355, 3356}, mining = {2770, 2771, 2775, 2772}},
+    --[[Thousand Needles]]		[1441] = {minLevel = 25, 	maxLevel = 35,		minFish = "130",       faction = "Contested", herbs = {2453, 3355, 3356, 3357}, mining = {2770, 2771, 2775, 2772, 2776, 3858}},
     --[[Thunder Bluff]]			[1456] = {minFish = 1,                                                 faction = "Horde"},
-    --[[Un'Goro Crater]]		[1449] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       dungeons = {{id=16985, name="Shaper's Terrace", text=" (58-60)"}}, faction = "Contested", herbs = {8839, 13465, 13464, 13468}, mining = {3858, 7911, 10620}},
-    --[[Winterspring]]			[1452] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", herbs = {13467, 13465, 13463, 13468}, mining = {3858, 7911, 10620}},
+    --[[Un'Goro Crater]]		[1449] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       dungeons = {{id=16985, name="Shaper's Terrace", text=" (58-60)"}}, faction = "Contested", herbs = {8838, 8839, 13464, 13463, 13465, 13468}, mining = {2776, 3858, 7911, 10620}},
+    --[[Winterspring]]			[1452] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", herbs = {13467, 13465, 13463, 13468}, mining = {2776, 3858, 7911, 10620}},
 
     -- Forever
     --[[Hyjal]]					[2482] = {minLevel = 60, 	maxLevel = 60,                             faction = "Contested"},
-    --[[Zephras Isle]]			[2521] = {minLevel = 1, 	maxLevel = 12,                             transport = "Sky Boats: Dalaran, Skywatcher Plateau", faction = "Contested"},
-    --[[Riverglades]]			[2548] = {minLevel = 35, 	maxLevel = 45,                             dungeons = {{id=17780, name="Krol'dok Stronghold", text=" (40-45)"}}, faction = "Contested", herbs = {3818, 3821, 3358}, mining = {2772, 2776, 3858}},
+    --[[Zephras Isle]]			[2521] = {minLevel = 1, 	maxLevel = 12,                             transport = "Sky Boats: Dalaran, Skywatcher Plateau", faction = "Contested", herbs = {2447, 765, 2449, 785}, mining = {2770}},
+    --[[Riverglades]]			[2548] = {minLevel = 35, 	maxLevel = 45,                             dungeons = {{id=17780, name="Krol'dok Stronghold", text=" (40-45)"}}, faction = "Contested", herbs = {3356, 3818, 3821, 3358}, mining = {2772, 2776, 3858}},
     --[[Shen'dralas]]			[2652] = {minLevel = 35, 	maxLevel = 45,                             faction = "Contested", herbs = {3818, 3821, 3358}, mining = {2772, 2776, 3858}},
 }
 
@@ -91,6 +91,7 @@ local DEFAULTS = {
     hideInCombat = false,
     showHerbs = false,
     showMining = false,
+    colorBySkill = true,
     fontSizeLevel = 18,
     fontSizeFishing = 18,
     fontSizeDungeons = 18,
@@ -166,6 +167,22 @@ local function HideLines(owner)
     end
 end
 
+-- Lines wider than this wrap (long herb and ore lists)
+local MAX_LINE_WIDTH = 420
+
+-- Sets a line's text, wrapping it at MAX_LINE_WIDTH, and returns the width it takes up
+local function SetLineText(fs, text)
+    fs:SetWidth(0) -- size to the text again, as the line may have wrapped for the previous zone
+    fs:SetText(text)
+    local width = fs:GetUnboundedStringWidth()
+    if width > MAX_LINE_WIDTH then
+        fs:SetWordWrap(true)
+        fs:SetWidth(MAX_LINE_WIDTH)
+        width = MAX_LINE_WIDTH
+    end
+    return width
+end
+
 -- Stacks the zone's info lines (owned by owner) inside a backdrop panel and sizes the panel to fit
 local function LayoutPanel(panel, owner, zoneData, name)
     panel.header:SetText((zoneData.iconString or "") .. name .. (zoneData.levelString or ""))
@@ -180,13 +197,13 @@ local function LayoutPanel(panel, owner, zoneData, name)
         if s and s ~= "" then
             fs:SetParent(panel)
             fs:SetJustifyH("LEFT")
-            fs:SetText(s)
+            local width = SetLineText(fs, s)
             fs:ClearAllPoints()
             fs:SetPoint("TOPLEFT", currentAnchor, "BOTTOMLEFT", 0, -6)
             fs:Show()
             currentAnchor = fs
             totalHeight = totalHeight + 6 + fs:GetStringHeight()
-            maxWidth = max(maxWidth, fs:GetStringWidth())
+            maxWidth = max(maxWidth, width)
         else
             fs:Hide()
         end
@@ -227,7 +244,7 @@ local function LayoutMapLabel(label, zoneData)
         if s and s ~= "" then
             fs:SetParent(label)
             fs:SetJustifyH("CENTER")
-            fs:SetText(s)
+            SetLineText(fs, s)
             fs:ClearAllPoints()
             fs:SetPoint("TOP", currentAnchor, "BOTTOM", 0, -4)
             fs:Show()
@@ -299,23 +316,46 @@ end
 
 -- Minimap Panel Logic
 
+-- Pins the Current Zone panel by its corner nearest the screen edges, so it grows away from them.
+-- The panel is a scale-1 child of UIParent, so its rect and UIParent's size are in the same units.
+local function SaveMinimapPanelPosition(s)
+    s:StopMovingOrSizing()
+    local left, bottom, width, height = s:GetRect()
+    if not left then return end
+    local screenW, screenH = UIParent:GetSize()
+    local isTop = bottom + height / 2 > screenH / 2
+    local isRight = left + width / 2 > screenW / 2
+    local point = (isTop and "TOP" or "BOTTOM") .. (isRight and "RIGHT" or "LEFT")
+    local x = isRight and (left + width - screenW) or left
+    local y = isTop and (bottom + height - screenH) or bottom
+    s:ClearAllPoints()
+    s:SetPoint(point, UIParent, point, x, y)
+    local db = ZoneInfoForeverDB
+    db.minimapPanelPoint, db.minimapPanelRelPoint, db.minimapPanelX, db.minimapPanelY = point, point, x, y
+end
+
+-- Until it's moved, the panel sits just above the bag bar (it used to start in the screen corner,
+-- hidden under the bags and micro menu), and follows the bags if Edit Mode moves them
+local function SetDefaultMinimapPanelPoint(panel)
+    panel:ClearAllPoints()
+    if BagsBar then
+        panel:SetPoint("BOTTOMRIGHT", BagsBar, "TOPRIGHT", 0, 10)
+    else
+        panel:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -20, 120)
+    end
+end
+
 local function GetMinimapPanel()
     if ZIF_MinimapPanel then return ZIF_MinimapPanel end
 
     local panel = CreateInfoPanel("ZIF_MinimapPanel", UIParent, "BACKGROUND")
-    panel:SetScript("OnDragStop", function(s)
-        s:StopMovingOrSizing()
-        local p, _, rp, x, y = s:GetPoint()
-        ZoneInfoForeverDB.minimapPanelPoint = p
-        ZoneInfoForeverDB.minimapPanelRelPoint = rp
-        ZoneInfoForeverDB.minimapPanelX = x
-        ZoneInfoForeverDB.minimapPanelY = y
-    end)
+    panel:SetClampedToScreen(true)
+    panel:SetScript("OnDragStop", SaveMinimapPanelPosition)
 
     if ZoneInfoForeverDB.minimapPanelPoint then
         panel:SetPoint(ZoneInfoForeverDB.minimapPanelPoint, UIParent, ZoneInfoForeverDB.minimapPanelRelPoint or ZoneInfoForeverDB.minimapPanelPoint, ZoneInfoForeverDB.minimapPanelX or 0, ZoneInfoForeverDB.minimapPanelY or 0)
     else
-        panel:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -20, 20)
+        SetDefaultMinimapPanelPoint(panel)
     end
 
     CreateLineFontStrings(panel)
@@ -358,6 +398,29 @@ local TRANSPORT_PREFIXES = {
     ["Deeprun Tram:"] = "PREFIX_TRAM",
 }
 
+-- AreaTable IDs of the transport destinations, so the client supplies their names in every language
+local TRANSPORT_AREAS = {
+    ["Auberdine"] = 442,
+    ["Booty Bay"] = 35,
+    ["Dalaran"] = 279,
+    ["Feathermoon"] = 1116,
+    ["Forgotten Coast"] = 1108,
+    ["Grom'gol"] = 117,
+    ["Ironforge"] = 1537,
+    ["Menethil Harbor"] = 150,
+    ["Orgrimmar"] = 1637,
+    ["Powderfuse Port"] = 16727,
+    ["Ratchet"] = 392,
+    ["Rut'theran"] = 702,
+    ["Skywatcher Plateau"] = 17045,
+    ["Southshore"] = 271,
+    ["Steamwheedle Port"] = 977,
+    ["Stormwind"] = 1519,
+    ["Theramore"] = 513,
+    ["Undercity"] = 1497,
+    ["Zephras Isle"] = 16593,
+}
+
 -- Translates "Prefix: Dest1, Dest2" segments, one per line
 local function TranslateTransport(t)
     local segments = {}
@@ -367,7 +430,8 @@ local function TranslateTransport(t)
             local names = {}
             for rawDest in dests:gmatch("[^,]+") do
                 local dest = rawDest:match("^%s*(.-)%s*$")
-                names[#names + 1] = L("LOC_" .. dest, dest)
+                local area = TRANSPORT_AREAS[dest]
+                names[#names + 1] = area and C_Map.GetAreaInfo(area) or L("LOC_" .. dest, dest)
             end
             segments[#segments + 1] = L(TRANSPORT_PREFIXES[prefix], prefix) .. " " .. table.concat(names, ", ")
         else
@@ -402,7 +466,82 @@ end
 local itemNames = {}
 local pendingItems = {}
 
-local function ItemListString(prefix, ids)
+-- Gathering skill per herb and ore item: can gather, yellow, green and grey (no skill-ups), from
+-- GatherLite's Forever node data. Thorium Ore uses Small Thorium Vein, the lowest vein that gives it.
+local NODE_SKILL = {
+    -- Herbs
+    [2447] = {1, 25, 50, 100},       -- Peacebloom
+    [765] = {1, 25, 50, 100},        -- Silverleaf
+    [2449] = {15, 40, 65, 115},      -- Earthroot
+    [785] = {50, 75, 100, 150},      -- Mageroyal
+    [2450] = {70, 95, 120, 170},     -- Briarthorn
+    [3820] = {85, 110, 135, 185},    -- Stranglekelp
+    [2453] = {100, 125, 150, 200},   -- Bruiseweed
+    [3355] = {115, 140, 165, 215},   -- Wild Steelbloom
+    [3369] = {120, 145, 170, 220},   -- Grave Moss
+    [3356] = {125, 150, 175, 225},   -- Kingsblood
+    [3357] = {150, 175, 200, 250},   -- Liferoot
+    [3818] = {160, 185, 210, 260},   -- Fadeleaf
+    [3821] = {170, 195, 220, 270},   -- Goldthorn
+    [3358] = {185, 210, 235, 285},   -- Khadgar's Whisker
+    [3819] = {195, 220, 245, 295},   -- Wintersbite
+    [4625] = {205, 230, 255, 305},   -- Firebloom
+    [8831] = {210, 235, 260, 310},   -- Purple Lotus
+    [8836] = {220, 245, 270, 320},   -- Arthas' Tears
+    [8838] = {230, 255, 280, 330},   -- Sungrass
+    [8839] = {235, 260, 285, 335},   -- Blindweed
+    [8845] = {245, 270, 295, 345},   -- Ghost Mushroom
+    [8846] = {250, 275, 300, 350},   -- Gromsblood
+    [13464] = {260, 285, 310, 360},  -- Golden Sansam
+    [13463] = {270, 295, 320, 370},  -- Dreamfoil
+    [13465] = {280, 305, 330, 380},  -- Mountain Silversage
+    [13466] = {285, 310, 335, 385},  -- Plaguebloom
+    [13467] = {290, 315, 340, 390},  -- Icecap
+    [13468] = {300, 325, 350, 400},  -- Black Lotus
+    -- Ores
+    [2770] = {1, 25, 50, 100},       -- Copper
+    [2771] = {65, 90, 115, 165},     -- Tin
+    [2775] = {75, 100, 125, 175},    -- Silver
+    [2772] = {125, 150, 175, 225},   -- Iron
+    [2776] = {155, 180, 205, 255},   -- Gold
+    [3858] = {175, 200, 225, 275},   -- Mithril
+    [7911] = {230, 255, 280, 330},   -- Truesilver
+    [11370] = {230, 255, 280, 330},  -- Dark Iron
+    [10620] = {245, 270, 295, 345},  -- Thorium
+}
+
+local HERBALISM, MINING = 182, 186
+
+-- Red: can't gather yet; orange, yellow, green: skill-up chance; grey: no skill-ups
+local SKILL_COLORS = {"|cffff2020", "|cffff8040", "|cffffff00", "|cff40c040", "|cff808080"}
+
+-- The player's skill in a gathering profession, or nil when it isn't learned. C_SkillInfo is in
+-- Forever's API docs and GatherLite uses it there; GetProfessionInfoBySkillLineID was confirmed in
+-- game for Lockpicking (ClassQuestsForever, 2026-10-20).
+local function GetGatherSkill(skillLineID)
+    if C_SkillInfo and C_SkillInfo.GetSkillLineInfoByID then
+        local info = C_SkillInfo.GetSkillLineInfoByID(skillLineID)
+        if info and info.rank and info.rank > 0 then
+            return info.rank + (info.modifier or 0)
+        end
+    end
+    local info = C_TradeSkillUI and C_TradeSkillUI.GetProfessionInfoBySkillLineID
+        and C_TradeSkillUI.GetProfessionInfoBySkillLineID(skillLineID)
+    if info and info.skillLevel and info.skillLevel > 0 then
+        return info.skillLevel + (info.skillModifier or 0)
+    end
+end
+
+local function SkillColor(skill, thresholds)
+    if skill < thresholds[1] then return SKILL_COLORS[1] end
+    for i = 4, 2, -1 do
+        if skill >= thresholds[i] then return SKILL_COLORS[i + 1] end
+    end
+    return SKILL_COLORS[2]
+end
+
+-- skill is the player's gathering skill, or nil to keep the line's own color
+local function ItemListString(prefix, ids, skill)
     local names = {}
     for i, id in ipairs(ids) do
         local name = itemNames[id]
@@ -416,7 +555,8 @@ local function ItemListString(prefix, ids)
                 name = "..."
             end
         end
-        names[i] = name
+        local thresholds = skill and NODE_SKILL[id]
+        names[i] = thresholds and (SkillColor(skill, thresholds) .. name .. "|r") or name
     end
     return prefix .. table.concat(names, ", ")
 end
@@ -427,21 +567,25 @@ local function UpdateZoneStrings()
 
     local herbsPrefix = L("PREFIX_HERBS", "Herbs: ")
     local miningPrefix = L("PREFIX_MINING", "Mining: ")
+    local herbSkill = db.colorBySkill and GetGatherSkill(HERBALISM)
+    local miningSkill = db.colorBySkill and GetGatherSkill(MINING)
+
+    -- RequestLoadItemDataByID answers with ITEM_DATA_LOAD_RESULT, the event Blizzard's own item loader waits
+    -- for (GET_ITEM_INFO_RECEIVED, used before 1.9.3, sometimes never came and names stayed "..."). Listen
+    -- before asking, as the answer can be immediate, and afterwards only while some names are still missing.
+    eventFrame:RegisterEvent("ITEM_DATA_LOAD_RESULT")
 
     for _, v in pairs(mapTable) do
         v.iconString = db.showIcons and factionIcons[v.faction] or ""
         v.fishingString = db.showFishing and v.fishingBase or nil
         v.dungeonString = db.showDungeons and v.dungeonBase or nil
         v.transportString = db.showTransport and v.transportBase or nil
-        v.herbsString = db.showHerbs and v.herbs and ItemListString(herbsPrefix, v.herbs) or nil
-        v.miningString = db.showMining and v.mining and ItemListString(miningPrefix, v.mining) or nil
+        v.herbsString = db.showHerbs and v.herbs and ItemListString(herbsPrefix, v.herbs, herbSkill) or nil
+        v.miningString = db.showMining and v.mining and ItemListString(miningPrefix, v.mining, miningSkill) or nil
     end
 
-    -- Only listen for item data while some of our item names are still missing
-    if next(pendingItems) then
-        eventFrame:RegisterEvent("GET_ITEM_INFO_RECEIVED")
-    else
-        eventFrame:UnregisterEvent("GET_ITEM_INFO_RECEIVED")
+    if not next(pendingItems) then
+        eventFrame:UnregisterEvent("ITEM_DATA_LOAD_RESULT")
     end
 
     InvalidateHover()
@@ -603,6 +747,7 @@ local function CreateOptionsPanel()
 
     CreateCheckbox("ZIF_CheckHerbs", L("OPT_SHOW_HERBS", "Show Herbalism Nodes list"), "showHerbs", -260)
     CreateCheckbox("ZIF_CheckMining", L("OPT_SHOW_MINING", "Show Mining Ores list"), "showMining", -290)
+    CreateCheckbox("ZIF_CheckColorBySkill", L("OPT_COLOR_BY_SKILL", "Color herbs and ores by your skill"), "colorBySkill", -320)
 
     -- Right column: one row per text type, slider with its color swatch beside it
     local SLIDER_X, SLIDER_TOP, SLIDER_ROW = 340, -70, 50
@@ -623,7 +768,7 @@ local function CreateOptionsPanel()
 
     local moveBtn = CreateFrame("Button", "ZIF_MoveWindowBtn", panel, "UIPanelButtonTemplate")
     moveBtn:SetSize(150, 24)
-    moveBtn:SetPoint("TOPLEFT", 16, -345)
+    moveBtn:SetPoint("TOPLEFT", 16, -375)
     moveBtn:SetText(L("OPT_UNLOCK", "Unlock Windows"))
 
     local function LockWindows()
@@ -648,12 +793,8 @@ local function CreateOptionsPanel()
             return
         end
 
+        -- Both boxes are shown whatever the settings say; locking hides the ones that are turned off
         unlocked = true
-        ZoneInfoForeverDB.useOwnWindow = true
-        checkboxes.useOwnWindow:SetChecked(true)
-        ZoneInfoForeverDB.showMinimapPanel = true
-        checkboxes.showMinimapPanel:SetChecked(true)
-        RefreshHideCombatState()
 
         if ZIF_InfoWindow then
             local label = zifTargetProvider and zifTargetProvider.Label
@@ -669,21 +810,19 @@ local function CreateOptionsPanel()
             ZIF_InfoWindow:Show()
         end
 
-        UpdateMinimapPanel() -- creates the panel if it was never shown before
-        if ZIF_MinimapPanel then
-            ZIF_MinimapPanel.isTesting = true
-            ZIF_MinimapPanel:EnableMouse(true)
-            ZIF_MinimapPanel.header:SetText(L("OPT_DRAG_MINIMAP", "Drag Me (Minimap)!"))
-            HideLines(ZIF_MinimapPanel)
-            ZIF_MinimapPanel:SetSize(200, 80)
-            ZIF_MinimapPanel:Show()
-        end
+        local panel = GetMinimapPanel() -- creates the panel if it was never shown before
+        panel.isTesting = true
+        panel:EnableMouse(true)
+        panel.header:SetText(L("OPT_DRAG_MINIMAP", "Drag Me (Minimap)!"))
+        HideLines(panel)
+        panel:SetSize(200, 80)
+        panel:Show()
         moveBtn:SetText(L("OPT_LOCK", "Lock Windows"))
     end)
 
     local resetBtn = CreateFrame("Button", "ZIF_ResetBtn", panel, "UIPanelButtonTemplate")
     resetBtn:SetSize(150, 24)
-    resetBtn:SetPoint("TOPLEFT", 16, -377)
+    resetBtn:SetPoint("TOPLEFT", 16, -407)
     resetBtn:SetText(L("OPT_RESET", "Reset Defaults"))
     resetBtn:SetScript("OnClick", function()
         local lastSeenWelcomeVersion = ZoneInfoForeverDB.lastSeenWelcomeVersion
@@ -704,8 +843,7 @@ local function CreateOptionsPanel()
             ZIF_InfoWindow:SetPoint("BOTTOMRIGHT", WorldMapFrame.ScrollContainer, "BOTTOMRIGHT", -10, 60)
         end
         if ZIF_MinimapPanel then
-            ZIF_MinimapPanel:ClearAllPoints()
-            ZIF_MinimapPanel:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -20, 20)
+            SetDefaultMinimapPanelPoint(ZIF_MinimapPanel)
         end
         if ZIF_MapButton then
             ZIF_MapButton:ClearAllPoints()
@@ -730,6 +868,22 @@ end
 
 SLASH_ZONEINFOFOREVER1 = "/zif"
 SlashCmdList["ZONEINFOFOREVER"] = OpenSettings
+
+-- Addon compartment (the minimap's addon drawer), named in the TOC
+function ZoneInfoForever_OnAddonCompartmentClick()
+    OpenSettings()
+end
+
+function ZoneInfoForever_OnAddonCompartmentEnter(_, owner)
+    GameTooltip:SetOwner(owner or UIParent, "ANCHOR_LEFT")
+    GameTooltip:SetText("Zone Info: Forever")
+    GameTooltip:AddLine(L("TIP_CLICK", "Click to open settings."), 1, 1, 1)
+    GameTooltip:Show()
+end
+
+function ZoneInfoForever_OnAddonCompartmentLeave()
+    GameTooltip:Hide()
+end
 
 -- Update zone level colors based on current player level. Takes the level explicitly because
 -- GetQuestDifficultyColor reads the player's level, which is still the old one during PLAYER_LEVEL_UP.
@@ -822,25 +976,21 @@ local function AreaLabelOnUpdate(self)
     end
 end
 
+-- The window's top-left corner stays where it was dropped and the window grows right and down.
+-- It's kept relative to the map's bottom-left corner, so a window parked under the map stays there
+-- when the map is resized. Both frames are scale-1 children of the map, so their edges compare directly.
 local function SaveInfoWindowPosition(s)
     s:StopMovingOrSizing()
-    local parentAnchor = WorldMapFrame.ScrollContainer
-    local sX, sY = s:GetCenter()
-    local pX, pY = parentAnchor:GetCenter()
+    local parent = WorldMapFrame.ScrollContainer
+    local left, top = s:GetLeft(), s:GetTop()
+    local pLeft, pBottom = parent:GetLeft(), parent:GetBottom()
+    if not (left and pLeft) then return end
 
-    if sX and pX then
-        local dx, dy = sX - pX, sY - pY
-        s:ClearAllPoints()
-        s:SetPoint("CENTER", parentAnchor, "CENTER", dx, dy)
-        ZoneInfoForeverDB.windowPosX = dx
-        ZoneInfoForeverDB.windowPosY = dy
-        ZoneInfoForeverDB.windowPoint = "CENTER"
-    else
-        local p, _, _, x, y = s:GetPoint()
-        ZoneInfoForeverDB.windowPosX = x
-        ZoneInfoForeverDB.windowPosY = y
-        ZoneInfoForeverDB.windowPoint = p
-    end
+    local x, y = left - pLeft, top - pBottom
+    s:ClearAllPoints()
+    s:SetPoint("TOPLEFT", parent, "BOTTOMLEFT", x, y)
+    local db = ZoneInfoForeverDB
+    db.windowPoint, db.windowRelPoint, db.windowPosX, db.windowPosY = "TOPLEFT", "BOTTOMLEFT", x, y
 end
 
 local function InitializeZoneInfoForever()
@@ -858,12 +1008,22 @@ local function InitializeZoneInfoForever()
     if zifTargetProvider then
         if not ZIF_InfoWindow then
             ZIF_InfoWindow = CreateInfoPanel("ZIF_InfoWindow", WorldMapFrame, "TOOLTIP")
+            ZIF_InfoWindow:SetClampedToScreen(true)
             ZIF_InfoWindow:SetScript("OnDragStop", SaveInfoWindowPosition)
 
-            local pt = ZoneInfoForeverDB.windowPoint or "BOTTOMRIGHT"
-            local x = ZoneInfoForeverDB.windowPosX or -10
-            local y = ZoneInfoForeverDB.windowPosY or 60
-            ZIF_InfoWindow:SetPoint(pt, WorldMapFrame.ScrollContainer, pt, x, y)
+            local db = ZoneInfoForeverDB
+            if db.windowPoint == "CENTER" then
+                -- Saved by 1.9.2 or older, which grew the window from its center. It was dragged as the
+                -- 200x80 "Drag Me" box, so that box's top-left corner was 100 left of and 40 above the center.
+                db.windowPoint, db.windowRelPoint = "TOPLEFT", "CENTER"
+                db.windowPosX, db.windowPosY = (db.windowPosX or 0) - 100, (db.windowPosY or 0) + 40
+            end
+
+            -- Saves older than 1.9.3 have no relative point; they used the same point on both frames
+            local pt = db.windowPoint or "BOTTOMRIGHT"
+            local x = db.windowPosX or -10
+            local y = db.windowPosY or 60
+            ZIF_InfoWindow:SetPoint(pt, WorldMapFrame.ScrollContainer, db.windowRelPoint or pt, x, y)
             ZIF_InfoWindow:Hide()
         end
 
@@ -1022,8 +1182,15 @@ eventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 eventFrame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 eventFrame:RegisterEvent("PLAYER_REGEN_DISABLED")
 eventFrame:RegisterEvent("PLAYER_REGEN_ENABLED")
+eventFrame:RegisterEvent("SKILL_LINES_CHANGED")
 eventFrame:SetScript("OnEvent", function(self, event, arg1, arg2)
-    if event == "GET_ITEM_INFO_RECEIVED" then
+    if event == "SKILL_LINES_CHANGED" then
+        -- Skill-ups and learning a profession recolor the herb and ore names
+        local db = ZoneInfoForeverDB
+        if db and db.colorBySkill and (db.showHerbs or db.showMining) then
+            QueueZoneStringsRebuild()
+        end
+    elseif event == "ITEM_DATA_LOAD_RESULT" then
         if pendingItems[arg1] then
             pendingItems[arg1] = nil
             local name = GetItemName(arg1)
@@ -1047,6 +1214,8 @@ eventFrame:SetScript("OnEvent", function(self, event, arg1, arg2)
         if IsLoggedIn() then InitializeZoneInfoForever() end
     elseif event == "PLAYER_LOGIN" then
         InitializeZoneInfoForever()
+        -- Profession skills may not be known yet at ADDON_LOADED
+        QueueZoneStringsRebuild()
     elseif event == "PLAYER_LEVEL_UP" then
         UpdateZoneInfoColors(arg1)
         UpdateMinimapPanel()

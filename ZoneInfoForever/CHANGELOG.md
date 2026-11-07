@@ -1,5 +1,33 @@
 # Changelog
 
+## 1.10.0
+
+### New
+- Herb and ore names are colored by your Herbalism or Mining skill: red means you can't gather it yet, orange, yellow and green mean a chance of a skill-up, and grey means no more skill-ups. Without the profession the names keep their usual color. You can turn this off in the settings ("Color herbs and ores by your skill").
+- Zone Info: Forever is now in the minimap's addon drawer; click it to open the settings.
+- Italian translation. It's a machine translation, so corrections are welcome.
+
+### Improvements
+- Transport destinations are now shown in your game's language in every language. English now shows the full place names, for example "Theramore Isle" and "Grom'gol Base Camp".
+- Long herb and ore lists wrap onto several lines instead of making the window and map labels very wide.
+- The Current Zone panel now starts just above the bag bar instead of hidden under it. A panel you've already moved stays where you put it.
+
+## 1.9.3
+
+### Fixes
+- Separate map window: its top-left corner now stays in place and the window grows to the right and down, instead of in every direction. You can park it right under the map and it stays flush there whichever zone you hover. It also stays on screen and keeps its place under the map when the map changes size. A window you placed in an earlier version is converted automatically.
+- Current Zone panel: it now grows away from the nearest screen edges (for example left and down when it's under the minimap) instead of possibly in every direction, and it stays on screen. If you placed it in an earlier version, move it once to switch to the new behavior.
+- "Unlock Windows" no longer turns on "Use Separate Movable Window" and "Show Current Zone Panel". It shows both boxes to drag, and "Lock Windows" hides any you have turned off.
+- Herb and ore names no longer sometimes stay as "..." until you reload.
+
+### Dungeon data
+- Ironforge now lists The Hall of Thanes, whose entrance is inside the city (it's still listed under Dun Morogh too).
+
+### Herb and ore data
+- Herbs and ores that spawn in large numbers but were missing are now listed in 35 zones, checked against the Forever spawn data in GatherLite. For example, Stranglekelp along the coasts, Dark Iron in Burning Steppes and Searing Gorge, and the rare Silver, Gold and Truesilver veins.
+- Zephras Isle now has herb and ore lists.
+- Herbs and ores are listed in order of the skill needed to gather them.
+
 ## 1.9.2
 
 ### Fixes
