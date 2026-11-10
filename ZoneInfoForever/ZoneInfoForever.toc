@@ -1,7 +1,7 @@
 ## Interface: 16001
 ## Title: Zone Info: Forever
 ## Notes: A zero-bloat map tooltip enhancement displaying zone levels and other information - created specifically for WoW: Forever.
-## Version: 1.10.0
+## Version: 1.10.1
 ## Author: Vaniron
 ## IconTexture: Interface\AddOns\ZoneInfoForever\icon
 ## AddonCompartmentFunc: ZoneInfoForever_OnAddonCompartmentClick

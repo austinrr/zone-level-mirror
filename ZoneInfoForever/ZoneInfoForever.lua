@@ -27,7 +27,7 @@ local mapTable = {
     --[[Swamp of Sorrows]]		[1435] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = {{id=1417, text=" (49-56)"}}, faction = "Contested", herbs = {3820, 3356, 3357, 3818, 3821, 3358, 8839}, mining = {2775, 2772, 2776, 3858}},
     --[[The Hinterlands]]		[1425] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       faction = "Contested", herbs = {3820, 3818, 3821, 3358, 8831, 8838, 8845, 13464}, mining = {2772, 2776, 3858, 7911, 10620}},
     --[[Tirisfal Glades]]		[1420] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = {{id=16611, text=" (15-22)"}, {id=796, text=" (30-45)"}}, transport = "Zeppelins: Orgrimmar, Grom'gol", faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
-    --[[Undercity]]				[1458] = {minFish = 1,                                                 faction = "Horde"},
+    --[[Undercity]]				[1458] = {minFish = 1,                                                 dungeons = {{id=16611, text=" (15-22)"}}, faction = "Horde"},
     --[[Westfall]]				[1436] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = {{id=1581, text=" (17-26)"}}, faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450, 3820, 2453}, mining = {2770, 2771, 2775}},
     --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		minFish = "205",       dungeons = {{id=2057, text=" (58-60)"}}, faction = "Contested", herbs = {8836, 8838, 13463, 13465, 13466}, mining = {2776, 3858, 7911, 10620}},
     --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        dungeons = {{id=16732, text=" (26-33)"}}, transport = "Boats: Theramore, Auberdine", faction = "Contested", herbs = {785, 2450, 3820, 2453, 3355, 3356, 3357}, mining = {2770, 2771, 2775, 2772}},
@@ -62,6 +62,51 @@ local mapTable = {
     --[[Shen'dralas]]			[2652] = {minLevel = 35, 	maxLevel = 45,                             faction = "Contested", herbs = {3818, 3821, 3358}, mining = {2772, 2776, 3858}},
 }
 
+-- Dungeon and raid entrances on the zone maps, x and y in percent of the map. The list part holds the
+-- dungeons behind the entrance, as keys of that zone's mapTable dungeons (id, or name when there's no id).
+-- title: AreaTable ID naming an entrance shared by several instances. wing: a key of WINGS.
+-- own: Leatrix Maps doesn't draw this entrance, so it's drawn even while Leatrix Maps shows its dungeon icons.
+-- Coordinates come from Leatrix Maps (with permission) unless the comment says otherwise: "FDJ" is
+-- ForeverDungeonJournal (with permission), "from <city>" was converted from that city's map with the
+-- UiMapAssignment world coordinates.
+local ENTRANCES = {
+    -- Eastern Kingdoms
+    --[[Alterac Mountains]]		[1416] = {{x = 8.5, y = 59.3, 16560}},
+    --[[Badlands]]				[1418] = {{x = 44.6, y = 12.1, 1337}},
+    --[[Burning Steppes]]		[1428] = {{x = 29.4, y = 38.3, title = 25, 17803, 17804, 2717, 2677}},
+    --[[Dun Morogh]]			[1426] = {{x = 24.3, y = 39.8, 721}, {x = 55.5, y = 28.8, 16919, own = true}}, -- Hall of Thanes from Ironforge
+    --[[Eastern Plaguelands]]	[1423] = {{x = 27.8, y = 11.6, 2017, wing = "mainGate"}, {x = 43.6, y = 19.5, 2017, wing = "serviceGate"}, {x = 33.7, y = 20.7, 3456}},
+    --[[Ironforge]]				[1455] = {{x = 27.7, y = 47.9, 16919}},
+    --[[Searing Gorge]]			[1427] = {{x = 34.8, y = 85.3, title = 25, 17803, 17804, 2717, 2677}},
+    --[[Silverpine Forest]]		[1421] = {{x = 44.8, y = 67.8, 209}},
+    --[[Stormwind City]]		[1453] = {{x = 52.4, y = 70.0, 717}},
+    --[[Stranglethorn Vale]]	[1434] = {{x = 21.3, y = 27.8, "The Drowned City"}, {x = 53.9, y = 17.6, 1977}},
+    --[[Swamp of Sorrows]]		[1435] = {{x = 69.9, y = 53.6, 1417}},
+    --[[Tirisfal Glades]]		[1420] = {{x = 63.2, y = 67.5, 16611, own = true}, {x = 82.6, y = 33.8, 796}}, -- Ruins of Lordaeron from Undercity
+    --[[Undercity]]				[1458] = {{x = 72.5, y = 11.4, 16611}},
+    --[[Westfall]]				[1436] = {{x = 42.5, y = 71.7, 1581}},
+    --[[Western Plaguelands]]	[1422] = {{x = 69.7, y = 73.2, 2057}},
+    --[[Wetlands]]				[1437] = {{x = 47.8, y = 56.2, 16732}},
+
+    -- Kalimdor
+    --[[Ashenvale]]				[1440] = {{x = 14.5, y = 14.2, 719}},
+    --[[Azshara]]				[1447] = {{x = 38.6, y = 33.2, 1216, own = true}}, -- FDJ
+    --[[Desolace]]				[1443] = {{x = 29.1, y = 62.5, 2100}},
+    --[[Dustwallow Marsh]]		[1445] = {{x = 75.3, y = 14.1, "Alcaz Prison", own = true}, {x = 52.6, y = 76.8, 2159}}, -- Alcaz Prison: FDJ
+    --[[Feralas]]				[1444] = {{x = 62.5, y = 24.9, 2557, wing = "north"}, {x = 60.3, y = 30.2, 2557, wing = "west"}, {x = 64.8, y = 30.2, 2557, wing = "east"}},
+    --[[Orgrimmar]]				[1454] = {{x = 52.6, y = 49.0, 2437}},
+    --[[Silithus]]				[1451] = {{x = 28.6, y = 92.4, title = 3478, 3429, 3428}},
+    --[[Tanaris]]				[1446] = {{x = 38.7, y = 20.0, 978}},
+    --[[The Barrens]]			[1413] = {{x = 46.0, y = 36.4, 718}, {x = 42.9, y = 90.2, 491}, {x = 49.0, y = 93.9, 722}},
+    --[[Un'Goro Crater]]		[1449] = {{x = 48.1, y = 6.1, 16985, own = true}}, -- FDJ
+
+    -- Forever
+    --[[Riverglades]]			[2548] = {{x = 37.5, y = 37.3, 17780, own = true}}, -- FDJ
+}
+
+-- AreaTable IDs of the raids (an entrance with only raids behind it gets the raid icon)
+local RAIDS = { [2717] = true, [2677] = true, [1977] = true, [3429] = true, [3428] = true, [2159] = true, [3456] = true }
+
 local factionIcons = {
     ["Alliance"]  = "|TInterface\\TargetingFrame\\UI-PVP-Alliance:24:24:6:-5|t",
     ["Horde"]     = "|TInterface\\TargetingFrame\\UI-PVP-Horde:24:24:6:-5|t",
@@ -92,6 +137,8 @@ local DEFAULTS = {
     showHerbs = false,
     showMining = false,
     colorBySkill = true,
+    showEntrances = true,
+    entranceSize = 32,
     fontSizeLevel = 18,
     fontSizeFishing = 18,
     fontSizeDungeons = 18,
@@ -125,7 +172,7 @@ local GetItemName = C_Item.GetItemNameByID
 local RequestLoadItemDataByID = C_Item.RequestLoadItemDataByID
 
 local eventFrame = CreateFrame("Frame")
-local UpdateMinimapPanel
+local UpdateMinimapPanel, RefreshEntrances
 
 -- EllesmereUI skinning facade, handed to us at login when EllesmereUI is installed (nil otherwise)
 local skin
@@ -262,6 +309,7 @@ local function SkinInfoPanel(panel)
     if not skin or not panel then return end
     skin.Panel(panel)
     skin.Font(panel.header)
+    skin.Font(panel.hint)
 end
 
 -- Square EllesmereUI button in place of the round minimap-style border
@@ -298,6 +346,12 @@ local function CreateInfoPanel(name, parent, strata)
 
     panel.header = panel:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
     panel.header:SetPoint("TOPLEFT", 12, -12)
+
+    -- Shown only on the "Drag Me" box while the windows are unlocked
+    panel.hint = panel:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    panel.hint:SetPoint("TOPLEFT", panel.header, "BOTTOMLEFT", 0, -8)
+    panel.hint:SetJustifyH("LEFT")
+    panel.hint:Hide()
 
     SkinInfoPanel(panel)
     return panel
@@ -441,14 +495,19 @@ local function TranslateTransport(t)
     return table.concat(segments, "\n")
 end
 
+-- A dungeon's name in the client's language
+local function DungeonName(d)
+    local name = d.id and C_Map.GetAreaInfo(d.id)
+    if not name then
+        name = d.name and L("DUNGEON_" .. d.name, d.name) or "???"
+    end
+    return name
+end
+
 local function BuildDungeonString(dungeons)
     local names = {}
     for i, d in ipairs(dungeons) do
-        local name = d.id and C_Map.GetAreaInfo(d.id)
-        if not name then
-            name = d.name and L("DUNGEON_" .. d.name, d.name) or "???"
-        end
-        names[i] = name .. d.text
+        names[i] = DungeonName(d) .. d.text
     end
     return table.concat(names, "\n")
 end
@@ -460,6 +519,16 @@ local function BuildStaticStrings()
         v.fishingBase = v.minFish and (fishingPrefix .. v.minFish)
         v.dungeonBase = v.dungeons and BuildDungeonString(v.dungeons)
         v.transportBase = v.transport and TranslateTransport(v.transport)
+        -- The entrance tooltips find a zone's dungeons by key and color their level range
+        if v.dungeons then
+            v.dungeonByKey = {}
+            for _, d in ipairs(v.dungeons) do
+                local low, high = d.text:match("(%d+)%-(%d+)")
+                d.minLevel = tonumber(low or d.text:match("%d+"))
+                d.maxLevel = tonumber(high) or d.minLevel
+                v.dungeonByKey[d.id or d.name] = d
+            end
+        end
     end
 end
 
@@ -550,8 +619,11 @@ local function ItemListString(prefix, ids, skill)
             if name then
                 itemNames[id] = name
             else
-                pendingItems[id] = true
-                RequestLoadItemDataByID(id)
+                -- Many zones share an item, so it's requested once per rebuild
+                if not pendingItems[id] then
+                    pendingItems[id] = true
+                    RequestLoadItemDataByID(id)
+                end
                 name = "..."
             end
         end
@@ -561,6 +633,9 @@ local function ItemListString(prefix, ids, skill)
     return prefix .. table.concat(names, ", ")
 end
 
+-- The gathering skills the herb and ore names were last colored with
+local usedHerbSkill, usedMiningSkill
+
 local function UpdateZoneStrings()
     local db = ZoneInfoForeverDB
     if not db then return end
@@ -569,10 +644,13 @@ local function UpdateZoneStrings()
     local miningPrefix = L("PREFIX_MINING", "Mining: ")
     local herbSkill = db.colorBySkill and GetGatherSkill(HERBALISM)
     local miningSkill = db.colorBySkill and GetGatherSkill(MINING)
+    usedHerbSkill, usedMiningSkill = herbSkill, miningSkill
 
     -- RequestLoadItemDataByID answers with ITEM_DATA_LOAD_RESULT, the event Blizzard's own item loader waits
     -- for (GET_ITEM_INFO_RECEIVED, used before 1.9.3, sometimes never came and names stayed "..."). Listen
     -- before asking, as the answer can be immediate, and afterwards only while some names are still missing.
+    -- Every name still missing is requested again, once, by this rebuild.
+    wipe(pendingItems)
     eventFrame:RegisterEvent("ITEM_DATA_LOAD_RESULT")
 
     for _, v in pairs(mapTable) do
@@ -590,6 +668,7 @@ local function UpdateZoneStrings()
 
     InvalidateHover()
     UpdateMinimapPanel()
+    RefreshEntrances()
 end
 
 local rebuildQueued = false
@@ -646,7 +725,8 @@ local function CreateOptionsPanel()
         return cb
     end
 
-    local function CreateSlider(name, labelText, dbKey, xOffset, yOffset, minV, maxV, step)
+    local function CreateSlider(name, labelText, dbKey, xOffset, yOffset, minV, maxV, step, onChange)
+        onChange = onChange or UpdateZIF_FontStyles
         local slider = CreateFrame("Slider", name, panel, "UISliderTemplateWithLabels")
         slider:SetSize(144, 17)
         slider:SetPoint("TOPLEFT", xOffset, yOffset)
@@ -665,7 +745,7 @@ local function CreateOptionsPanel()
             local rounded = math.floor(value + 0.5)
             ZoneInfoForeverDB[dbKey] = rounded
             title:SetText(labelText .. ": " .. rounded)
-            UpdateZIF_FontStyles()
+            onChange()
         end)
         sliders[dbKey] = slider
         return slider
@@ -748,6 +828,7 @@ local function CreateOptionsPanel()
     CreateCheckbox("ZIF_CheckHerbs", L("OPT_SHOW_HERBS", "Show Herbalism Nodes list"), "showHerbs", -260)
     CreateCheckbox("ZIF_CheckMining", L("OPT_SHOW_MINING", "Show Mining Ores list"), "showMining", -290)
     CreateCheckbox("ZIF_CheckColorBySkill", L("OPT_COLOR_BY_SKILL", "Color herbs and ores by your skill"), "colorBySkill", -320)
+    CreateCheckbox("ZIF_CheckEntrances", L("OPT_SHOW_ENTRANCES", "Show dungeon and raid entrances"), "showEntrances", -350)
 
     -- Right column: one row per text type, slider with its color swatch beside it
     local SLIDER_X, SLIDER_TOP, SLIDER_ROW = 340, -70, 50
@@ -759,6 +840,8 @@ local function CreateOptionsPanel()
     local sTransport = CreateSlider("ZIF_SliderTransport", L("OPT_SIZE_TRANSPORT", "Transport Font Size"), "fontSizeTransport", SLIDER_X, RowY(4), 8, 24, 1)
     local sHerbs = CreateSlider("ZIF_SliderHerbs", L("OPT_SIZE_HERBS", "Herbs Font Size"), "fontSizeHerbs", SLIDER_X, RowY(5), 8, 24, 1)
     local sMining = CreateSlider("ZIF_SliderMining", L("OPT_SIZE_MINING", "Mining Font Size"), "fontSizeMining", SLIDER_X, RowY(6), 8, 24, 1)
+    CreateSlider("ZIF_SliderEntrances", L("OPT_SIZE_ENTRANCES", "Entrance Icon Size"), "entranceSize", SLIDER_X, RowY(7), 16, 48, 1,
+        function() RefreshEntrances() end)
 
     CreateColorSwatch("ZIF_ColorFishing", L("OPT_COLOR_FISHING", "Fishing Color"), "colorFishing", sFishing)
     CreateColorSwatch("ZIF_ColorDungeons", L("OPT_COLOR_DUNGEONS", "Dungeons Color"), "colorDungeons", sDungeons)
@@ -768,7 +851,7 @@ local function CreateOptionsPanel()
 
     local moveBtn = CreateFrame("Button", "ZIF_MoveWindowBtn", panel, "UIPanelButtonTemplate")
     moveBtn:SetSize(150, 24)
-    moveBtn:SetPoint("TOPLEFT", 16, -375)
+    moveBtn:SetPoint("TOPLEFT", 16, -405)
     moveBtn:SetText(L("OPT_UNLOCK", "Unlock Windows"))
 
     local function LockWindows()
@@ -776,15 +859,38 @@ local function CreateOptionsPanel()
         if ZIF_InfoWindow then
             ZIF_InfoWindow.isTesting = false
             ZIF_InfoWindow:EnableMouse(false)
+            ZIF_InfoWindow.hint:Hide()
             ZIF_InfoWindow:Hide()
         end
         if ZIF_MinimapPanel then
             ZIF_MinimapPanel.isTesting = false
             ZIF_MinimapPanel:EnableMouse(false)
+            ZIF_MinimapPanel.hint:Hide()
+            ZIF_MinimapPanel:SetFrameStrata("BACKGROUND")
         end
         moveBtn:SetText(L("OPT_UNLOCK", "Unlock Windows"))
         InvalidateHover()
         UpdateMinimapPanel()
+    end
+
+    -- The windows stay unlocked when the settings close, as the map box can only be dragged with the
+    -- map open; right-clicking either box locks them without reopening the settings
+    local function LockOnRightClick(_, button)
+        if button == "RightButton" and unlocked then LockWindows() end
+    end
+
+    -- A box sized to its (possibly long, translated) title, with the right-click hint under it
+    local function ShowDragBox(box, title)
+        box.header:SetText(title)
+        local width = max(200, box.header:GetStringWidth() + 24)
+        box.hint:SetWidth(width - 24)
+        box.hint:SetText(L("OPT_DRAG_HINT", "Right-click to lock"))
+        box.hint:Show()
+        box:SetSize(width, 80)
+        box:SetScript("OnMouseUp", LockOnRightClick)
+        box.isTesting = true
+        box:EnableMouse(true)
+        box:Show()
     end
 
     moveBtn:SetScript("OnClick", function()
@@ -803,26 +909,20 @@ local function CreateOptionsPanel()
                 label.zifLevelText:Hide()
                 HideLines(label)
             end
-            ZIF_InfoWindow.header:SetText(L("OPT_DRAG_MAP", "Drag Me (Map)!"))
-            ZIF_InfoWindow:SetSize(200, 80)
-            ZIF_InfoWindow.isTesting = true
-            ZIF_InfoWindow:EnableMouse(true)
-            ZIF_InfoWindow:Show()
+            ShowDragBox(ZIF_InfoWindow, L("OPT_DRAG_MAP", "Drag Me (Map)!"))
         end
 
         local panel = GetMinimapPanel() -- creates the panel if it was never shown before
-        panel.isTesting = true
-        panel:EnableMouse(true)
-        panel.header:SetText(L("OPT_DRAG_MINIMAP", "Drag Me (Minimap)!"))
+        -- Above the settings window (HIGH), which could otherwise cover the box
+        panel:SetFrameStrata("DIALOG")
         HideLines(panel)
-        panel:SetSize(200, 80)
-        panel:Show()
+        ShowDragBox(panel, L("OPT_DRAG_MINIMAP", "Drag Me (Current Zone)!"))
         moveBtn:SetText(L("OPT_LOCK", "Lock Windows"))
     end)
 
     local resetBtn = CreateFrame("Button", "ZIF_ResetBtn", panel, "UIPanelButtonTemplate")
     resetBtn:SetSize(150, 24)
-    resetBtn:SetPoint("TOPLEFT", 16, -407)
+    resetBtn:SetPoint("TOPLEFT", 16, -437)
     resetBtn:SetText(L("OPT_RESET", "Reset Defaults"))
     resetBtn:SetScript("OnClick", function()
         local lastSeenWelcomeVersion = ZoneInfoForeverDB.lastSeenWelcomeVersion
@@ -885,28 +985,29 @@ function ZoneInfoForever_OnAddonCompartmentLeave()
     GameTooltip:Hide()
 end
 
--- Update zone level colors based on current player level. Takes the level explicitly because
--- GetQuestDifficultyColor reads the player's level, which is still the old one during PLAYER_LEVEL_UP.
+-- "(min-max)", or "(level)" when both are the same, colored by how hard that range is at playerLevel.
+-- Takes the player's level explicitly because GetQuestDifficultyColor reads it, and during
+-- PLAYER_LEVEL_UP it's still the old one.
+local function ColoredLevelRange(playerLevel, minLevel, maxLevel)
+    local color
+    if playerLevel < minLevel then
+        color = GetRelativeDifficultyColor(playerLevel, minLevel)
+    elseif playerLevel > maxLevel then
+        color = GetRelativeDifficultyColor(playerLevel, maxLevel - 2)
+    else
+        color = QuestDifficultyColors["difficult"]
+    end
+    local range = minLevel ~= maxLevel and (minLevel .. "-" .. maxLevel) or maxLevel
+    return RGBTableToColorCode(color) .. "(" .. range .. ")" .. FONT_COLOR_CODE_CLOSE
+end
+
+-- Update zone level colors based on current player level
 local function UpdateZoneInfoColors(level)
     InvalidateHover()
     local currentLevel = level or UnitLevel("player")
     for _, v in pairs(mapTable) do
         if v.minLevel and v.maxLevel then
-            local color
-            if currentLevel < v.minLevel then
-                color = GetRelativeDifficultyColor(currentLevel, v.minLevel)
-            elseif currentLevel > v.maxLevel then
-                color = GetRelativeDifficultyColor(currentLevel, v.maxLevel - 2)
-            else
-                color = QuestDifficultyColors["difficult"]
-            end
-            color = RGBTableToColorCode(color)
-
-            if v.minLevel ~= v.maxLevel then
-                v.levelString = " " .. color .. "(" .. v.minLevel .. "-" .. v.maxLevel .. ")" .. FONT_COLOR_CODE_CLOSE
-            else
-                v.levelString = " " .. color .. "(" .. v.maxLevel .. ")" .. FONT_COLOR_CODE_CLOSE
-            end
+            v.levelString = " " .. ColoredLevelRange(currentLevel, v.minLevel, v.maxLevel)
         else
             v.levelString = ""
         end
@@ -936,21 +1037,42 @@ local function ShowZoneInfo(label, zoneData, name)
     LayoutMapLabel(label, zoneData)
 end
 
+-- The separate window shows the zone map on display while no other zone is hovered (on the map label
+-- that would stack our lines under the subzone names Blizzard shows there)
+local function DisplayedZone(mapID)
+    if ZoneInfoForeverDB.useOwnWindow and mapTable[mapID] then return mapID end
+end
+
+-- Shows the info of zone targetID (nil hides it) unless it's already shown. name is the zone's name,
+-- or nil to look it up, which happens only when the target changes.
+local function ShowTarget(label, targetID, name)
+    if targetID == lastHoveredMapID then return end
+    lastHoveredMapID = targetID
+    local zoneData = targetID and mapTable[targetID]
+    if zoneData then
+        if not name then
+            local info = C_Map.GetMapInfo(targetID)
+            name = info and info.name or ""
+        end
+        ShowZoneInfo(label, zoneData, name)
+    else
+        HideZoneInfo(label)
+    end
+end
+
 -- Post-hook on the area label's OnUpdate. That handler rewrites the zone name every frame, so the
 -- name is left to it and this only manages our own icon, level and info lines.
 local function AreaLabelOnUpdate(self)
     local map = self.dataProvider:GetMap()
+    -- The map can change under a still cursor (clicking into a zone), so it is part of every check
+    local mapID = map:GetMapID()
     if not map:IsCanvasMouseFocus() then
-        if lastCursorX or lastCursorY then
-            lastCursorX, lastCursorY, lastMapID, lastHoveredMapID = nil, nil, nil, nil
-            HideZoneInfo(self)
-        end
+        lastCursorX, lastCursorY, lastMapID = nil, nil, nil
+        ShowTarget(self, DisplayedZone(mapID))
         return
     end
 
     local normalizedCursorX, normalizedCursorY = map:GetNormalizedCursorPosition()
-    -- The map can change under a still cursor (clicking into a zone), so it is part of the check
-    local mapID = map:GetMapID()
     if lastCursorX == normalizedCursorX and lastCursorY == normalizedCursorY and lastMapID == mapID then
         return
     end
@@ -963,16 +1085,10 @@ local function AreaLabelOnUpdate(self)
 
     local positionMapInfo = C_Map_GetMapInfoAtPosition(mapID, normalizedCursorX, normalizedCursorY)
     local hoveredMapID = positionMapInfo and positionMapInfo.mapID
-    if hoveredMapID == mapID then hoveredMapID = nil end
-
-    if hoveredMapID ~= lastHoveredMapID then
-        lastHoveredMapID = hoveredMapID
-        local zoneData = hoveredMapID and mapTable[hoveredMapID]
-        if zoneData then
-            ShowZoneInfo(self, zoneData, positionMapInfo.name)
-        else
-            HideZoneInfo(self)
-        end
+    if hoveredMapID and hoveredMapID ~= mapID then
+        ShowTarget(self, hoveredMapID, positionMapInfo.name)
+    else
+        ShowTarget(self, DisplayedZone(mapID))
     end
 end
 
@@ -993,8 +1109,204 @@ local function SaveInfoWindowPosition(s)
     db.windowPoint, db.windowRelPoint, db.windowPosX, db.windowPosY = "TOPLEFT", "BOTTOMLEFT", x, y
 end
 
+-- Dungeon and raid entrance pins on the zone maps. Built like Leatrix Maps' points of interest, which
+-- work on Forever: the pins take no mouse input (they never block the map or our area label hook),
+-- hovering is found from the cursor position, and the tooltip is our own so the shared GameTooltip is
+-- never written to.
+
+local WINGS = {
+    north = L("WING_NORTH", "North"),
+    west = L("WING_WEST", "West"),
+    east = L("WING_EAST", "East"),
+    mainGate = L("WING_MAIN_GATE", "Main Gate"),
+    serviceGate = L("WING_SERVICE_GATE", "Service Gate"),
+}
+
+-- Half the icon's width around its center counts as a hit, less the atlas' transparent padding
+local ENTRANCE_HIT = 0.4
+
+local entrancePins, entrancePool = {}, {}
+local hoveredEntrance, entranceTip, entranceHover
+-- Leatrix Maps draws its own dungeon icons, so only our own entrances are drawn. Leatrix Maps saves
+-- its settings at logout, so this is read once at login and a change there shows after a reload.
+local leatrixDungeons
+
+local function LeatrixShowsDungeons()
+    local loaded = C_AddOns and C_AddOns.IsAddOnLoaded and C_AddOns.IsAddOnLoaded("Leatrix_Maps")
+    return (loaded and LeaMapsDB and LeaMapsDB.ShowPointsOfInterest == "On" and LeaMapsDB.ShowDungeonIcons == "On") and true or false
+end
+
+local function EntranceIsRaid(e)
+    for _, key in ipairs(e) do
+        if not RAIDS[key] then return false end
+    end
+    return true
+end
+
+local function TypeText(key)
+    return RAIDS[key] and L("TYPE_RAID", "Raid") or L("TYPE_DUNGEON", "Dungeon")
+end
+
+local function ShowEntranceTooltip(pin)
+    local e, zone = pin.entrance, pin.zone
+    local playerLevel = UnitLevel("player")
+    entranceTip:SetOwner(pin, "ANCHOR_RIGHT")
+    entranceTip:SetScale(GameTooltip:GetScale())
+    if e.title then
+        -- One entrance to several instances: the place, then one line per instance
+        entranceTip:SetText(C_Map.GetAreaInfo(e.title) or "")
+        for _, key in ipairs(e) do
+            local d = zone.dungeonByKey[key]
+            entranceTip:AddDoubleLine(DungeonName(d) .. " " .. ColoredLevelRange(playerLevel, d.minLevel, d.maxLevel),
+                TypeText(key), 1, 1, 1, 0.6, 0.6, 0.6)
+        end
+    else
+        local d = zone.dungeonByKey[e[1]]
+        local name = DungeonName(d)
+        if e.wing then name = name .. " (" .. WINGS[e.wing] .. ")" end
+        entranceTip:SetText(name .. " " .. ColoredLevelRange(playerLevel, d.minLevel, d.maxLevel))
+        entranceTip:AddLine(TypeText(e[1]), 0.6, 0.6, 0.6)
+    end
+    entranceTip:Show()
+end
+
+local function SetHoveredEntrance(pin)
+    if pin == hoveredEntrance then return end
+    if hoveredEntrance then
+        hoveredEntrance.highlight:Hide()
+        entranceTip:Hide()
+    end
+    hoveredEntrance = pin
+    if pin then
+        pin.highlight:Show()
+        ShowEntranceTooltip(pin)
+    end
+end
+
+-- The pins keep the same size on screen at every zoom level and map size
+local function LayoutEntrancePins()
+    if #entrancePins == 0 then return end
+    local canvas = WorldMapFrame:GetCanvas()
+    local scale = 1 / WorldMapFrame:GetCanvasScale()
+    local size = ZoneInfoForeverDB.entranceSize
+    local width, height = canvas:GetWidth(), canvas:GetHeight()
+    for _, pin in ipairs(entrancePins) do
+        pin:SetScale(scale)
+        pin:SetSize(size, size)
+        pin:ClearAllPoints()
+        pin:SetPoint("CENTER", canvas, "TOPLEFT", width * pin.entrance.x / 100 / scale, -height * pin.entrance.y / 100 / scale)
+    end
+end
+
+local function AcquireEntrancePin()
+    local pin = table.remove(entrancePool)
+    if not pin then
+        pin = CreateFrame("Frame", nil, WorldMapFrame:GetCanvas())
+        pin:SetFrameStrata("HIGH")
+        pin:SetFrameLevel(100)
+        pin.icon = pin:CreateTexture(nil, "ARTWORK")
+        pin.icon:SetAllPoints()
+        pin.highlight = pin:CreateTexture(nil, "OVERLAY")
+        pin.highlight:SetAllPoints()
+        pin.highlight:SetBlendMode("ADD")
+    end
+    pin.highlight:Hide()
+    return pin
+end
+
+function RefreshEntrances()
+    if not entranceHover then return end -- not set up yet (before login)
+    SetHoveredEntrance(nil)
+    for i = #entrancePins, 1, -1 do
+        local pin = entrancePins[i]
+        pin:Hide()
+        pin.entrance, pin.zone = nil, nil
+        entrancePool[#entrancePool + 1] = pin
+        entrancePins[i] = nil
+    end
+
+    -- Laid out when the map shows, as the canvas size isn't current while it's hidden
+    if not ZoneInfoForeverDB.showEntrances or not WorldMapFrame:IsShown() then return end
+    local mapID = WorldMapFrame:GetMapID()
+    local entrances, zone = ENTRANCES[mapID], mapTable[mapID]
+    if not (entrances and zone) then return end
+
+    for _, e in ipairs(entrances) do
+        if e.own or not leatrixDungeons then
+            local pin = AcquireEntrancePin()
+            pin.entrance, pin.zone = e, zone
+            local atlas = EntranceIsRaid(e) and "Raid" or "Dungeon"
+            pin.icon:SetAtlas(atlas)
+            pin.highlight:SetAtlas(atlas)
+            pin:Show()
+            entrancePins[#entrancePins + 1] = pin
+        end
+    end
+    LayoutEntrancePins()
+end
+
+-- The closest pin whose icon is under the normalized map position
+local function FindEntranceAt(nx, ny)
+    local canvas = WorldMapFrame:GetCanvas()
+    local width, height = canvas:GetWidth(), canvas:GetHeight()
+    local best, bestDist
+    for _, pin in ipairs(entrancePins) do
+        local dx = (nx - pin.entrance.x / 100) * width
+        local dy = (ny - pin.entrance.y / 100) * height
+        local reach = pin:GetWidth() * pin:GetScale() * ENTRANCE_HIT
+        if math.abs(dx) <= reach and math.abs(dy) <= reach then
+            local dist = dx * dx + dy * dy
+            if not bestDist or dist < bestDist then
+                best, bestDist = pin, dist
+            end
+        end
+    end
+    return best
+end
+
+local function IsOnWorldMap(frame)
+    for _ = 1, 20 do
+        if not frame then return false end
+        if frame == WorldMapFrame then return true end
+        frame = frame:GetParent()
+    end
+    return false
+end
+
+local function SetupEntrancePins()
+    if entranceHover or not (WorldMapFrame and WorldMapFrame.GetCanvas) then return end
+    leatrixDungeons = LeatrixShowsDungeons()
+
+    entranceTip = CreateFrame("GameTooltip", "ZIF_EntranceTooltip", UIParent, "GameTooltipTemplate")
+    entranceTip:SetFrameStrata("TOOLTIP")
+
+    -- A child of the map, so it only runs while the map is open
+    entranceHover = CreateFrame("Frame", nil, WorldMapFrame)
+    entranceHover:SetScript("OnUpdate", function()
+        if #entrancePins == 0 then return end
+        local pin
+        if WorldMapFrame.ScrollContainer:IsMouseOver() then
+            local nx, ny = WorldMapFrame:GetNormalizedCursorPosition()
+            if nx and ny then pin = FindEntranceAt(nx, ny) end
+        end
+        -- A Blizzard map pin showing its tooltip goes first
+        if pin and GameTooltip:IsShown() and IsOnWorldMap(GameTooltip:GetOwner()) then
+            pin = nil
+        end
+        SetHoveredEntrance(pin)
+    end)
+    entranceHover:SetScript("OnHide", function() SetHoveredEntrance(nil) end)
+
+    WorldMapFrame:HookScript("OnSizeChanged", LayoutEntrancePins)
+    hooksecurefunc(WorldMapFrame, "OnCanvasScaleChanged", LayoutEntrancePins)
+    hooksecurefunc(WorldMapFrame, "OnMapChanged", RefreshEntrances)
+    WorldMapFrame:HookScript("OnShow", RefreshEntrances)
+    RefreshEntrances()
+end
+
 local function InitializeZoneInfoForever()
     UpdateZoneInfoColors()
+    SetupEntrancePins()
 
     if WorldMapFrame and WorldMapFrame.dataProviders then
         for provider in next, WorldMapFrame.dataProviders do
@@ -1185,24 +1497,31 @@ eventFrame:RegisterEvent("PLAYER_REGEN_ENABLED")
 eventFrame:RegisterEvent("SKILL_LINES_CHANGED")
 eventFrame:SetScript("OnEvent", function(self, event, arg1, arg2)
     if event == "SKILL_LINES_CHANGED" then
-        -- Skill-ups and learning a profession recolor the herb and ore names
+        -- Gathering skill-ups and learning a profession recolor the herb and ore names. This also fires
+        -- for weapon and defense skill-ups, which leave the names as they are.
         local db = ZoneInfoForeverDB
-        if db and db.colorBySkill and (db.showHerbs or db.showMining) then
+        if db and db.colorBySkill and (db.showHerbs or db.showMining)
+            and (GetGatherSkill(HERBALISM) ~= usedHerbSkill or GetGatherSkill(MINING) ~= usedMiningSkill) then
             QueueZoneStringsRebuild()
         end
     elseif event == "ITEM_DATA_LOAD_RESULT" then
         if pendingItems[arg1] then
             pendingItems[arg1] = nil
             local name = GetItemName(arg1)
+            local rebuild = true
             if name then
                 itemNames[arg1] = name
             elseif arg2 == false then
                 -- Don't keep re-requesting items the server says don't exist
                 itemNames[arg1] = "???"
             else
-                return -- no name yet; rebuilding now would just re-request it in a loop
+                rebuild = false -- no name yet; rebuilding now would just re-request it in a loop
             end
-            QueueZoneStringsRebuild()
+            -- A rebuild listens again before it asks for anything
+            if not next(pendingItems) then
+                self:UnregisterEvent("ITEM_DATA_LOAD_RESULT")
+            end
+            if rebuild then QueueZoneStringsRebuild() end
         end
     elseif event == "ADDON_LOADED" and arg1 == "ZoneInfoForever" then
         self:UnregisterEvent("ADDON_LOADED")

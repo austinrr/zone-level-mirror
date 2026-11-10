@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.10.1
+
+### New
+- Dungeon and raid entrances on the zone maps. Hover an icon to see the dungeon's name and level range, colored for your level; Blackrock Mountain and the Gates of Ahn'Qiraj list every instance behind them, and Dire Maul and Stratholme show which wing or gate each entrance leads to. Forever's new dungeons (Alcaz Prison, Blackmaw Hold, Shaper's Terrace, Krol'dok Stronghold) are included. You can turn the icons off and change their size in the settings.
+- If Leatrix Maps already shows its dungeon icons, Zone Info: Forever only adds the entrances Leatrix Maps doesn't have, so nothing shows twice. If you change that Leatrix Maps option, reload the UI (/reload) for Zone Info: Forever to follow.
+- Undercity now lists the Ruins of Lordaeron, whose entrance is in the city (it's still listed under Tirisfal Glades too).
+- Separate map window: when the map shows a zone, for example your own zone right after you open the map, the window now shows that zone's info. Hovering another zone on a continent map still shows the hovered zone. The info on the map itself (without the separate window) works as before.
+
+### Improvements
+- "Unlock Windows": right-click a "Drag Me" box to lock the windows again, so you can close the settings, open the map, drag the box into place and lock it right there.
+- "Unlock Windows": the Current Zone panel's drag box now shows above the settings window, so it can't end up hidden behind it, and the boxes grow to fit longer translated titles.
+- The drag box now says "Drag Me (Current Zone)!", and the translations call it the Current Zone panel, like the setting does, instead of the minimap panel.
+- Herb and ore names are no longer rebuilt after every weapon or defense skill-up, only when your Herbalism or Mining skill changes.
+
 ## 1.10.0
 
 ### New
