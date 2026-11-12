@@ -6,60 +6,62 @@ local _, ns = ...
 
 local mapTable = {
     -- Eastern Kingdoms
-    --[[Alterac Mountains]]		[1416] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = {{id=16560, text=" (28-33)"}}, transport = "Sky Boats: Zephras Isle", faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821, 3358, 3819}, mining = {2771, 2775, 2772, 2776, 3858, 7911}},
-    --[[Arathi Highlands]]		[1417] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821, 3358}, mining = {2771, 2775, 2772, 2776, 3858, 7911}},
+    --[[Alterac Mountains]]		[1416] = {minLevel = 30, 	maxLevel = 40,		fish = 130,            dungeons = {{id=16560, text=" (28-33)"}}, transport = "Sky Boats: Zephras Isle", faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821, 3358, 3819}, mining = {2771, 2775, 2772, 2776, 3858, 7911}},
+    --[[Arathi Highlands]]		[1417] = {minLevel = 30, 	maxLevel = 40,		fish = 130,            faction = "Contested", herbs = {2453, 3355, 3356, 3357, 3818, 3821, 3358}, mining = {2771, 2775, 2772, 2776, 3858, 7911}},
     --[[Badlands]]				[1418] = {minLevel = 35, 	maxLevel = 45,		dungeons = {{id=1337, text=" (38-48)"}}, transport = "Boats: Steamwheedle Port", faction = "Contested", herbs = {3355, 3356, 3818, 3821, 3358, 4625}, mining = {2775, 2772, 2776, 3858, 7911}},
     --[[Blasted Lands]]			[1419] = {minLevel = 45, 	maxLevel = 55,                             faction = "Contested", herbs = {3818, 3821, 3358, 4625, 8838, 8846}, mining = {2772, 2776, 3858, 7911, 10620}},
-    --[[Burning Steppes]]		[1428] = {minLevel = 50, 	maxLevel = 58,		minFish = "330",       dungeons = {{id=17803, text=" (52-60)"}, {id=17804, text=" (55-60)"}, {id=2717, text=" (60)"}, {id=2677, text=" (60)"}}, faction = "Contested", herbs = {4625, 13464, 13463, 13465, 13468}, mining = {2776, 3858, 7911, 11370, 10620}},
-    --[[Deadwind Pass]]			[1430] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", herbs = {13463, 13465}, mining = {3858, 7911, 10620}},
-    --[[Dun Morogh]]			[1426] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = {{id=16919, text=" (13-20)"}, {id=721, text=" (29-38)"}}, transport = "Deeprun Tram: Stormwind", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
-    --[[Duskwood]]				[1431] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        faction = "Contested", herbs = {785, 2450, 2453, 3355, 3369, 3356}, mining = {2770, 2771, 2775, 2772, 2776}},
-    --[[Eastern Plaguelands]]	[1423] = {minLevel = 53, 	maxLevel = 60,		minFish = "330",       dungeons = {{id=2017, text=" (58-60)"}, {id=3456, text=" (60)"}}, faction = "Contested", herbs = {8836, 8838, 13464, 13463, 13465, 13466, 13468}, mining = {3858, 7911, 10620}},
-    --[[Elwynn Forest]]			[1429] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Deeprun Tram: Ironforge", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
-    --[[Hillsbrad Foothills]]	[1424] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        transport = "Boats: Auberdine", faction = "Contested", herbs = {785, 2450, 3820, 2453, 3355, 3356, 3357}, mining = {2770, 2771, 2775, 2772, 2776}},
-    --[[Ironforge]]				[1455] = {minFish = 1,                                                 dungeons = {{id=16919, text=" (13-20)"}}, faction = "Alliance"},
-    --[[Loch Modan]]			[1432] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450, 2453}, mining = {2770, 2771, 2775}},
-    --[[Redridge Mountains]]	[1433] = {minLevel = 15, 	maxLevel = 25,		minFish = "55",        faction = "Contested", herbs = {2449, 785, 2450, 2453}, mining = {2770, 2771, 2775}},
+    --[[Burning Steppes]]		[1428] = {minLevel = 50, 	maxLevel = 58,		fish = 330,            dungeons = {{id=17803, text=" (52-60)"}, {id=17804, text=" (55-60)"}, {id=2717, text=" (60)"}, {id=2677, text=" (60)"}}, faction = "Contested", herbs = {4625, 13464, 13463, 13465, 13468}, mining = {2776, 3858, 7911, 11370, 10620}},
+    --[[Deadwind Pass]]			[1430] = {minLevel = 55, 	maxLevel = 60,		fish = 330,            faction = "Contested", herbs = {13463, 13465}, mining = {3858, 7911, 10620}},
+    --[[Dun Morogh]]			[1426] = {minLevel = 1, 	maxLevel = 10,		fish = -70,            dungeons = {{id=16919, text=" (13-20)"}, {id=721, text=" (29-38)"}}, transport = "Deeprun Tram: Stormwind", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
+    --[[Duskwood]]				[1431] = {minLevel = 18, 	maxLevel = 30,		fish = 55,             faction = "Contested", herbs = {785, 2450, 2453, 3355, 3369, 3356}, mining = {2770, 2771, 2775, 2772, 2776}},
+    --[[Eastern Plaguelands]]	[1423] = {minLevel = 53, 	maxLevel = 60,		fish = 330,            dungeons = {{id=2017, text=" (58-60)"}, {id=3456, text=" (60)"}}, faction = "Contested", herbs = {8836, 8838, 13464, 13463, 13465, 13466, 13468}, mining = {3858, 7911, 10620}},
+    --[[Elwynn Forest]]			[1429] = {minLevel = 1, 	maxLevel = 10,		fish = -70,            transport = "Deeprun Tram: Ironforge", faction = "Alliance", herbs = {2447, 765, 2449}, mining = {2770}},
+    --[[Hillsbrad Foothills]]	[1424] = {minLevel = 20, 	maxLevel = 30,		fish = 55,             transport = "Boats: Auberdine", faction = "Contested", herbs = {785, 2450, 3820, 2453, 3355, 3356, 3357}, mining = {2770, 2771, 2775, 2772, 2776}},
+    --[[Ironforge]]				[1455] = {fish = -20,                                                  dungeons = {{id=16919, text=" (13-20)"}}, faction = "Alliance"},
+    --[[Loch Modan]]			[1432] = {minLevel = 10,	maxLevel = 20,		fish = -20,            faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450, 2453}, mining = {2770, 2771, 2775}},
+    --[[Redridge Mountains]]	[1433] = {minLevel = 15, 	maxLevel = 25,		fish = 55,             faction = "Contested", herbs = {2449, 785, 2450, 2453}, mining = {2770, 2771, 2775}},
     --[[Searing Gorge]]			[1427] = {minLevel = 43, 	maxLevel = 50,                             dungeons = {{id=17803, text=" (52-60)"}, {id=17804, text=" (55-60)"}, {id=2717, text=" (60)"}, {id=2677, text=" (60)"}}, faction = "Contested", herbs = {4625, 3821}, mining = {2772, 2776, 3858, 7911, 11370, 10620}},
-    --[[Silverpine Forest]]		[1421] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = {{id=209, text=" (20-30)"}}, faction = "Horde", herbs = {2447, 765, 2449, 785, 2450, 3820, 2453}, mining = {2770, 2771, 2775}},
-    --[[Stormwind City]]		[1453] = {minFish = 1,                                                 dungeons = {{id=717, text=" (24-32)"}}, faction = "Alliance"},
-    --[[Stranglethorn Vale]]	[1434] = {minLevel = 30, 	maxLevel = 45,		minFish = "130 (205)", dungeons = {{name="The Drowned City", text=" (35-40)"}, {id=1977, text=" (60)"}}, transport = "Zeppelins: Orgrimmar, Undercity\nBoats: Ratchet", faction = "Contested", herbs = {3820, 3355, 3356, 3357, 3818, 3821, 3358, 8831}, mining = {2775, 2772, 2776, 3858, 7911}},
-    --[[Swamp of Sorrows]]		[1435] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = {{id=1417, text=" (49-56)"}}, faction = "Contested", herbs = {3820, 3356, 3357, 3818, 3821, 3358, 8839}, mining = {2775, 2772, 2776, 3858}},
-    --[[The Hinterlands]]		[1425] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       faction = "Contested", herbs = {3820, 3818, 3821, 3358, 8831, 8838, 8845, 13464}, mining = {2772, 2776, 3858, 7911, 10620}},
-    --[[Tirisfal Glades]]		[1420] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         dungeons = {{id=16611, text=" (15-22)"}, {id=796, text=" (30-45)"}}, transport = "Zeppelins: Orgrimmar, Grom'gol", faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
-    --[[Undercity]]				[1458] = {minFish = 1,                                                 dungeons = {{id=16611, text=" (15-22)"}}, faction = "Horde"},
-    --[[Westfall]]				[1436] = {minLevel = 10, 	maxLevel = 20,		minFish = "1",         dungeons = {{id=1581, text=" (17-26)"}}, faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450, 3820, 2453}, mining = {2770, 2771, 2775}},
-    --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		minFish = "205",       dungeons = {{id=2057, text=" (58-60)"}}, faction = "Contested", herbs = {8836, 8838, 13463, 13465, 13466}, mining = {2776, 3858, 7911, 10620}},
-    --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		minFish = "55",        dungeons = {{id=16732, text=" (26-33)"}}, transport = "Boats: Theramore, Auberdine", faction = "Contested", herbs = {785, 2450, 3820, 2453, 3355, 3356, 3357}, mining = {2770, 2771, 2775, 2772}},
+    --[[Silverpine Forest]]		[1421] = {minLevel = 10, 	maxLevel = 20,		fish = -20,            dungeons = {{id=209, text=" (20-30)"}}, faction = "Horde", herbs = {2447, 765, 2449, 785, 2450, 3820, 2453}, mining = {2770, 2771, 2775}},
+    --[[Stormwind City]]		[1453] = {fish = -20,                                                  dungeons = {{id=717, text=" (24-32)"}}, faction = "Alliance"},
+    --[[Stranglethorn Vale]]	[1434] = {minLevel = 30, 	maxLevel = 45,		fish = 130, fishAreas = {{skill = 205, ids = {297}}}, dungeons = {{name="The Drowned City", text=" (35-40)"}, {id=1977, text=" (60)"}}, transport = "Zeppelins: Orgrimmar, Undercity\nBoats: Ratchet", faction = "Contested", herbs = {3820, 3355, 3356, 3357, 3818, 3821, 3358, 8831}, mining = {2775, 2772, 2776, 3858, 7911}},
+    --[[Swamp of Sorrows]]		[1435] = {minLevel = 35, 	maxLevel = 45,		fish = 130,            dungeons = {{id=1417, text=" (49-56)"}}, faction = "Contested", herbs = {3820, 3356, 3357, 3818, 3821, 3358, 8839}, mining = {2775, 2772, 2776, 3858}},
+    --[[The Hinterlands]]		[1425] = {minLevel = 40, 	maxLevel = 50,		fish = 205,            faction = "Contested", herbs = {3820, 3818, 3821, 3358, 8831, 8838, 8845, 13464}, mining = {2772, 2776, 3858, 7911, 10620}},
+    --[[Tirisfal Glades]]		[1420] = {minLevel = 1, 	maxLevel = 10,		fish = -70,            dungeons = {{id=16611, text=" (15-22)"}, {id=796, text=" (30-45)"}}, transport = "Zeppelins: Orgrimmar, Grom'gol", faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
+    --[[Undercity]]				[1458] = {fish = -20,                                                  dungeons = {{id=16611, text=" (15-22)"}}, faction = "Horde"},
+    --[[Westfall]]				[1436] = {minLevel = 10, 	maxLevel = 20,		fish = -20,            dungeons = {{id=1581, text=" (17-26)"}}, faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450, 3820, 2453}, mining = {2770, 2771, 2775}},
+    --[[Western Plaguelands]]	[1422] = {minLevel = 51, 	maxLevel = 58,		fish = 205,            dungeons = {{id=2057, text=" (58-60)"}}, faction = "Contested", herbs = {8836, 8838, 13463, 13465, 13466}, mining = {2776, 3858, 7911, 10620}},
+    --[[Wetlands]]				[1437] = {minLevel = 20, 	maxLevel = 30,		fish = 55,             dungeons = {{id=16732, text=" (26-33)"}}, transport = "Boats: Theramore, Auberdine", faction = "Contested", herbs = {785, 2450, 3820, 2453, 3355, 3356, 3357}, mining = {2770, 2771, 2775, 2772}},
 
     -- Kalimdor
-    --[[Ashenvale]]				[1440] = {minLevel = 18, 	maxLevel = 30,		minFish = "55",        dungeons = {{id=719, text=" (24-32)"}}, faction = "Contested", herbs = {785, 2450, 3820, 2453, 3355, 3356, 3357}, mining = {2770, 2771, 2775, 2772, 2776}},
-    --[[Azshara]]				[1447] = {minLevel = 45, 	maxLevel = 55,		minFish = "205 (330)", dungeons = {{id=1216, name="Blackmaw Hold", text=" (55-60)"}}, faction = "Contested", herbs = {3820, 3358, 8831, 8838, 8846, 13464, 13463, 13465}, mining = {2776, 3858, 7911, 10620}},
-    --[[Darkshore]]				[1439] = {minLevel = 10,	maxLevel = 20,		minFish = "1",         transport = "Boats: Menethil Harbor, Rut'theran, Southshore", faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450, 3820, 2453}, mining = {2770, 2771, 2775}},
-    --[[Darnassus]]				[1457] = {minFish = 1,                                                 faction = "Alliance"},
-    --[[Desolace]]				[1443] = {minLevel = 30, 	maxLevel = 40,		minFish = "130",       dungeons = {{id=2100, text=" (45-52)"}}, faction = "Contested", herbs = {3820, 2453, 3355, 3369, 3356, 3357, 3818, 3821, 8846}, mining = {2771, 2775, 2772, 2776, 3858, 7911}},
-    --[[Durotar]]				[1411] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Zeppelins: Undercity, Grom'gol", faction = "Horde", herbs = {2447, 765, 2449, 785}, mining = {2770}},
-    --[[Dustwallow Marsh]]		[1445] = {minLevel = 35, 	maxLevel = 45,		minFish = "130",       dungeons = {{name="Alcaz Prison", text=" (48-53)"}, {id=2159, text=" (60)"}}, transport = "Boats: Menethil Harbor", faction = "Contested", herbs = {3820, 3356, 3357, 3818, 3821, 3358}, mining = {2775, 2772, 2776, 3858, 7911}},
-    --[[Felwood]]				[1448] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       faction = "Contested", herbs = {8836, 8838, 8846, 13464, 13463, 13465, 13466}, mining = {2776, 3858, 7911, 10620}},
-    --[[Feralas]]				[1444] = {minLevel = 40, 	maxLevel = 50,		minFish = "205 (330)", dungeons = {{id=2557, text=" (55-60)"}}, transport = "Boats: Feathermoon, Forgotten Coast", faction = "Contested", herbs = {3820, 3356, 3357, 3818, 3821, 3358, 8831, 8838}, mining = {2772, 2776, 3858, 7911}},
-    --[[Moonglade]]				[1450] = {minFish = 205,                                               faction = "Sanctuary", herbs = {2447, 765, 2449}},
-    --[[Mulgore]]				[1412] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
-    --[[Orgrimmar]]				[1454] = {minFish = 1,                                                 dungeons = {{id=2437, text=" (13-18)"}}, faction = "Horde"},
-    --[[Silithus]]				[1451] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       dungeons = {{id=3429, text=" (60)"}, {id=3428, text=" (60)"}}, faction = "Contested", herbs = {8838, 13464, 13463, 13465, 13468}, mining = {2776, 3858, 7911, 10620}},
-    --[[Stonetalon Mountains]]	[1442] = {minLevel = 15, 	maxLevel = 27,		minFish = "55",        transport = "Sky Boats: Zephras Isle", faction = "Contested", herbs = {785, 2450, 2453, 3355, 3356}, mining = {2770, 2771, 2775, 2772, 2776}},
-    --[[Tanaris]]				[1446] = {minLevel = 40, 	maxLevel = 50,		minFish = "205",       dungeons = {{id=978, text=" (43-50)"}}, transport = "Boats: Powderfuse Port", faction = "Contested", herbs = {3820, 4625, 8831}, mining = {2775, 2772, 2776, 3858, 7911, 10620}},
-    --[[Teldrassil]]			[1438] = {minLevel = 1, 	maxLevel = 10,		minFish = "1",         transport = "Boats: Auberdine", faction = "Alliance", herbs = {2447, 765, 2449, 785}, mining = {2770}},
-    --[[The Barrens]]			[1413] = {minLevel = 10, 	maxLevel = 25,		minFish = "1",         dungeons = {{id=718, text=" (15-24)"}, {id=491, text=" (29-38)"}, {id=722, text=" (37-46)"}}, transport = "Boats: Booty Bay", faction = "Horde", herbs = {2447, 765, 2449, 785, 2450, 3820, 2453, 3355, 3356}, mining = {2770, 2771, 2775, 2772}},
-    --[[Thousand Needles]]		[1441] = {minLevel = 25, 	maxLevel = 35,		minFish = "130",       faction = "Contested", herbs = {2453, 3355, 3356, 3357}, mining = {2770, 2771, 2775, 2772, 2776, 3858}},
-    --[[Thunder Bluff]]			[1456] = {minFish = 1,                                                 faction = "Horde"},
-    --[[Un'Goro Crater]]		[1449] = {minLevel = 48, 	maxLevel = 55,		minFish = "205",       dungeons = {{id=16985, name="Shaper's Terrace", text=" (58-60)"}}, faction = "Contested", herbs = {8838, 8839, 13464, 13463, 13465, 13468}, mining = {2776, 3858, 7911, 10620}},
-    --[[Winterspring]]			[1452] = {minLevel = 55, 	maxLevel = 60,		minFish = "330",       faction = "Contested", herbs = {13467, 13465, 13463, 13468}, mining = {2776, 3858, 7911, 10620}},
+    --[[Ashenvale]]				[1440] = {minLevel = 18, 	maxLevel = 30,		fish = 55,             dungeons = {{id=719, text=" (24-32)"}}, faction = "Contested", herbs = {785, 2450, 3820, 2453, 3355, 3356, 3357}, mining = {2770, 2771, 2775, 2772, 2776}},
+    --[[Azshara]]				[1447] = {minLevel = 45, 	maxLevel = 55,		fish = 205, fishAreas = {{skill = 330, ids = {1227, 1222, 3140}}}, dungeons = {{id=1216, name="Blackmaw Hold", text=" (55-60)"}}, faction = "Contested", herbs = {3820, 3358, 8831, 8838, 8846, 13464, 13463, 13465}, mining = {2776, 3858, 7911, 10620}},
+    --[[Darkshore]]				[1439] = {minLevel = 10,	maxLevel = 20,		fish = -20,            transport = "Boats: Menethil Harbor, Rut'theran, Southshore", faction = "Alliance", herbs = {2447, 765, 2449, 785, 2450, 3820, 2453}, mining = {2770, 2771, 2775}},
+    --[[Darnassus]]				[1457] = {fish = -20,                                                  faction = "Alliance"},
+    --[[Desolace]]				[1443] = {minLevel = 30, 	maxLevel = 40,		fish = 130,            dungeons = {{id=2100, text=" (45-52)"}}, faction = "Contested", herbs = {3820, 2453, 3355, 3369, 3356, 3357, 3818, 3821, 8846}, mining = {2771, 2775, 2772, 2776, 3858, 7911}},
+    --[[Durotar]]				[1411] = {minLevel = 1, 	maxLevel = 10,		fish = -70,            transport = "Zeppelins: Undercity, Grom'gol", faction = "Horde", herbs = {2447, 765, 2449, 785}, mining = {2770}},
+    --[[Dustwallow Marsh]]		[1445] = {minLevel = 35, 	maxLevel = 45,		fish = 130,            dungeons = {{name="Alcaz Prison", text=" (48-53)"}, {id=2159, text=" (60)"}}, transport = "Boats: Menethil Harbor", faction = "Contested", herbs = {3820, 3356, 3357, 3818, 3821, 3358}, mining = {2775, 2772, 2776, 3858, 7911}},
+    --[[Felwood]]				[1448] = {minLevel = 48, 	maxLevel = 55,		fish = 205,            faction = "Contested", herbs = {8836, 8838, 8846, 13464, 13463, 13465, 13466}, mining = {2776, 3858, 7911, 10620}},
+    --[[Feralas]]				[1444] = {minLevel = 40, 	maxLevel = 50,		fish = 205, fishAreas = {{skill = 330, ids = {1112}}}, dungeons = {{id=2557, text=" (55-60)"}}, transport = "Boats: Feathermoon, Forgotten Coast", faction = "Contested", herbs = {3820, 3356, 3357, 3818, 3821, 3358, 8831, 8838}, mining = {2772, 2776, 3858, 7911}},
+    --[[Moonglade]]				[1450] = {fish = 205,                                                  faction = "Sanctuary", herbs = {2447, 765, 2449}},
+    --[[Mulgore]]				[1412] = {minLevel = 1, 	maxLevel = 10,		fish = -70,            faction = "Horde", herbs = {2447, 765, 2449}, mining = {2770}},
+    --[[Orgrimmar]]				[1454] = {fish = -20,                                                  dungeons = {{id=2437, text=" (13-18)"}}, faction = "Horde"},
+    --[[Silithus]]				[1451] = {minLevel = 55, 	maxLevel = 60,		fish = 330,            dungeons = {{id=3429, text=" (60)"}, {id=3428, text=" (60)"}}, faction = "Contested", herbs = {8838, 13464, 13463, 13465, 13468}, mining = {2776, 3858, 7911, 10620}},
+    --[[Stonetalon Mountains]]	[1442] = {minLevel = 15, 	maxLevel = 27,		fish = 55,             transport = "Sky Boats: Zephras Isle", faction = "Contested", herbs = {785, 2450, 2453, 3355, 3356}, mining = {2770, 2771, 2775, 2772, 2776}},
+    --[[Tanaris]]				[1446] = {minLevel = 40, 	maxLevel = 50,		fish = 205,            dungeons = {{id=978, text=" (43-50)"}}, transport = "Boats: Powderfuse Port", faction = "Contested", herbs = {3820, 4625, 8831}, mining = {2775, 2772, 2776, 3858, 7911, 10620}},
+    --[[Teldrassil]]			[1438] = {minLevel = 1, 	maxLevel = 10,		fish = -70,            transport = "Boats: Auberdine", faction = "Alliance", herbs = {2447, 765, 2449, 785}, mining = {2770}},
+    --[[The Barrens]]			[1413] = {minLevel = 10, 	maxLevel = 25,		fish = -20,            dungeons = {{id=718, text=" (15-24)"}, {id=491, text=" (29-38)"}, {id=722, text=" (37-46)"}}, transport = "Boats: Booty Bay", faction = "Horde", herbs = {2447, 765, 2449, 785, 2450, 3820, 2453, 3355, 3356}, mining = {2770, 2771, 2775, 2772}},
+    --[[Thousand Needles]]		[1441] = {minLevel = 25, 	maxLevel = 35,		fish = 130,            faction = "Contested", herbs = {2453, 3355, 3356, 3357}, mining = {2770, 2771, 2775, 2772, 2776, 3858}},
+    --[[Thunder Bluff]]			[1456] = {fish = -20,                                                  faction = "Horde"},
+    --[[Un'Goro Crater]]		[1449] = {minLevel = 48, 	maxLevel = 55,		fish = 205,            dungeons = {{id=16985, name="Shaper's Terrace", text=" (58-60)"}}, faction = "Contested", herbs = {8838, 8839, 13464, 13463, 13465, 13468}, mining = {2776, 3858, 7911, 10620}},
+    --[[Winterspring]]			[1452] = {minLevel = 55, 	maxLevel = 60,		fish = 330,            faction = "Contested", herbs = {13467, 13465, 13463, 13468}, mining = {2776, 3858, 7911, 10620}},
 
-    -- Forever
-    --[[Hyjal]]					[2482] = {minLevel = 60, 	maxLevel = 60,                             faction = "Contested"},
-    --[[Zephras Isle]]			[2521] = {minLevel = 1, 	maxLevel = 12,                             transport = "Sky Boats: Dalaran, Skywatcher Plateau", faction = "Contested", herbs = {2447, 765, 2449, 785}, mining = {2770}},
-    --[[Riverglades]]			[2548] = {minLevel = 35, 	maxLevel = 45,                             dungeons = {{id=17780, name="Krol'dok Stronghold", text=" (40-45)"}}, faction = "Contested", herbs = {3356, 3818, 3821, 3358}, mining = {2772, 2776, 3858}},
-    --[[Shen'dralas]]			[2652] = {minLevel = 35, 	maxLevel = 45,                             faction = "Contested", herbs = {3818, 3821, 3358}, mining = {2772, 2776, 3858}},
+    -- Forever. No source has fishing data for these zones; fish is estimated from the zone level like
+    -- the zones above (35-45 -> 130, 55+ -> 330; Zephras Isle 1-12 takes -20, not the starting zones' -70,
+    -- so it overstates rather than understates the no-escape skill). fishEstimate marks them until confirmed.
+    --[[Hyjal]]					[2482] = {minLevel = 60, 	maxLevel = 60,		fish = 330, fishEstimate = true, faction = "Contested"},
+    --[[Zephras Isle]]			[2521] = {minLevel = 1, 	maxLevel = 12,		fish = -20, fishEstimate = true, transport = "Sky Boats: Dalaran, Skywatcher Plateau", faction = "Contested", herbs = {2447, 765, 2449, 785}, mining = {2770}},
+    --[[Riverglades]]			[2548] = {minLevel = 35, 	maxLevel = 45,		fish = 130, fishEstimate = true, dungeons = {{id=17780, name="Krol'dok Stronghold", text=" (40-45)"}}, faction = "Contested", herbs = {3356, 3818, 3821, 3358}, mining = {2772, 2776, 3858}},
+    --[[Shen'dralas]]			[2652] = {minLevel = 35, 	maxLevel = 45,		fish = 130, fishEstimate = true, faction = "Contested", herbs = {3818, 3821, 3358}, mining = {2772, 2776, 3858}},
 }
 
 -- Dungeon and raid entrances on the zone maps, x and y in percent of the map. The list part holds the
@@ -512,11 +514,33 @@ local function BuildDungeonString(dungeons)
     return table.concat(names, "\n")
 end
 
+-- `fish` is the zone's base fishing skill as the server keeps it (CMaNGOS classic-db
+-- skill_fishing_base_level). A cast needs skill >= base, then lands only if skill - base + 5 beats a
+-- 1-100 roll, so from base + 95 no fish gets away. Starting zones have bases below 1 (-70, -20).
+local function FishingRange(base)
+    return string.format(L("FISH_RANGE", "%d (no escapes: %d)"), max(base, 1), base + 95)
+end
+
+-- "Fishing: 205 (no escapes: 300)", then one line per group of subzones with a higher base
+local function BuildFishingString(v, prefix)
+    local lines = { prefix .. FishingRange(v.fish) }
+    for _, group in ipairs(v.fishAreas or {}) do
+        local names = {}
+        for _, id in ipairs(group.ids) do
+            names[#names + 1] = C_Map.GetAreaInfo(id)
+        end
+        if #names > 0 then
+            lines[#lines + 1] = table.concat(names, ", ") .. ": " .. FishingRange(group.skill)
+        end
+    end
+    return table.concat(lines, "\n")
+end
+
 -- Locale-dependent strings never change during a session, so they are built once
 local function BuildStaticStrings()
     local fishingPrefix = L("PREFIX_FISHING", "Fishing: ")
     for _, v in pairs(mapTable) do
-        v.fishingBase = v.minFish and (fishingPrefix .. v.minFish)
+        v.fishingBase = v.fish and BuildFishingString(v, fishingPrefix)
         v.dungeonBase = v.dungeons and BuildDungeonString(v.dungeons)
         v.transportBase = v.transport and TranslateTransport(v.transport)
         -- The entrance tooltips find a zone's dungeons by key and color their level range

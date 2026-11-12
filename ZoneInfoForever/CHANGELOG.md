@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.10.2
+
+### New
+- Fishing now also shows the skill at which no fish gets away in the zone, for example "Fishing: 55 (no escapes: 150)" in Hillsbrad Foothills and "Fishing: 1 (no escapes: 75)" in Loch Modan. Below that skill some fish escape; the closer you are to it, the fewer. Lures and fishing pole bonuses count, which is how the 300+ values in the hardest spots are reached.
+- Zones with a harder fishing spot name it on its own line instead of the unexplained number in brackets: Jaguero Isle in Stranglethorn Vale, Jademir Lake in Feralas, and the Bay of Storms, Hetaera's Clutch and Scalebeard's Cave in Azshara. The names are in your game's language.
+- Fishing levels for Forever's new zones: Mount Hyjal, Zephras Isle, Riverglades and Shen'dralas. These are estimates based on the zone level, as no data exists for them yet; if they're off for you, please let me know in the comments.
+
 ## 1.10.1
 
 ### New
